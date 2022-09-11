@@ -1,6 +1,15 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native"
 import { Card, Button } from "react-native-paper"
 
+const NextGame = ({teamA, teamB}) => {
+  return(
+    <View style={styles.games_next}>
+      <Text>{teamA}</Text>
+      <Text>{teamB}</Text>
+    </View>
+  )
+}
+
 const Home = ({navigation}) => {
       return(
         <View style={styles.container}>
@@ -9,42 +18,24 @@ const Home = ({navigation}) => {
             </View>
             <View style={styles.games_wrapper}>
                 <View style={styles.games_highlighted}>
-                  <Card.Actions style={{
-                    flex: 1,
-                    backgroundColor: '#f1c40f',
-                    alignItems: 'flex-end',
-                    justifyContent: 'flex-end'
-                  }}>
-                    <Button onPress={() => navigation.navigate('StandingScreeen')}>Lineup</Button>
-                    <Button>Play</Button>
-                  </Card.Actions>
+                <Text>Actual Game</Text> 
+                  <View style={styles.teams_wrapper}>
+                      <View style={{flex: 0.5}}>
+                        <Text>Team 1</Text>
+                      </View>
+                      <View style={{flex: 0.5}}>
+                        <Text>Team 2</Text>
+                      </View>
+                  </View>
+                  <View style={styles.next_game_action_buttons}>
+                      <Button onPress={() => navigation.navigate('LineupScreen')}>Lineup</Button>
+                      <Button>Play</Button>
+                    </View>
                 </View>
                 <View style={styles.game_next}>
                   <ScrollView horizontal={true}>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
-                    <View style={styles.games_next}>
-                      <Text>Teste</Text>
-                    </View>
+                    <NextGame teamA="Bune" teamB="Dudu"/>
+                    <NextGame teamA="Again" teamB="Testing"/>
                   </ScrollView>
                 </View>
             </View>
@@ -94,6 +85,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    next_game_action_buttons: {
+        flex: 0.1,
+        flexDirection: 'row',
+        backgroundColor: '#ff9900',
+        alignItems: 'flex-end',
+        justifyContent: 'flex-end'
+    },
+    teams_wrapper: {
+        flex: 1,
+        flexDirection: 'row',
     }
 })
 
