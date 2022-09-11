@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native"
 import { Card, Button } from "react-native-paper"
+import contents from "../../data/contents"
 
 const NextGame = ({teamA, teamB}) => {
   return(
@@ -34,8 +35,13 @@ const Home = ({navigation}) => {
                 </View>
                 <View style={styles.game_next}>
                   <ScrollView horizontal={true}>
-                    <NextGame teamA="Bune" teamB="Dudu"/>
-                    <NextGame teamA="Again" teamB="Testing"/>
+                    {
+                      contents.map((team, index) => {
+                        return(
+                          <NextGame teamA={team.league.teams.teamOne.name} teamB={team.league.teams.teamTwo.name}/>
+                        )
+                      })
+                    }
                   </ScrollView>
                 </View>
             </View>
