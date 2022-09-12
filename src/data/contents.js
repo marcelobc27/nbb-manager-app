@@ -1,8 +1,8 @@
 const contents = [
   {
     league: {
-      teams: {
-        teamOne: {
+      teams: [
+        {
           teamid: 1,
           name: 'Grêmio',
           victories: 30,
@@ -60,7 +60,7 @@ const contents = [
             },
           ]
         },
-        teamTwo: {
+        {
           teamid: 2,
           name: 'Paraná',
           victories: 28,
@@ -118,7 +118,7 @@ const contents = [
             },
           ]
         }
-      }
+      ]
     }
   }
 ]

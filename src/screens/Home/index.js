@@ -5,8 +5,19 @@ import contents from "../../data/contents"
 const NextGame = ({teamA, teamB}) => {
   return(
     <View style={styles.games_next}>
-      <Text>{teamA}</Text>
-      <Text>{teamB}</Text>
+      <Text style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 30,
+        color: '#FFFFFF'
+      }}>{teamA}</Text>
+      <Text>X</Text>
+      <Text style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 30,
+        color: '#FFFFFF'
+      }}>{teamB}</Text>
     </View>
   )
 }
@@ -16,6 +27,7 @@ const Home = ({navigation}) => {
         <View style={styles.container}>
             <View style={styles.hero_wrapper}>
               <Text style={{color: "#ffffff"}}>Logo</Text>
+              <Button onPress={() => navigation.navigate('StandingScreeen')}>Standing</Button>
             </View>
             <View style={styles.games_wrapper}>
                 <View style={styles.games_highlighted}>
@@ -36,9 +48,13 @@ const Home = ({navigation}) => {
                 <View style={styles.game_next}>
                   <ScrollView horizontal={true}>
                     {
-                      contents.map((team, index) => {
+                      contents.map((sub, index) => {
                         return(
-                          <NextGame teamA={team.league.teams.teamOne.name} teamB={team.league.teams.teamTwo.name}/>
+                          sub.league.teams.map((teams, index) => {
+                            return(
+                              <NextGame teamA={teams.name} teamB={teams.name}/>
+                            )
+                          })
                         )
                       })
                     }
@@ -84,7 +100,8 @@ const styles = StyleSheet.create({
       height: '80%',
       width: 250,
       margin: 5,
-      backgroundColor: '#2c3e50'
+      backgroundColor: '#2c3e50',
+      color: '#ffffff'
     },
     additional_wrapper: {
         height: 100,
