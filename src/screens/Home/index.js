@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native"
 import { Card, Button } from "react-native-paper"
 import contents from "../../data/contents"
 
-const NextGame = ({teamA, teamB}) => {
+const NextGame = ({team}) => {
   return(
     <View style={styles.games_next}>
       <Text style={{
@@ -10,14 +10,19 @@ const NextGame = ({teamA, teamB}) => {
         justifyContent: 'center',
         fontSize: 30,
         color: '#FFFFFF'
-      }}>{teamA}</Text>
-      <Text>X</Text>
+      }}>{team}</Text>
       <Text style={{
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: 30,
         color: '#FFFFFF'
-      }}>{teamB}</Text>
+      }}>X</Text>
+      <Text style={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 30,
+        color: '#FFFFFF'
+      }}>{team}</Text>
     </View>
   )
 }
@@ -52,7 +57,7 @@ const Home = ({navigation}) => {
                         return(
                           sub.league.teams.map((teams, index) => {
                             return(
-                              <NextGame teamA={teams.name} teamB={teams.name}/>
+                              <NextGame key={index} team={teams.name}/>
                             )
                           })
                         )
@@ -97,6 +102,8 @@ const styles = StyleSheet.create({
       backgroundColor: '#ffffff'
     },
     games_next: {
+      justifyContent: 'center',
+      alignItems: 'center',
       height: '80%',
       width: 250,
       margin: 5,

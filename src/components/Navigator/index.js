@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Calendar from "../../screens/Calendar"
 import Home from "../../screens/Home"
 import Lineup from "../../screens/Lineup"
+import PlayerModal from "../../screens/PlayerModal"
 import Standing from "../../screens/Standing"
 
 const Stack = createNativeStackNavigator()
@@ -15,6 +16,7 @@ const Navigator = () => {
         <Stack.Screen name="StandingScreeen" component={Standing}/>
         <Stack.Screen name="CalendarScreeen" component={Calendar}/>
         <Stack.Screen name="LineupScreen" component={Lineup}/>
+        <Stack.Screen name="PlayerScreen" component={PlayerModal}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

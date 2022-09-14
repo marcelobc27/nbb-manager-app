@@ -32,6 +32,7 @@ const Standing = ({navigation}) => {
            item.league.teams.map((newitem, index) => {
             return(
                 <TableRow
+                  key={index}
                   navigation={navigation}
                   name={newitem.name} 
                   victories={newitem.victories} 
