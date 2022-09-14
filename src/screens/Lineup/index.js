@@ -19,7 +19,7 @@ const Lineup = () => {
                     return(
                       players.players.map((player, index) => {
                         return(
-                          <List.Section>
+                          <List.Section style={{flex: 1, height: '100%'}}>
                             <List.Item onPress={() => {
                               setModalVisible(!modalVisible)
                               }} title={player.name}/>
@@ -38,40 +38,7 @@ const Lineup = () => {
             <Button>Game Style</Button>
           </Card.Actions>
         </Card>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-            console.log("Modal has been closed.");
-            setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-              opacity: 0.5,
-            }}>
-              <View style={{
-                margin: 20,
-                backgroundColor: "black",
-                borderRadius: 20,
-                padding: 35,
-                alignItems: "center",
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 2
-                },
-                shadowOpacity: 0.25,
-                shadowRadius: 4,
-                elevation: 5
-              }}>
-                <Text style={{color: 'white'}} onPress={() => setModalVisible(!modalVisible)}>Teste</Text>
-              </View>
-            </View>
-          </Modal>
+        <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </View>
     )
 }

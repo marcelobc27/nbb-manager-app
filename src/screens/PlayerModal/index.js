@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
-const PlayerModal = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+const PlayerModal = ({modalVisible, setModalVisible}) => {
 
   return (
     <View style={styles.centeredView}>
@@ -27,12 +26,6 @@ const PlayerModal = () => {
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     </View>
   );
 };
