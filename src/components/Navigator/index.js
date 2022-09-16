@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Calendar from "../../screens/Calendar"
 import Home from "../../screens/Home"
-import Lineup from "../../screens/Lineup"
+import Lineup from "../../screens/Lineup/Index"
 import PlayerModal from "../../screens/PlayerModal"
 import Standing from "../../screens/Standing"
 

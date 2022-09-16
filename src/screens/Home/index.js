@@ -36,7 +36,7 @@ const Home = ({navigation}) => {
             </View>
             <View style={styles.games_wrapper}>
                 <View style={styles.games_highlighted}>
-                <Text>Actual Game</Text> 
+                  <Text>Actual Game</Text> 
                   <View style={styles.teams_wrapper}>
                       <View style={{flex: 0.5}}>
                         <Text>Team 1</Text>
@@ -48,7 +48,7 @@ const Home = ({navigation}) => {
                   <View style={styles.next_game_action_buttons}>
                       <Button onPress={() => navigation.navigate('LineupScreen')}>Lineup</Button>
                       <Button>Play</Button>
-                    </View>
+                  </View>
                 </View>
                 <View style={styles.game_next}>
                   <ScrollView horizontal={true}>
@@ -75,26 +75,26 @@ const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
-        flex: 0,
-        backgroundColor: '#ffffff'
+      display: 'flex',
+      flex: 0,
+      backgroundColor: '#ffffff'
     },
     hero_wrapper: {
-        height: 250,
-        backgroundColor: '#34495e',
-        alignItems: 'center',
-        justifyContent: 'center'
+      height: 250,
+      backgroundColor: '#34495e',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     games_wrapper: {
-        height: 650,
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#bbb'
+      height: 650,
+      display: 'flex',
+      flexDirection: 'column',
+      backgroundColor: '#bbb'
     },
     games_highlighted: {
-        height: '60%',
-        width: '100%',
-        backgroundColor: '#ffffff'
+      height: '60%',
+      width: '100%',
+      backgroundColor: '#ffffff'
     },
     game_next: {
       height: '40%',
@@ -111,21 +111,21 @@ const styles = StyleSheet.create({
       color: '#ffffff'
     },
     additional_wrapper: {
-        height: 100,
-        backgroundColor: '#ffffff',
-        alignItems: 'center',
-        justifyContent: 'center'
+      height: 100,
+      backgroundColor: '#ffffff',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     next_game_action_buttons: {
-        flex: 0.1,
-        flexDirection: 'row',
-        backgroundColor: '#ff9900',
-        alignItems: 'flex-end',
-        justifyContent: 'flex-end'
+      flex: 0.1,
+      flexDirection: 'row',
+      backgroundColor: '#ff9900',
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end'
     },
     teams_wrapper: {
-        flex: 1,
-        flexDirection: 'row',
+      flex: 1,
+      flexDirection: 'row',
     }
 })
 
