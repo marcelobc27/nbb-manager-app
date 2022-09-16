@@ -86,7 +86,7 @@ const contents = [
             },
             {
               id: 3,
-              name: 'wakelin',
+              name: 'Wakelin',
               age: 22,
               position: 'Extremo',
               attackoverrall: 92,

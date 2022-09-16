@@ -1,8 +1,21 @@
 import { useState } from "react"
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native"
-import { Button } from 'react-native-paper'
+import { Button, DataTable } from 'react-native-paper'
 import contents from "../../data/contents"
 import PlayerModal from "../PlayerModal"
+
+const PlayersTable = ({name, age, position, attackoverrall, defenseoverrall, overrall, modalVisible, setModalVisible}) => {
+  return(
+    <DataTable.Row onPress={() => setModalVisible(!modalVisible)}>
+      <DataTable.Cell>{name}</DataTable.Cell>
+      <DataTable.Cell>{age}</DataTable.Cell>
+      <DataTable.Cell>{position}</DataTable.Cell>
+      <DataTable.Cell>{attackoverrall}</DataTable.Cell>
+      <DataTable.Cell>{defenseoverrall}</DataTable.Cell>
+      <DataTable.Cell>{overrall}</DataTable.Cell>
+    </DataTable.Row>
+  )
+}
 
 const Lineup = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -15,6 +28,14 @@ const Lineup = () => {
       </View>
       <View style={styles.lipeup_wrapper}>
         <View style={styles.lineup_player_wrapper}>
+          <DataTable.Header>
+            <DataTable.Title>Name</DataTable.Title>
+            <DataTable.Title>Age</DataTable.Title>
+            <DataTable.Title>Position</DataTable.Title>
+            <DataTable.Title>Att</DataTable.Title>
+            <DataTable.Title>Def</DataTable.Title>
+            <DataTable.Title>Overrall</DataTable.Title>
+          </DataTable.Header>
         {contents.map(team => {
           return(
             team.league.teams.map((players, index) => {
@@ -22,16 +43,16 @@ const Lineup = () => {
                 return(
                   players.players.map((player, index) => {
                     return(
-                      <TouchableOpacity
-                        style={styles.table_touchable_style}
-                        key={index}
-                        onPress={() => {
-                        setModalVisible(!modalVisible)
-                        }}>
-                          <Text>
-                          {player.name}
-                          </Text>
-                      </TouchableOpacity>
+                      <PlayersTable
+                        modalVisible={modalVisible}
+                        setModalVisible={setModalVisible}
+                        name={player.name}
+                        age={player.age}
+                        position={player.position}
+                        attackoverrall={player.attackoverrall}
+                        defenseoverrall={player.defenseoverrall}
+                        overrall={player.attackoverrall}   
+                      />
                       ) 
                     })
                 )}
@@ -68,10 +89,16 @@ const styles = StyleSheet.create({
   },
   lipeup_wrapper: {
     height: 700,
-    backgroundColor: '#bbb'
+    width: '100%',
+    flexDirection: 'column',
+    backgroundColor: '#FFFFFF'
   },
   lineup_player_wrapper: {
-    height: '95%'
+    flexDirection: 'column',
+    height: '95%',
+    width: '100%',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start'
   },
   lineup_options_button: {
     display: 'flex',
@@ -91,8 +118,13 @@ const styles = StyleSheet.create({
   table_touchable_style: {
     fontFamily: 'Inconsolata',
     fontSize: 20,
+    backgroundColor: '#FFFFFF',
     color: '#000000',
-    margin: 5,
+    borderBottomWidth: 1,
+    borderColor: '#000000',
+  },
+  table_touchable_content_style: {
+    margin: 10
   }
 })
 
