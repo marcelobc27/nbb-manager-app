@@ -1,7 +1,50 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import leagues from "../../data/contents";
 
-const PlayerModal = ({modalVisible, setModalVisible}) => {
+const Skill = ({
+  playerid= 1,
+  pass= 85,
+  externalshoot= 95,
+  internalshoot= 72,
+  freethrowshoot= 75,
+  physical= 75,
+  block= 56,
+  steals= 76,
+  rebounds= 74
+}) => {
+  return(
+    <View>
+      
+    </View>
+  )
+}
+
+const Player = ({skills = []}) => {
+  return(
+    <View>
+      {skills.map(skill => <Skill {...skill} />)}
+    </View>
+  )
+}
+
+const Team = ({players = []}) => {
+  return(
+    <View>
+      {players.map(player => <Player {...player} />)}
+    </View>
+  )
+}
+
+const League = ({teams = []}) => {
+  return(
+    <View>
+      {teams.map(team => <Team {...team} />)}
+    </View>
+  )
+}
+
+const PlayerModal = ({modalVisible, setModalVisible, id}) => {
 
   return (
     <View style={styles.centeredView}>
@@ -16,7 +59,9 @@ const PlayerModal = ({modalVisible, setModalVisible}) => {
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+            <View>
+              {leagues.map(league =>  <League {...league}/>)}
+            </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={() => setModalVisible(!modalVisible)}

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import { Button, DataTable } from 'react-native-paper'
-import contents from "../../data/contents"
+import league from "../../data/contents"
 import PlayerModal from "../PlayerModal"
 
 const PlayersTable = ({name, age, position, attackoverrall, defenseoverrall, overrall, modalVisible, setModalVisible}) => {
@@ -19,6 +19,7 @@ const PlayersTable = ({name, age, position, attackoverrall, defenseoverrall, ove
 
 const Lineup = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   return(
     <View style={styles.container}>
       <View style={styles.title_wrapper}>
@@ -36,37 +37,37 @@ const Lineup = () => {
             <DataTable.Title>Def</DataTable.Title>
             <DataTable.Title>Overrall</DataTable.Title>
           </DataTable.Header>
-        {contents.map(team => {
-          return(
-            team.league.teams.map((players, index) => {
-              if(players.name === 'Paraná'){
+          {league.map((teams, index) => {
+            return(
+            teams.teams.map(players => {
+              return(
+              players.players.map(player => {
                 return(
-                  players.players.map((player, index) => {
-                    return(
-                      <PlayersTable
-                        modalVisible={modalVisible}
-                        setModalVisible={setModalVisible}
-                        name={player.name}
-                        age={player.age}
-                        position={player.position}
-                        attackoverrall={player.attackoverrall}
-                        defenseoverrall={player.defenseoverrall}
-                        overrall={player.attackoverrall}   
-                      />
-                      ) 
-                    })
-                )}
+                <PlayersTable
+                  modalVisible={modalVisible}
+                  setModalVisible={setModalVisible}
+                  name={player.name}
+                  age={player.age}
+                  position={player.position}
+                  attackoverrall={player.attackoverrall}
+                  defenseoverrall={player.defenseoverrall}
+                  overrall={player.attackoverrall}   
+                />
+                )
+              })
+              )
             })
-          )
-        })}
+            )          
+            })
+          }
         </View>
         <View style={styles.lineup_options_button}>
             <Button>Rotation</Button>
             <Button>Statistics</Button>
             <Button>Evolution</Button>
         </View>
+        <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </View>
-      <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
     </View>
   )
 }
