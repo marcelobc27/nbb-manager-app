@@ -1,6 +1,6 @@
 import { View, Text } from "react-native"
 import { DataTable, Button } from 'react-native-paper'
-import contents from "../../data/contents"
+import leagues from '../../data/contents'
 
 const TableRow = ({name, victories, defeats, plus, minus, navigation}) => {
   return(
@@ -27,9 +27,9 @@ const Standing = ({navigation}) => {
         <DataTable.Title>Plus</DataTable.Title>
         <DataTable.Title>Minus</DataTable.Title>
       </DataTable.Header>
-        {contents.map((item, index) => {
+        {leagues.map((item, index) => {
           return(
-           item.league.teams.map((newitem, index) => {
+           item.teams.map((newitem, index) => {
             return(
                 <TableRow
                   key={index}

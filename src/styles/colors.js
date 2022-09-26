@@ -1,0 +1,7 @@
+export const PRIMARYORANGECOLOR = '#FF9900'
+
+export const NEUTRALGREYCOLOR = '#EEEEEE'
+
+export const VARIANTBLUE = '#34495E'
+
+export const VARIANTDARKPURPLE = '#741B4'
