@@ -1,29 +1,29 @@
 export const BiggestFont = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 24
+  fontSize: 28
 }
 
 export const BigFont = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 20  
+  fontSize: 26  
 }
 
 export const MediumFont = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 16    
+  fontSize: 24    
 }
 
 export const SmallFont = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 14    
+  fontSize: 18    
 }
 
 export const SmallestFont = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 10    
+  fontSize: 14    
 }
