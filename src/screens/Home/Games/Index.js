@@ -20,7 +20,7 @@ const NextGame = ({team}) => {
 
 const GamesHighlighted = ({navigation}) => {
   return(
-    <View style={styles.game_highlighted}>
+    <View style={styles.game_highlighted_wrapper}>
       <SubTitle subtitle="Actual Game"/>                 
       <View style={styles.game_highlighted_teams_wrapper}>
         <View style={styles.game_highlighted_team}>
@@ -71,23 +71,23 @@ const Games = ({navigation}) => {
 
 const styles = StyleSheet.create({
   games_wrapper: {
-    height: 700,
+    flex: 0.7,
     ...Alignment.DisplayColumn,
     backgroundColor: Colors.SOLIDWHITECOLOR
   },
-  game_highlighted: {
-    height: '70%',
+  game_highlighted_wrapper: {
+    flex: 0.7,
     width: '100%',
     backgroundColor: Colors.VARIANTDARKPURPLE
   },
   games_next_wrapper: {
-    height: '30%',
+    flex: 0.3,
+    display: Alignment.DisplayRow,
     width: '100%',
     backgroundColor: Colors.SOLIDWHITECOLOR
     },
   games_next: {
-    height: '80%',
-    marginTop: 15,
+    flex: 0.8,
     width: 200,
     margin: 5,
     ...Alignment.ColumnCenter,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     color: Colors.NEUTRALGREYCOLOR,
   },
   games_next_date_style: {
-    height: '20%',
+    flex: 0.2,
     width: '100%',
     ...Alignment.ColumnCenter,
     backgroundColor: Colors.NEUTRALGREYCOLOR
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   game_highlighted_team: {
     margin: 2,
     flex: 0.5,
-    height: '100%',
+    height: '95%',
     backgroundColor: Colors.NEUTRALGREYCOLOR,
     ...Alignment.RowCenter
   },

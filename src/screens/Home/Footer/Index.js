@@ -11,7 +11,7 @@ const Footer = () => {
 
 const styles = StyleSheet.create({
   footer_wrapper: {
-    height: 50,
+    flex: 0.1,
     backgroundColor: Colors.NEUTRALGREYCOLOR,
     ...Alignment.ColumnCenter
   },

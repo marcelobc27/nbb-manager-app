@@ -12,7 +12,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   header_wrapper: {
-    height: 250,
+    flex: 0.2,
     backgroundColor: Colors.VARIANTBLUE,
     ...Alignment.ColumnCenter
   },

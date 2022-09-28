@@ -16,7 +16,8 @@ const Home = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    flex: 0,
+    flexDirection: 'column',
+    flex: 1,
     backgroundColor: '#ffffff'
   }
 })
