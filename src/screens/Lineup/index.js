@@ -4,24 +4,23 @@ import { Button, DataTable } from 'react-native-paper'
 import league from "../../data/contents"
 import PlayerModal from "../PlayerModal"
 
-const PlayersTable = ({name, age, position, attackoverrall, defenseoverrall, overrall, modalVisible, setModalVisible}) => {
+const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisible}) => {
   return(
     <DataTable.Row onPress={() => setModalVisible(!modalVisible)}>
       <DataTable.Cell>{name}</DataTable.Cell>
-      <DataTable.Cell>{age}</DataTable.Cell>
       <DataTable.Cell>{position}</DataTable.Cell>
-      <DataTable.Cell>{attackoverrall}</DataTable.Cell>
-      <DataTable.Cell>{defenseoverrall}</DataTable.Cell>
+      <DataTable.Cell>{age}</DataTable.Cell>
       <DataTable.Cell>{overrall}</DataTable.Cell>
     </DataTable.Row>
   )
 }
 
-const Lineup = () => {
+const Lineup = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return(
     <View style={styles.container}>
+      <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       <View style={styles.title_wrapper}>
         <Text style={styles.screen_title}>TESTE</Text>
       </View>
@@ -31,10 +30,8 @@ const Lineup = () => {
         <View style={styles.lineup_player_wrapper}>
           <DataTable.Header>
             <DataTable.Title>Name</DataTable.Title>
-            <DataTable.Title>Age</DataTable.Title>
             <DataTable.Title>Position</DataTable.Title>
-            <DataTable.Title>Att</DataTable.Title>
-            <DataTable.Title>Def</DataTable.Title>
+            <DataTable.Title>Age</DataTable.Title>
             <DataTable.Title>Overrall</DataTable.Title>
           </DataTable.Header>
           {league.map((teams, index) => {
@@ -49,8 +46,6 @@ const Lineup = () => {
                   name={player.name}
                   age={player.age}
                   position={player.position}
-                  attackoverrall={player.attackoverrall}
-                  defenseoverrall={player.defenseoverrall}
                   overrall={player.attackoverrall}   
                 />
                 )
@@ -66,7 +61,6 @@ const Lineup = () => {
             <Button>Statistics</Button>
             <Button>Evolution</Button>
         </View>
-        <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </View>
     </View>
   )

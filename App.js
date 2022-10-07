@@ -1,11 +1,15 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Navigator from './src/components/Navigator';
+import DrawerNavigator from './src/components/DrawerNavigator';
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-        <Navigator/>
+      <NavigationContainer>
+        <DrawerNavigator/>
+      </NavigationContainer>
     </View>
   );
 }

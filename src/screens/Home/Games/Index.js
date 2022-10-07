@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Typography, Spacing, Buttons, Alignment, Colors } from "../../../styles"
 import leagues from "../../../data/contents"
-import SubTitle from "../../../components/SubTitle"
+import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle"
 
 const NextGame = ({team}) => {
   return(
@@ -21,7 +21,7 @@ const NextGame = ({team}) => {
 const GamesHighlighted = ({navigation}) => {
   return(
     <View style={styles.game_highlighted_wrapper}>
-      <SubTitle subtitle="Actual Game"/>                 
+      <StandardOrangeSubTitle subtitle="ACTUAL GAME"/>                 
       <View style={styles.game_highlighted_teams_wrapper}>
         <View style={styles.game_highlighted_team}>
           <Text>Team 1</Text>
@@ -44,17 +44,11 @@ const NextGames = () => {
   return(
     <View style={styles.games_next_wrapper}>
       <ScrollView horizontal={true}>
-      {
-        leagues.map((teams, index) => {
-          return(
-            teams.teams.map((team, index) => {
-              return(
-                <NextGame key={index} team={team.name}/>
-              )
-            })
-          )
-        })
-      }
+        <NextGame team="Teste"/>
+        <NextGame team="Teste2"/>
+        <NextGame team="Teste3"/>
+        <NextGame team="Teste4"/>
+        <NextGame team="Teste5"/>
       </ScrollView>
     </View>
   )

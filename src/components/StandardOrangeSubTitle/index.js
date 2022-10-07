@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native"
 import { Colors, Typography, Spacing, Buttons, Alignment } from "../../styles"
 
-const SubTitle = ({subtitle}) => {
+const StandardOrangeSubTitle = ({subtitle}) => {
   return(
       <View style={styles.subtitle_wrapper}>
         <Text style={styles.subtitle_text}>{subtitle}</Text>
@@ -11,7 +11,7 @@ const SubTitle = ({subtitle}) => {
 
 const styles = StyleSheet.create({
   subtitle_wrapper: {
-    flex: 0.1,
+    height: 40,
     ...Alignment.RowCenterLeft,
     backgroundColor: Colors.PRIMARYORANGECOLOR
   },
@@ -22,5 +22,5 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SubTitle
+export default StandardOrangeSubTitle
 

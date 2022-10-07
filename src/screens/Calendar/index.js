@@ -1,14 +1,14 @@
 import { View, Text } from "react-native"
-import SubTitle from "../../components/SubTitle"
+import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle"
+import { Alignment } from "../../styles"
 
 const Calendar = () => {
   return(
     <View style={{
       flex: 1,
-      display: 'flex',
-      flexDirection: 'column'
-      }}>
-      <SubTitle subtitle="Calendar"/>
+      ...Alignment.DisplayColumn
+    }}>
+      <StandardOrangeSubTitle subtitle="Calendar"/>
       <Text>
         CalendarScreen
       </Text>
