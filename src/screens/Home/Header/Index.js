@@ -3,15 +3,14 @@ import { Typography, Spacing, Buttons, Alignment, Colors } from "../../../styles
 
 const Header = () => {
   return(
-    <View style={styles.header_wrapper}>
+    <View style={styles.headerWrapper}>
       <Text style={{color: "#ffffff"}}>Logo</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('StandingScreeen')}><Text>Standing</Text></TouchableOpacity>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  header_wrapper: {
+  headerWrapper: {
     flex: 0.2,
     backgroundColor: Colors.VARIANTBLUE,
     ...Alignment.ColumnCenter

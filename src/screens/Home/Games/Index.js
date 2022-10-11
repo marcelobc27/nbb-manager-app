@@ -5,14 +5,14 @@ import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle"
 
 const NextGame = ({team}) => {
   return(
-    <View style={styles.games_next}>
-      <View style={styles.games_next_date_style}>
+    <View style={styles.gamesNext}>
+      <View style={styles.gamesNextDate}>
         <Text>Day 1</Text>
       </View>
-      <View style={styles.games_next}>
-        <Text style={styles.games_next_text_style}>{team}</Text>
-        <Text style={styles.games_next_text_style}>X</Text>
-        <Text style={styles.games_next_text_style}>{team}</Text>
+      <View style={styles.gamesNext}>
+        <Text style={styles.GamesNextText}>{team}</Text>
+        <Text style={styles.GamesNextText}>X</Text>
+        <Text style={styles.GamesNextText}>{team}</Text>
       </View>
     </View>
   )
@@ -20,29 +20,29 @@ const NextGame = ({team}) => {
 
 const GamesHighlighted = ({navigation}) => {
   return(
-    <View style={styles.game_highlighted_wrapper}>
+    <View style={styles.gameHighlightedWrapper}>
       <StandardOrangeSubTitle subtitle="ACTUAL GAME"/>                 
-      <View style={styles.game_highlighted_teams_wrapper}>
-        <View style={styles.game_highlighted_team}>
+      <View style={styles.gameHighlightedTeamsWrapper}>
+        <View style={styles.gameHighlightedTeams}>
           <Text>Team 1</Text>
         </View>
-        <View style={styles.game_highlighted_team}>
+        <View style={styles.gameHighlightedTeams}>
           <Text>Team 2</Text>
         </View>
       </View>
-      <View style={styles.game_highlighted_action_buttons_wrapper}>
+      <View style={styles.gameHighlightedActionButtonsWrapper}>
         <TouchableOpacity 
-          style={styles.game_highlighted_action_button}
+          style={styles.gameHighlightedActionButton}
           onPress={() => navigation.navigate('LineupScreen')}>LINEUP</TouchableOpacity>
         <TouchableOpacity style={styles.game_highlighted_action_button}>PLAY</TouchableOpacity>
       </View>
-    </View>
+    </View> 
   )
 }
 
 const NextGames = () => {
   return(
-    <View style={styles.games_next_wrapper}>
+    <View style={styles.gamesNextWrapper}>
       <ScrollView horizontal={true}>
         <NextGame team="Teste"/>
         <NextGame team="Teste2"/>
@@ -56,7 +56,7 @@ const NextGames = () => {
 
 const Games = ({navigation}) => {
   return(
-    <View style={styles.games_wrapper}>
+    <View style={styles.gamesWrapper}>
       <GamesHighlighted navigation={navigation}/>
       <NextGames/>              
     </View>
@@ -64,23 +64,46 @@ const Games = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-  games_wrapper: {
+  gamesWrapper: {
     flex: 0.7,
     ...Alignment.DisplayColumn,
     backgroundColor: Colors.SOLIDWHITECOLOR
   },
-  game_highlighted_wrapper: {
-    flex: 0.7,
-    width: '100%',
-    backgroundColor: Colors.VARIANTDARKPURPLE
-  },
-  games_next_wrapper: {
+  gamesNextWrapper: {
     flex: 0.3,
     display: Alignment.DisplayRow,
     width: '100%',
     backgroundColor: Colors.SOLIDWHITECOLOR
     },
-  games_next: {
+  gameHighlightedWrapper: {
+    flex: 0.7,
+    width: '100%',
+    backgroundColor: Colors.VARIANTDARKPURPLE
+  },
+  gameHighlightedTeamsWrapper: {
+    flex: 1,
+    ...Alignment.RowCenterLeft
+  },
+  gameHighlightedTeams: {
+    margin: 2,
+    flex: 0.5,
+    height: '95%',
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
+    ...Alignment.RowCenter
+  },
+  gameHighlightedActionButtonsWrapper: {
+    flex: 0.1,
+    ...Alignment.RowCenterRight,
+    backgroundColor: Colors.PRIMARYORANGECOLOR
+  },
+  gameHighlightedActionButton: {
+    ...Buttons.SmallButton,
+    ...Typography.SmallFont,
+    ...Alignment.ColumnCenter,
+    color: Colors.VARIANTDARKPURPLE,
+    backgroundColor: Colors.PRIMARYORANGECOLOR
+  },
+  gamesNext: {
     flex: 0.8,
     width: 200,
     margin: 5,
@@ -88,40 +111,17 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.VARIANTDARKPURPLE,
     color: Colors.NEUTRALGREYCOLOR,
   },
-  games_next_date_style: {
+  gamesNextDate: {
     flex: 0.2,
     width: '100%',
     ...Alignment.ColumnCenter,
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },
-  game_highlighted_action_buttons_wrapper: {
-    flex: 0.1,
-    ...Alignment.RowCenterRight,
-    backgroundColor: Colors.PRIMARYORANGECOLOR
-  },
-  game_highlighted_teams_wrapper: {
-    flex: 1,
-    ...Alignment.RowCenterLeft
-  },
-  game_highlighted_team: {
-    margin: 2,
-    flex: 0.5,
-    height: '95%',
-    backgroundColor: Colors.NEUTRALGREYCOLOR,
-    ...Alignment.RowCenter
-  },
-  games_next_text_style: {
+  GamesNextText: {
     ...Alignment.ColumnCenter,
     ...Typography.BigFont,
     color: Colors.NEUTRALGREYCOLOR,
   },
-  game_highlighted_action_button: {
-    ...Buttons.SmallButton,
-    ...Typography.SmallFont,
-    ...Alignment.ColumnCenter,
-    color: Colors.VARIANTDARKPURPLE,
-    backgroundColor: Colors.PRIMARYORANGECOLOR
-  }
 })
 
 export default Games
