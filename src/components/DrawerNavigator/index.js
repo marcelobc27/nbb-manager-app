@@ -3,6 +3,7 @@ import Calendar from "../../screens/Calendar"
 import Home from "../../screens/Home"
 import Standing from "../../screens/Standing"
 import Lineup from "../../screens/Lineup"
+import ModalTest from "../../screens/ModalTeste"
 
 const Drawer = createDrawerNavigator()
 
@@ -14,6 +15,7 @@ const DrawerNavigator = () => {
           <Drawer.Screen options={{title: "Standing"}} name="StandingScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "Calendar"}} name="CalendarScreeen" component={Calendar}/>
           <Drawer.Screen options={{title: "Lineup"}} name="LineupScreen" component={Lineup}/>
+          <Drawer.Screen options={{title: "Modal Teste"}} name="ModalTesteScreen" component={ModalTest}/>
         </Drawer.Group>
       </Drawer.Navigator>
   )

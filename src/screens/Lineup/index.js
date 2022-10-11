@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import { Button, DataTable } from 'react-native-paper'
 import league from "../../data/contents"
-import PlayerModal from "../PlayerModal"
+import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal"
 
 const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisible}) => {
   return(
@@ -15,12 +15,12 @@ const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisi
   )
 }
 
-const Lineup = ({navigation}) => {
+const Lineup = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return(
     <View style={styles.container}>
-      <PlayerModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      <PlayerBasicSkillsModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       <View style={styles.title_wrapper}>
         <Text style={styles.screen_title}>TESTE</Text>
       </View>

@@ -33,8 +33,8 @@ const GamesHighlighted = ({navigation}) => {
       <View style={styles.game_highlighted_action_buttons_wrapper}>
         <TouchableOpacity 
           style={styles.game_highlighted_action_button}
-          onPress={() => navigation.navigate('LineupScreen')}><Text>Lineup</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.game_highlighted_action_button}><Text>Play</Text></TouchableOpacity>
+          onPress={() => navigation.navigate('LineupScreen')}>LINEUP</TouchableOpacity>
+        <TouchableOpacity style={styles.game_highlighted_action_button}>PLAY</TouchableOpacity>
       </View>
     </View>
   )
