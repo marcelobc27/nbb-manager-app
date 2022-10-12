@@ -20,7 +20,7 @@ const PlayerBasicSkillsModalContent = ({modalVisible, setModalVisible, navigatio
         <StandardOrangeSubTitle subtitle="GENERAL SKILLS"/>
         <SkillsTable/>
       <TouchableOpacity
-        style={{height: 45, backgroundColor: Colors.VARIANTBLUE}}
+        style={styles.detailedSkillsButton}
         onPress={
           () => {
             navigation.navigate('DetailedSkillsScreen')
@@ -28,7 +28,7 @@ const PlayerBasicSkillsModalContent = ({modalVisible, setModalVisible, navigatio
           }
         }
       >
-        <Text style={{color: Colors.SOLIDWHITECOLOR}}>DETAILED SKILLS</Text>
+        <Text style={styles.detailedSkillsButtonText}>DETAILED SKILLS</Text>
       </TouchableOpacity>
     </>      
   )
@@ -45,6 +45,15 @@ const PlayerBasicSkillsModal = ({modalVisible, setModalVisible, navigation}) => 
 const styles = StyleSheet.create({
   contentHeader: {
     ...Alignment.DisplayRow
+  },
+  detailedSkillsButton: {
+    height: 45, 
+    ...Alignment.ColumnCenter,
+    backgroundColor: Colors.VARIANTBLUE,
+  },
+  detailedSkillsButtonText: {
+    color: Colors.SOLIDWHITECOLOR,
+    fontWeight: 200,
   }
 })
   

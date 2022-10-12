@@ -12,7 +12,6 @@ const SkillsRegion = () => {
 const DetailedPlayerSkills = ({navigation}) => {
   return(
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
-      <Text>Teste</Text>
       <SkillsRegion/>
       <SkillsRegion/>
       <SkillsRegion/>
