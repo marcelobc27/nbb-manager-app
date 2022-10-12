@@ -15,12 +15,12 @@ const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisi
   )
 }
 
-const Lineup = () => {
+const Lineup = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return(
     <View style={styles.container}>
-      <PlayerBasicSkillsModal modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       <View style={styles.title_wrapper}>
         <Text style={styles.screen_title}>TESTE</Text>
       </View>

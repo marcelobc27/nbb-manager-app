@@ -1,3 +1,3 @@
 export const ButtonSpacing = {
-  margin: 5,
+  margin: 10,
 }

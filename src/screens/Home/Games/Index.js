@@ -9,7 +9,7 @@ const NextGame = ({team}) => {
       <View style={styles.gamesNextDate}>
         <Text>Day 1</Text>
       </View>
-      <View style={styles.gamesNext}>
+      <View style={styles.gamesNextTeamsNamesWrapper}>
         <Text style={styles.GamesNextText}>{team}</Text>
         <Text style={styles.GamesNextText}>X</Text>
         <Text style={styles.GamesNextText}>{team}</Text>
@@ -33,8 +33,8 @@ const GamesHighlighted = ({navigation}) => {
       <View style={styles.gameHighlightedActionButtonsWrapper}>
         <TouchableOpacity 
           style={styles.gameHighlightedActionButton}
-          onPress={() => navigation.navigate('LineupScreen')}>LINEUP</TouchableOpacity>
-        <TouchableOpacity style={styles.game_highlighted_action_button}>PLAY</TouchableOpacity>
+          onPress={() => navigation.navigate('LineupScreen')}><Text>LINEUP</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.gameHighlightedActionButton}><Text>PLAY</Text></TouchableOpacity>
       </View>
     </View> 
   )
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     ...Alignment.RowCenter
   },
   gameHighlightedActionButtonsWrapper: {
-    flex: 0.1,
+    height: 45,
     ...Alignment.RowCenterRight,
     backgroundColor: Colors.PRIMARYORANGECOLOR
   },
@@ -108,11 +108,21 @@ const styles = StyleSheet.create({
     width: 200,
     margin: 5,
     ...Alignment.ColumnCenter,
+    borderWidth: 1,
+    borderColor: Colors.SOLIDBLACKCOLOR,
+    backgroundColor: Colors.VARIANTDARKPURPLE,
+    color: Colors.NEUTRALGREYCOLOR,
+  },
+  gamesNextTeamsNamesWrapper: {
+    flex: 0.7,
+    width: 200,
+    margin: 5,
+    ...Alignment.ColumnCenter,
     backgroundColor: Colors.VARIANTDARKPURPLE,
     color: Colors.NEUTRALGREYCOLOR,
   },
   gamesNextDate: {
-    flex: 0.2,
+    flex: 0.3,
     width: '100%',
     ...Alignment.ColumnCenter,
     backgroundColor: Colors.NEUTRALGREYCOLOR
