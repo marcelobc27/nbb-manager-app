@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   subtitle_text: {
     marginLeft: 10,
     color: Colors.VARIANTDARKPURPLE,
-    ...Typography.SmallFont
+    ...Typography.SmallFontBold
   }
 })
 

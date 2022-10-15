@@ -1,125 +1,127 @@
 import { useState } from "react"
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native"
+import { Image, StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native"
 import { Button, DataTable } from 'react-native-paper'
 import league from "../../data/contents"
 import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal"
+import FabComponent from "../../components/Fab"
+import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle"
+import { Alignment, Colors, Typography } from "../../styles"
+
+const TableHeader = () => {
+  return(
+    <DataTable.Header style={styles.tableHeader}>
+      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>NAME</DataTable.Title>
+      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>POSITION</DataTable.Title>
+      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>AGE</DataTable.Title>
+      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>OVERRAL</DataTable.Title>
+    </DataTable.Header>
+  )
+}
 
 const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisible}) => {
   return(
-    <DataTable.Row onPress={() => setModalVisible(!modalVisible)}>
-      <DataTable.Cell>{name}</DataTable.Cell>
-      <DataTable.Cell>{position}</DataTable.Cell>
-      <DataTable.Cell>{age}</DataTable.Cell>
-      <DataTable.Cell>{overrall}</DataTable.Cell>
+    <DataTable.Row
+      onPress={() => setModalVisible(!modalVisible)}
+    >
+      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
+      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{position}</DataTable.Cell>
+      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{age}</DataTable.Cell>
+      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{overrall}</DataTable.Cell>
     </DataTable.Row>
   )
 }
 
-const Lineup = ({navigation}) => {
-  const [modalVisible, setModalVisible] = useState(false);
+const HeaderImage = () => {
+  return(
+    <View style={styles.imageWrapper}>
 
+    </View>
+  )
+}
+
+const LineupPlayersTable = ({navigation}) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  return(
+    <View style={styles.lipeupWrapper}>
+      <StandardOrangeSubTitle subtitle="STARTERS"/>
+      <ScrollView>
+      <TableHeader/>
+      {league.map((teams, index) => {
+        return(
+        teams.teams.map(players => {
+          return(
+          players.players.map(player => {
+            return(
+            <PlayersTable
+              modalVisible={modalVisible}
+              setModalVisible={setModalVisible}
+              name={player.name}
+              age={player.age}
+              position={player.position}
+              overrall={player.attackoverrall}   
+            />
+            )
+          })
+          )
+        })
+        )          
+        })
+      }
+      <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      </ScrollView>
+      <StandardOrangeSubTitle subtitle="REST"/>
+    </View>
+ )
+}
+
+const Lineup = ({navigation}) => {
   return(
     <View style={styles.container}>
-      <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
-      <View style={styles.title_wrapper}>
-        <Text style={styles.screen_title}>TESTE</Text>
-      </View>
-      <View style={styles.image_wrapper}>     
-      </View>
-      <View style={styles.lipeup_wrapper}>
-        <View style={styles.lineup_player_wrapper}>
-          <DataTable.Header>
-            <DataTable.Title>Name</DataTable.Title>
-            <DataTable.Title>Position</DataTable.Title>
-            <DataTable.Title>Age</DataTable.Title>
-            <DataTable.Title>Overrall</DataTable.Title>
-          </DataTable.Header>
-          {league.map((teams, index) => {
-            return(
-            teams.teams.map(players => {
-              return(
-              players.players.map(player => {
-                return(
-                <PlayersTable
-                  modalVisible={modalVisible}
-                  setModalVisible={setModalVisible}
-                  name={player.name}
-                  age={player.age}
-                  position={player.position}
-                  overrall={player.attackoverrall}   
-                />
-                )
-              })
-              )
-            })
-            )          
-            })
-          }
-        </View>
-        <View style={styles.lineup_options_button}>
-            <Button>Rotation</Button>
-            <Button>Statistics</Button>
-            <Button>Evolution</Button>
-        </View>
-      </View>
+      <HeaderImage/>
+      <LineupPlayersTable navigation={navigation}/>
+      <FabComponent/>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flex: 0,
-    backgroundColor: '#ffffff'
+    flex: 1,
+    ...Alignment.DisplayColumn,
+    backgroundColor: Colors.SOLIDWHITECOLOR
   },
-  title_wrapper: {
-    height: 50,
-    backgroundColor: '#2c3e50',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  image_wrapper: {
-    height: 250,
+  imageWrapper: {
+    flex: 0.3,
     backgroundColor: '#aaa'
   },
-  lipeup_wrapper: {
-    height: 700,
+  lipeupWrapper: {
+    flex: 0.7,
     width: '100%',
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF'
+    ...Alignment.DisplayColumn,
+    backgroundColor: Colors.NEUTRALGREYCOLOR
   },
-  lineup_player_wrapper: {
+  lineupPlayerWrapper: {
     flexDirection: 'column',
-    height: '95%',
+    flex: 1,
     width: '100%',
-    alignItems: 'stretch',
-    justifyContent: 'flex-start'
   },
-  lineup_options_button: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: '5%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ff9900',
+  tableHeader: {
+    backgroundColor: Colors.VARIANTDARKPURPLE
   },
-  screen_title: {
-    fontFamily: 'Inconsolata',
-    fontSize: 32,
-    color: '#FFFFFF',
-    alignItems: 'center',
-    justifyContent: 'center'
+  tableCell: {
+    ...Alignment.ColumnCenter,
   },
-  table_touchable_style: {
-    fontFamily: 'Inconsolata',
-    fontSize: 20,
-    backgroundColor: '#FFFFFF',
-    color: '#000000',
-    borderBottomWidth: 1,
-    borderColor: '#000000',
+  tableCellText: {
+    ...Alignment.ColumnCenter,
+    ...Typography.SmallestFont,
+    color: Colors.SOLIDWHITECOLOR,
   },
-  table_touchable_content_style: {
-    margin: 10
+  tableRow: {
+    ...Alignment.ColumnCenter,
+  },
+  tableRowText: {
+    ...Alignment.ColumnCenter,
+    color: Colors.SOLIDBLACKCOLOR,
   }
 })
 

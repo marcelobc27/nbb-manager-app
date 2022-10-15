@@ -33,8 +33,13 @@ const GamesHighlighted = ({navigation}) => {
       <View style={styles.gameHighlightedActionButtonsWrapper}>
         <TouchableOpacity 
           style={styles.gameHighlightedActionButton}
-          onPress={() => navigation.navigate('LineupScreen')}><Text>LINEUP</Text></TouchableOpacity>
-        <TouchableOpacity style={styles.gameHighlightedActionButton}><Text>PLAY</Text></TouchableOpacity>
+          onPress={() => navigation.navigate('LineupScreen')}>
+          <Text style={styles.gameHighlightedActionButtonText}>LINEUP</Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.gameHighlightedActionButton}>
+          <Text style={styles.gameHighlightedActionButtonText}>PLAY</Text>
+        </TouchableOpacity>
       </View>
     </View> 
   )
@@ -98,10 +103,13 @@ const styles = StyleSheet.create({
   },
   gameHighlightedActionButton: {
     ...Buttons.SmallButton,
-    ...Typography.SmallFont,
     ...Alignment.ColumnCenter,
     color: Colors.VARIANTDARKPURPLE,
     backgroundColor: Colors.PRIMARYORANGECOLOR
+  },
+  gameHighlightedActionButtonText: {
+    ...Typography.SmallFontBold,
+    color: Colors.VARIANTDARKPURPLE
   },
   gamesNext: {
     flex: 0.8,
@@ -129,7 +137,7 @@ const styles = StyleSheet.create({
   },
   GamesNextText: {
     ...Alignment.ColumnCenter,
-    ...Typography.BigFont,
+    ...Typography.BigFontBold,
     color: Colors.NEUTRALGREYCOLOR,
   },
 })
