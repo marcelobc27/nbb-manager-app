@@ -11,7 +11,10 @@ const ModalTest = () => {
     <View>
       <Button title="Teste" onPress={() => setModalVisible(!modalVisible)}/>
         <CustomizableModal modalVisible={modalVisible} setModalVisible={setModalVisible}>
-          <PlayerBasicSkillsModalContent/>
+          <Text>Teste</Text>
+          <Text>Teste</Text>
+          <Text>Teste</Text>
+          <Text>Teste</Text>
         </CustomizableModal>
     </View>
   ) 
