@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {View, Text, Animated, Button, TouchableHighlight, TouchableOpacity} from 'react-native'
 import { StyleSheet } from 'react-native';
 import { FAB } from 'react-native-paper';
-import { Alignment, Colors, Typography } from '../../styles';
+import { Alignment, Colors, Spacing, Typography } from '../../styles';
 import CustomizableOverlay from '../CustomizableOverlay';
 
 const TouchableTitle = ({title}) => {
@@ -25,14 +25,6 @@ const OverlayView = ({visible, setVisible}) => {
       <TouchableTitle title="Development"/>
       <TouchableTitle title="Rotation"/>
     </View>
-    <FAB
-        mode="elevated"
-        icon='minus'
-        style={styles.fab}
-        onPress={() => 
-          setVisible(!visible)
-        }
-      />
     </CustomizableOverlay>
     </View>
   )
@@ -40,15 +32,19 @@ const OverlayView = ({visible, setVisible}) => {
 
 const FabComponent = () => {
   const [visibleOverlay, setVisibleOverlay] = useState(false)
-  const [icon, setIcon] = useState('plus')
+  const [icon, setIcon] = useState('')
 
   const ToggleIcon = () => {
     {
-      visibleOverlay === false 
-      ? setIcon('minus') 
-      : setIcon('plus')
+      visibleOverlay === false
+      ? setIcon('plus') 
+      : setIcon('minus')
     }
   }
+
+  useEffect(() => {
+    ToggleIcon()
+  }, [visibleOverlay])
 
   return(
     <View>
@@ -56,10 +52,9 @@ const FabComponent = () => {
         mode="elevated"
         icon={icon}
         style={styles.fab}
-        onPress={() => 
-          setVisibleOverlay(!visibleOverlay) &&
-          ToggleIcon()
-        }
+        onPress={() => {
+          setVisibleOverlay(!visibleOverlay)
+        }}
       />
       <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay}/>
     </View>
@@ -81,8 +76,8 @@ const styles = StyleSheet.create({
     marginBottom: 82
   },
   overlayButton: {
-    margin: 10,
     width: '100%',
+    ...Spacing.ButtonSpacing,
     ...Alignment.ColumnTopRight,
   },
   overlayButtonText: {

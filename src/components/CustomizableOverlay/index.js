@@ -20,6 +20,7 @@ const CustomizableOverlay = ({overlayVisible, setOverlayVisible, justify, alignm
       <TouchableOpacity 
         activeOpacity={1} 
         style={[{justifyContent: justify, alignItems: alignment}, styles.innerTouchableView]}
+        onPress={() => setOverlayVisible(!overlayVisible)}
         >
         {children}
       </TouchableOpacity>
