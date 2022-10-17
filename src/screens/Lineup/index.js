@@ -10,10 +10,10 @@ import { Alignment, Colors, Typography } from "../../styles"
 const TableHeader = () => {
   return(
     <DataTable.Header style={styles.tableHeader}>
-      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>NAME</DataTable.Title>
-      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>POSITION</DataTable.Title>
-      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>AGE</DataTable.Title>
-      <DataTable.Title style={styles.tableCell} textStyle={styles.tableCellText}>OVERRAL</DataTable.Title>
+      <DataTable.Title style={[{flex: 3}, styles.tableCell]} textStyle={styles.tableCellText}>NAME</DataTable.Title>
+      <DataTable.Title style={[{flex: 2}, styles.tableCell]} textStyle={styles.tableCellText}>POS</DataTable.Title>
+      <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>AGE</DataTable.Title>
+      <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>OVR</DataTable.Title>
     </DataTable.Header>
   )
 }
@@ -23,10 +23,10 @@ const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisi
     <DataTable.Row
       onPress={() => setModalVisible(!modalVisible)}
     >
-      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
-      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{position}</DataTable.Cell>
-      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{age}</DataTable.Cell>
-      <DataTable.Cell style={styles.tableRow} textStyle={styles.tableRowText}>{overrall}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 3}, styles.tableRow]} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 2}, styles.tableRow]} textStyle={styles.tableRowText}>{position}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{age}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{overrall}</DataTable.Cell>
     </DataTable.Row>
   )
 }
@@ -101,8 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },
   lineupPlayerWrapper: {
-    flexDirection: 'column',
-    flex: 1,
+    ...Alignment.DisplayColumn,
     width: '100%',
   },
   tableHeader: {
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   },
   tableCellText: {
     ...Alignment.ColumnCenter,
-    ...Typography.SmallestFont,
+    ...Typography.SmallFont,
     color: Colors.SOLIDWHITECOLOR,
   },
   tableRow: {
@@ -121,6 +120,7 @@ const styles = StyleSheet.create({
   },
   tableRowText: {
     ...Alignment.ColumnCenter,
+    ...Typography.SmallestFont,
     color: Colors.SOLIDBLACKCOLOR,
   }
 })

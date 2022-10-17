@@ -45,10 +45,10 @@ export const SmallFont = {
 export const SmallestFontBold = {
   fontWeight: 'bold',
   fontFamily: 'Inconsolata',
-  fontSize: 14    
+  fontSize: 18    
 }
 
 export const SmallestFont = {
   fontFamily: 'Inconsolata',
-  fontSize: 14    
+  fontSize: 18    
 }
