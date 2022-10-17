@@ -10,7 +10,7 @@ import { Alignment, Colors, Typography } from "../../styles"
 const TableHeader = () => {
   return(
     <DataTable.Header style={styles.tableHeader}>
-      <DataTable.Title style={[{flex: 3}, styles.tableCell]} textStyle={styles.tableCellText}>NAME</DataTable.Title>
+      <DataTable.Title style={[{flex: 2}, styles.tableCell]} textStyle={styles.tableCellText}>NAME</DataTable.Title>
       <DataTable.Title style={[{flex: 2}, styles.tableCell]} textStyle={styles.tableCellText}>POS</DataTable.Title>
       <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>AGE</DataTable.Title>
       <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>OVR</DataTable.Title>
@@ -23,7 +23,7 @@ const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisi
     <DataTable.Row
       onPress={() => setModalVisible(!modalVisible)}
     >
-      <DataTable.Cell style={[{flex: 3}, styles.tableRow]} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 2}, styles.tableRow]} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
       <DataTable.Cell style={[{flex: 2}, styles.tableRow]} textStyle={styles.tableRowText}>{position}</DataTable.Cell>
       <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{age}</DataTable.Cell>
       <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{overrall}</DataTable.Cell>
