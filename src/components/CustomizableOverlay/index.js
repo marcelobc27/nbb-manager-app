@@ -17,7 +17,10 @@ const CustomizableOverlay = ({overlayVisible, setOverlayVisible, justify, alignm
         style={[{justifyContent: justify, alignItems: alignment}, styles.outerTouchableView]}
         onPressOut={() => setOverlayVisible(!overlayVisible)}
       >
-      <TouchableOpacity activeOpacity={1} style={styles.innerTouchableView}>
+      <TouchableOpacity 
+        activeOpacity={1} 
+        style={[{justifyContent: justify, alignItems: alignment}, styles.innerTouchableView]}
+        >
         {children}
       </TouchableOpacity>
       </TouchableOpacity>
@@ -35,13 +38,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   innerTouchableView: {
+    flex: 1,
+    height: '100%',
+    width: '100%',
     position: 'absolute',
-    marginBottom: 82,
-    marginRight: 16,
     right: 0,
     bottom: 0,
-    backgroundColor: 'black',
-    width: '50%',
+    backgroundColor: 'transparent',
     alignItems: 'flex-end'
   }
 })

@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {View, Text, Animated, Button, TouchableHighlight, TouchableOpacity} from 'react-native'
 import { StyleSheet } from 'react-native';
 import { FAB } from 'react-native-paper';
-import { Colors } from '../../styles';
+import { Alignment, Colors, Typography } from '../../styles';
 import CustomizableOverlay from '../CustomizableOverlay';
 
 const TouchableTitle = ({title}) => {
@@ -25,6 +25,14 @@ const OverlayView = ({visible, setVisible}) => {
       <TouchableTitle title="Development"/>
       <TouchableTitle title="Rotation"/>
     </View>
+    <FAB
+        mode="elevated"
+        icon='minus'
+        style={styles.fab}
+        onPress={() => 
+          setVisible(!visible)
+        }
+      />
     </CustomizableOverlay>
     </View>
   )
@@ -49,7 +57,7 @@ const FabComponent = () => {
         icon={icon}
         style={styles.fab}
         onPress={() => 
-          setVisibleOverlay(!visibleOverlay) ||
+          setVisibleOverlay(!visibleOverlay) &&
           ToggleIcon()
         }
       />
@@ -68,22 +76,19 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    backgroundColor: '#000',
+    ...Alignment.ColumnBottomRight,
+    marginRight: 16,
+    marginBottom: 82
   },
   overlayButton: {
-    margin: 5,
+    margin: 10,
     width: '100%',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-start',
-    backgroundColor: '#000'
+    ...Alignment.ColumnTopRight,
   },
   overlayButtonText: {
-    color: 'white', 
-    alignItems: 'flex-end', 
-    justifyContent: 'flex-end', 
-    fontSize: 20
+    color: Colors.SOLIDWHITECOLOR, 
+    ...Alignment.ColumnBottomRight,
+    ...Typography.SmallFont
   }
 })
 
