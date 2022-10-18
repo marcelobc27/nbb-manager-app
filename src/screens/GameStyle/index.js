@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import CustomizableSubTitle from '../../components/CustomizableSubTitle'
+import PickerComponent from "../../components/Picker"
 import { Colors } from "../../styles"
 
 const Header = () => {
@@ -33,24 +34,37 @@ const Header = () => {
 
 const StarPlayers = () => {
   return(
-    <View>
-
+    <View style={styles.starPlayersWrapper}>
+      <View style={styles.starPlayers}>
+        <View style={styles.starPlayersSections}>
+          <CustomizableSubTitle subtitle="STAR PLAYER"/>
+          <PickerComponent width={90} height={40} backgroundColor="orange"/>
+          <PickerComponent width={90} height={40} backgroundColor="orange"/>
+        </View>
+        <View style={styles.starPlayersSections}>
+          <CustomizableSubTitle subtitle="FUNCTION"/>
+          <PickerComponent width={90}  height={40} backgroundColor="orange"/>
+          <PickerComponent width={90}  height={40} backgroundColor="orange"/>
+        </View>
+      </View>
     </View>
   )
 }
 
 const SliderStrategies = () => {
   return(
-    <View>
-
+    <View style={styles.sliderStrategiesWrapper}>
     </View>
   )
 }
 
 const SelectStrategies = () => {
   return(
-    <View>
-
+    <View style={styles.selectStrategiesWrapper}>
+      <CustomizableSubTitle subtitle="OFFENSIVE STRATEGY"/>
+      <PickerComponent width={90} height={40}/>
+      <CustomizableSubTitle subtitle="DEFENSIVE STRATEGY"/>
+      <PickerComponent width={90} height={40}/>
     </View>
   )
 }
@@ -81,7 +95,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    flex: 0.15,
+    flex: 0.10,
     backgroundColor: 'yellow'
   },
   headerCoachInformation: {
@@ -94,10 +108,31 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   mainContent: {
-    flex: 0.85,
+    flex: 0.90,
     flexDirection: 'column',
     backgroundColor: Colors.SOLIDWHITECOLOR
-  }
+  },
+  starPlayersWrapper: {
+    flex: 0.2,
+    flexDirection: 'row'
+  },
+  starPlayers: {
+    flex: 1,
+    flexDirection: 'row',
+    margin: 5,
+  },
+  starPlayersSections: {
+    flex: 0.5, 
+    height: '100%', 
+    backgroundColor: Colors.NEUTRALGREYCOLOR, 
+    justifyContent: 'center'
+  },
+  sliderStrategiesWrapper: {
+    flex: 0.6
+  },
+  selectStrategiesWrapper: {
+    flex: 0.2
+  },
 })
 
 export default GameStyle
