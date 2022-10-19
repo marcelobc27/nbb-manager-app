@@ -79,7 +79,7 @@ const Lineup = ({navigation}) => {
     <View style={styles.container}>
       <HeaderImage/>
       <LineupPlayersTable navigation={navigation}/>
-      <FabComponent/>
+      <FabComponent navigation={navigation}/>
     </View>
   )
 }

@@ -3,17 +3,16 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Colors } from "../../styles";
 
-const PickerComponent = ({ width, height, backgroundColor }) => {
+const PickerComponent = ({ width, height, backgroundColor, color }) => {
   const [type, setType] = useState("Select a Strategy");
 
   return (
     <View style={styles.pickerWrapper}>
       <Picker
-        placeholder="Select type"
-        mode="dialog"
+        mode="dropdown"
         style={[{
           width: `${width}%`,
-          color: Colors.VARIANTDARKPURPLE,
+          color: `${color ? color : Colors.SOLIDBLACKCOLOR}`,
           height: `${height ? height : "30px"}`,
           backgroundColor: `${backgroundColor ? backgroundColor : Colors.SOLIDWHITECOLOR}`,
           }, styles.picker]}

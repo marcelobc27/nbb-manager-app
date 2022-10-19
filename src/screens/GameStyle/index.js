@@ -20,12 +20,14 @@ const Header = () => {
           flex={1} 
           backgroundColor={Colors.VARIANTBLUE} 
           color={Colors.SOLIDWHITECOLOR}
+          alignment="center"
         />
         <CustomizableSubTitle 
           subtitle="COACH AGE" 
           flex={1} 
           backgroundColor={Colors.VARIANTBLUE} 
           color={Colors.SOLIDWHITECOLOR}
+          alignment="center"
         />
       </View>
     </View>
@@ -38,15 +40,23 @@ const StarPlayers = () => {
       <View style={styles.starPlayers}>
         <View style={styles.starPlayersSections}>
           <CustomizableSubTitle subtitle="STAR PLAYER"/>
-          <PickerComponent width={90} height={40} backgroundColor="orange"/>
-          <PickerComponent width={90} height={40} backgroundColor="orange"/>
+          <PickerComponent width={90} height={40} backgroundColor={Colors.PRIMARYORANGECOLOR} color={Colors.VARIANTDARKPURPLE}/>
+          <PickerComponent width={90} height={40} backgroundColor={Colors.PRIMARYORANGECOLOR} color={Colors.VARIANTDARKPURPLE}/>
         </View>
         <View style={styles.starPlayersSections}>
           <CustomizableSubTitle subtitle="FUNCTION"/>
-          <PickerComponent width={90}  height={40} backgroundColor="orange"/>
-          <PickerComponent width={90}  height={40} backgroundColor="orange"/>
+          <PickerComponent width={90}  height={40} backgroundColor={Colors.PRIMARYORANGECOLOR} color={Colors.VARIANTDARKPURPLE}/>
+          <PickerComponent width={90}  height={40} backgroundColor={Colors.PRIMARYORANGECOLOR} color={Colors.VARIANTDARKPURPLE}/>
         </View>
       </View>
+    </View>
+  )
+}
+
+const SliderComponent = () => {
+  return(
+    <View>
+      
     </View>
   )
 }

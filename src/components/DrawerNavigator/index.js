@@ -17,7 +17,7 @@ const DrawerNavigator = () => {
           <Drawer.Screen options={{title: "SIMULATE GAME"}} name="HomeEScreeen" component={Home}/>
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
-          <Drawer.Screen options={{title: "GAME STYLE"}} name="GamePlanScreen" component={GameStyle}/>
+          <Drawer.Screen options={{title: "GAME STYLE"}} name="GameStyleScreen" component={GameStyle}/>
           <Drawer.Screen options={{title: "STANDING"}} name="StandingScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "STATISTICS"}} name="StatisticsScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "TRADES"}} name="TradesScreeen" component={Standing}/>

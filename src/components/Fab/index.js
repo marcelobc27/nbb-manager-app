@@ -5,23 +5,27 @@ import { FAB } from 'react-native-paper';
 import { Alignment, Colors, Spacing, Typography } from '../../styles';
 import CustomizableOverlay from '../CustomizableOverlay';
 
-const TouchableTitle = ({title}) => {
+const TouchableTitle = ({title, pageName, navigation, visible, setVisible}) => {
   return(
     <TouchableOpacity 
       style={styles.overlayButton}
+      onPress={() => {
+        navigation.navigate(pageName)
+        setVisible(!visible)
+      }}
     >
       <Text style={styles.overlayButtonText}>{title}</Text>
     </TouchableOpacity>
   )
 }
 
-const OverlayView = ({visible, setVisible}) => {
+const OverlayView = ({visible, setVisible, navigation}) => {
   return(
     <View>
     <CustomizableOverlay overlayVisible={visible} setOverlayVisible={setVisible} justify={'flex-end'} alignment={'flex-end'}>
     <View style={styles.overlay}>
       <TouchableTitle title="PlayBook"/>
-      <TouchableTitle title="Game Style"/>
+      <TouchableTitle title="Game Style" pageName="GameStyleScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
       <TouchableTitle title="Development"/>
       <TouchableTitle title="Rotation"/>
     </View>
@@ -30,7 +34,7 @@ const OverlayView = ({visible, setVisible}) => {
   )
 }
 
-const FabComponent = () => {
+const FabComponent = ({navigation}) => {
   const [visibleOverlay, setVisibleOverlay] = useState(false)
   const [icon, setIcon] = useState('')
 
@@ -56,7 +60,7 @@ const FabComponent = () => {
           setVisibleOverlay(!visibleOverlay)
         }}
       />
-      <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay}/>
+      <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay} navigation={navigation}/>
     </View>
   )  
 }

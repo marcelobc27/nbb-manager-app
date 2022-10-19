@@ -10,8 +10,20 @@ const PlayerBasicSkillsModalContent = ({modalVisible, setModalVisible, navigatio
   return(
     <>
       <View style={styles.contentHeader}>
-        <CustomizableSubTitle color={Colors.SOLIDWHITECOLOR} subtitle="PLAYER NAME" flex={4} backgroundColor={Colors.VARIANTDARKPURPLE}/>
-        <CustomizableSubTitle color={Colors.SOLIDWHITECOLOR} subtitle="A+" flex={1} backgroundColor={Colors.VARIANTBLUE}/>
+        <CustomizableSubTitle 
+          color={Colors.SOLIDWHITECOLOR} 
+          subtitle="PLAYER NAME" 
+          flex={4} 
+          backgroundColor={Colors.VARIANTDARKPURPLE}
+          alignment="center"
+        />
+        <CustomizableSubTitle 
+          color={Colors.SOLIDWHITECOLOR} 
+          subtitle="A+" 
+          flex={1} 
+          backgroundColor={Colors.VARIANTBLUE}
+          alignment="center"
+        />
       </View>
         <StandardOrangeSubTitle subtitle="OFFENSIVE SKILLS"/>
         <SkillsTable/>
