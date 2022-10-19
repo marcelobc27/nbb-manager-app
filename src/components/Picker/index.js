@@ -17,7 +17,7 @@ const PickerComponent = ({ width, height, backgroundColor, color }) => {
           backgroundColor: `${backgroundColor ? backgroundColor : Colors.SOLIDWHITECOLOR}`,
           }, styles.picker]}
         selectedValue={type}
-        onValueChange={(value) => setType(value)}
+        onValueChange={(type) => setType(type)}
       >
         <Picker.Item label="SELECT A VALUE" value="" />
         <Picker.Item label="Links" value="Links" />

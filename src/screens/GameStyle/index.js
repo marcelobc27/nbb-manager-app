@@ -1,4 +1,5 @@
-import { StyleSheet, View } from "react-native"
+import { useState } from "react"
+import { ScrollView, StyleSheet, View } from "react-native"
 import CustomizableSubTitle from '../../components/CustomizableSubTitle'
 import PickerComponent from "../../components/Picker"
 import { Colors } from "../../styles"
@@ -56,7 +57,7 @@ const StarPlayers = () => {
 const SliderComponent = () => {
   return(
     <View>
-      
+
     </View>
   )
 }
@@ -64,6 +65,12 @@ const SliderComponent = () => {
 const SliderStrategies = () => {
   return(
     <View style={styles.sliderStrategiesWrapper}>
+      <CustomizableSubTitle subtitle="PAINT"/>
+      <CustomizableSubTitle subtitle="MID-RANGE"/>
+      <CustomizableSubTitle subtitle="3PT SHOOT"/>
+      <CustomizableSubTitle subtitle="OFFENSIVE PACE"/>
+      <CustomizableSubTitle subtitle="DEFENSIVE PRESSURE"/>
+      <SliderComponent/>
     </View>
   )
 }
@@ -138,7 +145,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   sliderStrategiesWrapper: {
-    flex: 0.6
+    flex: 0.6,
   },
   selectStrategiesWrapper: {
     flex: 0.2

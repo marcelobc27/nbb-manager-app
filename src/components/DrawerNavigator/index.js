@@ -6,18 +6,23 @@ import Lineup from "../../screens/Lineup"
 import ModalTest from "../../screens/ModalTeste"
 import DetailedPlayerSkills from "../../screens/DetailedPlayerSkills"
 import GameStyle from "../../screens/GameStyle"
+import Rotation from "../Rotation"
+import { Colors } from "../../styles"
 
 const Drawer = createDrawerNavigator()
 
 const DrawerNavigator = () => {
   return (
-      <Drawer.Navigator initialRouteName="HomeScreen">
-        <Drawer.Group>
+      <Drawer.Navigator initialRouteName="HomeScreen" screenOptions={screenOptions}>
+        <Drawer.Group screenOptions={{
+          headerTintColor: Colors.VARIANTDARKPURPLE
+        }}>
           <Drawer.Screen options={{title: "FEED"}} name="HomeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "SIMULATE GAME"}} name="HomeEScreeen" component={Home}/>
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
           <Drawer.Screen options={{title: "GAME STYLE"}} name="GameStyleScreen" component={GameStyle}/>
+          <Drawer.Screen options={{title: "ROTATION"}} name="RotationScreen" component={Rotation}/>
           <Drawer.Screen options={{title: "STANDING"}} name="StandingScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "STATISTICS"}} name="StatisticsScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "TRADES"}} name="TradesScreeen" component={Standing}/>
@@ -30,6 +35,23 @@ const DrawerNavigator = () => {
         </Drawer.Group>
       </Drawer.Navigator>
   )
+}
+
+const screenOptions = {
+  headerStyle: {
+    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    height: 50
+  },
+  drawerContentStyle: {
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
+  },
+  drawerActiveBackgroundColor: Colors.SOLIDWHITECOLOR,
+  drawerActiveTintColor: Colors.SOLIDBLACKCOLOR,
+  drawerInactiveTintColor: Colors.VARIANTDARKPURPLE,
+  drawerItemStyle: {
+    borderRadius: 0,
+    marginLeft: 10,
+  }
 }
 
 export default DrawerNavigator
