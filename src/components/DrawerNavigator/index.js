@@ -14,10 +14,8 @@ const Drawer = createDrawerNavigator()
 const DrawerNavigator = () => {
   return (
       <Drawer.Navigator initialRouteName="HomeScreen" screenOptions={screenOptions}>
-        <Drawer.Group screenOptions={{
-          headerTintColor: Colors.VARIANTDARKPURPLE
-        }}>
-          <Drawer.Screen options={{title: "FEED"}} name="HomeScreeen" component={Home}/>
+        <Drawer.Group>
+          <Drawer.Screen options={{title: "FEED" }} name="HomeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "SIMULATE GAME"}} name="HomeEScreeen" component={Home}/>
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
@@ -42,6 +40,7 @@ const screenOptions = {
     backgroundColor: Colors.PRIMARYORANGECOLOR,
     height: 50
   },
+  headerTintColor: Colors.VARIANTDARKPURPLE,
   drawerContentStyle: {
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
@@ -51,7 +50,7 @@ const screenOptions = {
   drawerItemStyle: {
     borderRadius: 0,
     marginLeft: 10,
-  }
+  },
 }
 
 export default DrawerNavigator

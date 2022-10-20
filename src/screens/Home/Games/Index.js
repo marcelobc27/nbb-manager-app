@@ -7,7 +7,7 @@ const NextGame = ({team}) => {
   return(
     <View style={styles.gamesNext}>
       <View style={styles.gamesNextDate}>
-        <Text>Day 1</Text>
+        <Text style={styles.gamesNextDateText}>Day 1</Text>
       </View>
       <View style={styles.gamesNextTeamsNamesWrapper}>
         <Text style={styles.GamesNextText}>{team}</Text>
@@ -134,6 +134,9 @@ const styles = StyleSheet.create({
     width: '100%',
     ...Alignment.ColumnCenter,
     backgroundColor: Colors.NEUTRALGREYCOLOR
+  },
+  gamesNextDateText: {
+    ...Typography.MediumFontBold,
   },
   GamesNextText: {
     ...Alignment.ColumnCenter,

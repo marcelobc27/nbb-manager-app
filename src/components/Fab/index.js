@@ -27,7 +27,7 @@ const OverlayView = ({visible, setVisible, navigation}) => {
       <TouchableTitle title="PlayBook"/>
       <TouchableTitle title="Game Style" pageName="GameStyleScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
       <TouchableTitle title="Development"/>
-      <TouchableTitle title="Rotation"/>
+      <TouchableTitle title="Rotation"pageName="RotationScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
     </View>
     </CustomizableOverlay>
     </View>

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   subtitle_text: {
     marginLeft: 10,
-    ...Typography.SmallFont
+    ...Typography.SmallFontBold
   }
 })
 
