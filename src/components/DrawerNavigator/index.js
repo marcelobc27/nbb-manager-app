@@ -7,7 +7,7 @@ import ModalTest from "../../screens/ModalTeste"
 import DetailedPlayerSkills from "../../screens/DetailedPlayerSkills"
 import GameStyle from "../../screens/GameStyle"
 import Rotation from "../Rotation"
-import { Colors } from "../../styles"
+import { Colors, Typography } from "../../styles"
 import PlayersDevelopment from "../../screens/PlayersDevelopment"
 
 const Drawer = createDrawerNavigator()
@@ -16,7 +16,7 @@ const DrawerNavigator = () => {
   return (
       <Drawer.Navigator initialRouteName="HomeScreen" screenOptions={screenOptions}>
         <Drawer.Group>
-          <Drawer.Screen options={{title: "FEED" }} name="HomeScreeen" component={Home}/>
+          <Drawer.Screen options={{title: "FEED"}} name="HomeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "SIMULATE GAME"}} name="HomeEScreeen" component={Home}/>
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
@@ -51,8 +51,11 @@ const screenOptions = {
   drawerInactiveTintColor: Colors.VARIANTDARKPURPLE,
   drawerItemStyle: {
     borderRadius: 0,
-    marginLeft: 10,
+    marginLeft: 10
   },
+  drawerLabelStyle: {
+    ...Typography.MediumFontBold
+  }
 }
 
 export default DrawerNavigator

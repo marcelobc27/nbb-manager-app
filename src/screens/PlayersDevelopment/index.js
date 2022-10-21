@@ -11,8 +11,8 @@ const PlayersDevelopment = () => {
           <DataTable.Title style={[{flex: 0.3}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>+ / -</DataTable.Title>
         </DataTable.Header>
         <DataTable.Row style={Preset.TableRow}>
-          <DataTable.Cell style={[{flex: 0.7}, Preset.TableTextPosition]} textStyle={Preset.TableRowTextStyle}>TESTE</DataTable.Cell>
-          <DataTable.Cell style={[{flex: 0.3}, Preset.TableTextPosition]} textStyle={Preset.TableRowTextStyle}>TESTE</DataTable.Cell>
+          <DataTable.Cell style={[{flex: 0.7}, Preset.TableTextPosition]} textStyle={Preset.TableRowTextStyle}>Player Name</DataTable.Cell>
+          <DataTable.Cell style={[{flex: 0.3}, Preset.TableTextPosition]} textStyle={Preset.TableRowTextStyle}>+1</DataTable.Cell>
         </DataTable.Row>
       </DataTable>
     </View>
@@ -21,7 +21,7 @@ const PlayersDevelopment = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   }
 })
 

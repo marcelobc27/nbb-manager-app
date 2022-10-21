@@ -5,15 +5,15 @@ import league from "../../data/contents"
 import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal"
 import FabComponent from "../../components/Fab"
 import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle"
-import { Alignment, Colors, Typography } from "../../styles"
+import { Alignment, Colors, Preset, Typography } from "../../styles"
 
 const TableHeader = () => {
   return(
-    <DataTable.Header style={styles.tableHeader}>
-      <DataTable.Title style={[{flex: 2}, styles.tableCell]} textStyle={styles.tableCellText}>NAME</DataTable.Title>
-      <DataTable.Title style={[{flex: 2}, styles.tableCell]} textStyle={styles.tableCellText}>POS</DataTable.Title>
-      <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>AGE</DataTable.Title>
-      <DataTable.Title style={[{flex: 1}, styles.tableCell]} textStyle={styles.tableCellText}>OVR</DataTable.Title>
+    <DataTable.Header style={Preset.TableHeader}>
+      <DataTable.Title style={[{flex: 0.40}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>NAME</DataTable.Title>
+      <DataTable.Title style={[{flex: 0.30}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>POS</DataTable.Title>
+      <DataTable.Title style={[{flex: 0.15}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>AGE</DataTable.Title>
+      <DataTable.Title style={[{flex: 0.15}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>OVR</DataTable.Title>
     </DataTable.Header>
   )
 }
@@ -23,10 +23,10 @@ const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisi
     <DataTable.Row
       onPress={() => setModalVisible(!modalVisible)}
     >
-      <DataTable.Cell style={[{flex: 2}, styles.tableRow]} textStyle={styles.tableRowText}>{name}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 2}, styles.tableRow]} textStyle={styles.tableRowText}>{position}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{age}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 1}, styles.tableRow]} textStyle={styles.tableRowText}>{overrall}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 0.40}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{name.toUpperCase()}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 0.30}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{position.toUpperCase()}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 0.15}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{age}</DataTable.Cell>
+      <DataTable.Cell style={[{flex: 0.15}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{overrall}</DataTable.Cell>
     </DataTable.Row>
   )
 }
@@ -44,8 +44,8 @@ const LineupPlayersTable = ({navigation}) => {
   return(
     <View style={styles.lipeupWrapper}>
       <StandardOrangeSubTitle subtitle="STARTERS"/>
-      <ScrollView>
       <TableHeader/>
+      <ScrollView>
       {league.map((teams, index) => {
         return(
         teams.teams.map(players => {
@@ -67,8 +67,8 @@ const LineupPlayersTable = ({navigation}) => {
         )          
         })
       }
-      <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </ScrollView>
+      <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       <StandardOrangeSubTitle subtitle="REST"/>
     </View>
  )

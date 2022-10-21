@@ -1,11 +1,11 @@
 import { Alignment, Colors, Typography } from "."
 
 export const TableContainer = {
-  fleX: 1
+  flex: 1
 }
 
 export const TableTextPosition = {
-  ...Alignment.ColumnCenter
+  ...Alignment.ColumnCenter,
 }
 
 export const TableRow = {
@@ -15,7 +15,7 @@ export const TableRow = {
 
 export const TableHeader = {
   ...Alignment.RowCenter,
-  backgroundColor: Colors.VARIANTDARKPURPLE
+  backgroundColor: Colors.VARIANTDARKPURPLE,
 }
 
 export const TableRowTextStyle = {
