@@ -8,6 +8,7 @@ import DetailedPlayerSkills from "../../screens/DetailedPlayerSkills"
 import GameStyle from "../../screens/GameStyle"
 import Rotation from "../Rotation"
 import { Colors } from "../../styles"
+import PlayersDevelopment from "../../screens/PlayersDevelopment"
 
 const Drawer = createDrawerNavigator()
 
@@ -19,8 +20,6 @@ const DrawerNavigator = () => {
           <Drawer.Screen options={{title: "SIMULATE GAME"}} name="HomeEScreeen" component={Home}/>
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
-          <Drawer.Screen options={{title: "GAME STYLE"}} name="GameStyleScreen" component={GameStyle}/>
-          <Drawer.Screen options={{title: "ROTATION"}} name="RotationScreen" component={Rotation}/>
           <Drawer.Screen options={{title: "STANDING"}} name="StandingScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "STATISTICS"}} name="StatisticsScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "TRADES"}} name="TradesScreeen" component={Standing}/>
@@ -30,6 +29,9 @@ const DrawerNavigator = () => {
           <Drawer.Screen options={{title: "SPONSORS"}} name="SponsorsScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "Detailed Skills"}} name="DetailedSkillsScreen" component={DetailedPlayerSkills}/>
           <Drawer.Screen options={{title: "Modal Teste"}} name="ModalTesteScreen" component={ModalTest}/>
+          <Drawer.Screen options={{title: "GAME STYLE"}} name="GameStyleScreen" component={GameStyle}/>
+          <Drawer.Screen options={{title: "ROTATION"}} name="RotationScreen" component={Rotation}/>
+          <Drawer.Screen options={{title: "DEVELOPMENT"}} name="PlayersDevelopmentScreen" component={PlayersDevelopment}/>
         </Drawer.Group>
       </Drawer.Navigator>
   )
