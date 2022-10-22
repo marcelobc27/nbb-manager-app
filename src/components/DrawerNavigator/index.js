@@ -1,5 +1,4 @@
 import { createDrawerNavigator } from "@react-navigation/drawer"
-import Calendar from "../../screens/Calendar"
 import Home from "../../screens/Home"
 import Standing from "../../screens/Standing"
 import Lineup from "../../screens/Lineup"
@@ -9,6 +8,8 @@ import GameStyle from "../../screens/GameStyle"
 import Rotation from "../Rotation"
 import { Colors, Typography } from "../../styles"
 import PlayersDevelopment from "../../screens/PlayersDevelopment"
+import Statistics from "../../screens/Statistics"
+import Trades from "../../screens/Trades"
 
 const Drawer = createDrawerNavigator()
 
@@ -21,8 +22,8 @@ const DrawerNavigator = () => {
           <Drawer.Screen options={{title: "CALENDAR"}} name="HomeeeScreeen" component={Home}/>
           <Drawer.Screen options={{title: "LINE-UP"}} name="LineupScreen" component={Lineup}/>
           <Drawer.Screen options={{title: "STANDING"}} name="StandingScreeen" component={Standing}/>
-          <Drawer.Screen options={{title: "STATISTICS"}} name="StatisticsScreeen" component={Standing}/>
-          <Drawer.Screen options={{title: "TRADES"}} name="TradesScreeen" component={Standing}/>
+          <Drawer.Screen options={{title: "STATISTICS"}} name="StatisticsScreeen" component={Statistics}/>
+          <Drawer.Screen options={{title: "TRADES"}} name="TradesScreeen" component={Trades}/>
           <Drawer.Screen options={{title: "FREE AGENTS"}} name="FreeAgentsScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "JUNIOR LEAGUE"}} name="JuniorLeagueScreeen" component={Standing}/>
           <Drawer.Screen options={{title: "FINANCES"}} name="FinancesScreeen" component={Standing}/>

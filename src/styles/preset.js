@@ -6,6 +6,7 @@ export const TableContainer = {
 
 export const TableTextPosition = {
   ...Alignment.ColumnCenter,
+  margin: 4
 }
 
 export const TableRow = {
