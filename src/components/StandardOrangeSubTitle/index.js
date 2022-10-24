@@ -11,9 +11,11 @@ const StandardOrangeSubTitle = ({subtitle}) => {
 
 const styles = StyleSheet.create({
   subtitle_wrapper: {
-    height: 40,
+    flex: 0.15,
     ...Alignment.RowCenterLeft,
-    backgroundColor: Colors.PRIMARYORANGECOLOR
+    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    borderBottomWidth: 4,
+    borderBottomColor: Colors.SOLIDBLACKCOLOR
   },
   subtitle_text: {
     marginLeft: 10,

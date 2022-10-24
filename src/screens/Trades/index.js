@@ -16,7 +16,7 @@ const PickerSection = () => {
 const OfferorTeam = () => {
   return(
     <View style={styles.offerorTeam}>
-      <CustomizableSubtitle subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
+      <CustomizableSubtitle flex={0.15} subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
       <TableComponent/>
       <View style={styles.ButtonsSection}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTGREEN},styles.offerorTeamButton]}>
@@ -30,7 +30,7 @@ const OfferorTeam = () => {
 const OffereeTeam = () => {
   return(
     <View style={styles.offereeTeam}>
-      <CustomizableSubtitle subtitle="TEAM B NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
+      <CustomizableSubtitle flex={0.15} subtitle="TEAM B NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
       <TableComponent/>
       <View style={styles.ButtonsSection}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTRED}, styles.offerorTeamButton]}>

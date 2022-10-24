@@ -1,27 +1,25 @@
 import { View, StyleSheet } from "react-native"
 import { DataTable } from "react-native-paper"
-import { Alignment, Colors } from "../../styles"
+import { Alignment, Colors, Preset } from "../../styles"
 
 const SkillsTable = () => {
   return(
-    <View style={{
-      backgroundColor: '#FFF'
-    }}>
-      <DataTable.Header style={styles.tableHeader}>
-        <DataTable.Title style={[{flex: 1}, styles.tableRow]} textStyle={{color: "#FFF"}}>PAS</DataTable.Title>
-        <DataTable.Title style={[{flex: 1}, styles.tableRow]} textStyle={{color: "#FFF"}}>INT</DataTable.Title>
-        <DataTable.Title style={[{flex: 1}, styles.tableRow]} textStyle={{color: "#FFF"}}>EXT</DataTable.Title>
-        <DataTable.Title style={[{flex: 1}, styles.tableRow]} textStyle={{color: "#FFF"}}>FT</DataTable.Title>
-        <DataTable.Title style={[{flex: 1.5}, styles.tableRow]} textStyle={{color: "#FFF"}}>OVR</DataTable.Title>
+    <DataTable style={{flex: 3.5, backgroundColor: Colors.NEUTRALGREYCOLOR, justifyContent: 'center'}}>
+      <DataTable.Header style={Preset.TableHeader}>
+        <DataTable.Title style={[{flex: 1}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>PAS</DataTable.Title>
+        <DataTable.Title style={[{flex: 1}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>INT</DataTable.Title>
+        <DataTable.Title style={[{flex: 1}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>EXT</DataTable.Title>
+        <DataTable.Title style={[{flex: 1}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>FT</DataTable.Title>
+        <DataTable.Title style={[{flex: 1.5}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>OVR</DataTable.Title>
       </DataTable.Header>
-      <DataTable.Row>
-        <DataTable.Cell style={styles.tableRow}>75</DataTable.Cell>
-        <DataTable.Cell style={styles.tableRow}>80</DataTable.Cell>
-        <DataTable.Cell style={styles.tableRow}>95</DataTable.Cell>
-        <DataTable.Cell style={styles.tableRow}>95</DataTable.Cell>
-        <DataTable.Cell style={styles.tableRow}>83</DataTable.Cell>
+      <DataTable.Row style={Preset.TableRow}>
+        <DataTable.Cell style={Preset.TableTextPosition} textStyle={Preset.TableRowTextStyle}>75</DataTable.Cell>
+        <DataTable.Cell style={Preset.TableTextPosition} textStyle={Preset.TableRowTextStyle}>80</DataTable.Cell>
+        <DataTable.Cell style={Preset.TableTextPosition} textStyle={Preset.TableRowTextStyle}>95</DataTable.Cell>
+        <DataTable.Cell style={Preset.TableTextPosition} textStyle={Preset.TableRowTextStyle}>95</DataTable.Cell>
+        <DataTable.Cell style={Preset.TableTextPosition} textStyle={Preset.TableRowTextStyle}>83</DataTable.Cell>
       </DataTable.Row>
-    </View>
+    </DataTable>  
   )
 }
 

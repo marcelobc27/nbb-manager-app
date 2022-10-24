@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
   gameHighlightedWrapper: {
     flex: 0.7,
     width: '100%',
-    backgroundColor: Colors.VARIANTDARKPURPLE
+    backgroundColor: Colors.NEUTRALGREYCOLOR
   },
   gameHighlightedTeamsWrapper: {
     flex: 1,
-    ...Alignment.RowCenterLeft
+    ...Alignment.RowCenterLeft,
   },
   gameHighlightedTeams: {
     margin: 2,
@@ -97,18 +97,22 @@ const styles = StyleSheet.create({
     ...Alignment.RowCenter
   },
   gameHighlightedActionButtonsWrapper: {
-    height: 45,
-    ...Alignment.RowCenterRight,
-    backgroundColor: Colors.PRIMARYORANGECOLOR
+    flex: 0.15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    borderBottomColor: Colors.SOLIDBLACKCOLOR,
+    borderBottomWidth: 4
   },
   gameHighlightedActionButton: {
-    ...Buttons.SmallButton,
-    ...Alignment.ColumnCenter,
     color: Colors.VARIANTDARKPURPLE,
-    backgroundColor: Colors.PRIMARYORANGECOLOR
+    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    marginLeft: 20,
+    marginRight: 20  
   },
   gameHighlightedActionButtonText: {
-    ...Typography.SmallFontBold,
+    ...Typography.MediumFontBold,
     color: Colors.VARIANTDARKPURPLE
   },
   gamesNext: {

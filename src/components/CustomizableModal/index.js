@@ -36,8 +36,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   innerTouchableView: {
-    backgroundColor: '#000',
-    width: '90%'
+    flex: 0.8,
+    backgroundColor: 'red',
+    width: '95%'
   }
 })
 

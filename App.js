@@ -1,16 +1,16 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, SafeAreaView, } from 'react-native';
 import DrawerNavigator from './src/components/DrawerNavigator';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <NavigationContainer>
         <DrawerNavigator/>
       </NavigationContainer>
-    </View>
+    </SafeAreaView>
   );
 }
 

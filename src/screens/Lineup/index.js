@@ -43,16 +43,18 @@ const LineupPlayersTable = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return(
     <View style={styles.lipeupWrapper}>
-      <StandardOrangeSubTitle subtitle="STARTERS"/>
+      <StandardOrangeSubTitle subtitle="ROTATION"/>
+      <View style={{flex: 1}}>
       <TableHeader/>
-      <ScrollView>
-      {league.map((teams, index) => {
+      <ScrollView nestedScrollEnabled={true}>
+      {league.map((teams) => {
         return(
         teams.teams.map(players => {
           return(
-          players.players.map(player => {
+          players.players.map((player, index) => {
             return(
             <PlayersTable
+              key={player.id}
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
               name={player.name}
@@ -69,6 +71,7 @@ const LineupPlayersTable = ({navigation}) => {
       }
       </ScrollView>
       <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
+      </View>
       <StandardOrangeSubTitle subtitle="REST"/>
     </View>
  )
