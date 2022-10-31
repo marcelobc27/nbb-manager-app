@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from "react-native"
 import { Typography, Spacing, Buttons, Alignment, Colors } from "../../../styles"
 import leagues from "../../../data/contents"
 import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle"
@@ -24,7 +24,6 @@ const GamesHighlighted = ({navigation}) => {
       <StandardOrangeSubTitle subtitle="ACTUAL GAME"/>                 
       <View style={styles.gameHighlightedTeamsWrapper}>
         <View style={styles.gameHighlightedTeams}>
-          <Text>Team 1</Text>
         </View>
         <View style={styles.gameHighlightedTeams}>
           <Text>Team 2</Text>

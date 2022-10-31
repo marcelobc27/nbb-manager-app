@@ -19,7 +19,7 @@ const TouchableTitle = ({title, pageName, navigation, visible, setVisible}) => {
   )
 }
 
-const OverlayView = ({visible, setVisible, navigation}) => {
+export const OverlayView = ({visible, setVisible, navigation}) => {
   return(
     <View>
     <CustomizableOverlay overlayVisible={visible} setOverlayVisible={setVisible} justify={'flex-end'} alignment={'flex-end'}>
@@ -34,8 +34,7 @@ const OverlayView = ({visible, setVisible, navigation}) => {
   )
 }
 
-const FabComponent = ({navigation}) => {
-  const [visibleOverlay, setVisibleOverlay] = useState(false)
+const FabComponent = ({navigation, visibleOverlay, setVisibleOverlay, children}) => {
   const [icon, setIcon] = useState('')
 
   const ToggleIcon = () => {
@@ -60,7 +59,7 @@ const FabComponent = ({navigation}) => {
           setVisibleOverlay(!visibleOverlay)
         }}
       />
-      <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay} navigation={navigation}/>
+      {children}
     </View>
   )  
 }

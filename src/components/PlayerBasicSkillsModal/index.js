@@ -18,6 +18,13 @@ const HeaderContent = () => {
         />
         <CustomizableSubTitle 
           color={Colors.SOLIDWHITECOLOR} 
+          subtitle="100%" 
+          flex={1} 
+          backgroundColor={Colors.VARIANTGREEN}
+          alignment="center"
+        />
+        <CustomizableSubTitle 
+          color={Colors.SOLIDWHITECOLOR} 
           subtitle="A+" 
           flex={1} 
           backgroundColor={Colors.VARIANTBLUE}

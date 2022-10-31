@@ -15,7 +15,13 @@ import { Alignment, Colors, Typography } from "../../styles"
 import PlayersDevelopment from "../../screens/PlayersDevelopment"
 import Statistics from "../../screens/Statistics"
 import Trades from "../../screens/Trades"
-import { StyleSheet, TouchableOpacity, Text } from "react-native"
+import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from "react-native"
+import JuniorLeague from "../../screens/JuniorLeague"
+import FreeAgents from "../../screens/FreeAgents"
+import SimulateGate from "../../screens/SimulateGame"
+import Finance from "../../screens/Finances"
+import Sponsors from "../../screens/Sponsors"
+import Calendar from "../../screens/Calendar"
 
 const Drawer = createDrawerNavigator()
 
@@ -23,8 +29,8 @@ const drawerItems = [
   //GameMarkdown
   {"id": "1", "title": "GAME", "name": "GameMarkdown", "component": Home, "type": "Markdown"},
   {"id": "2", "title": "FEED", "name": "HomeScreen", "component": Home, "type": "Page"},
-  {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": Home, "type": "Page"},
-  {"id": "4", "title": "CALENDAR", "name": "CalendarScreen", "component": Home, "type": "Page"},
+  {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGate, "type": "Page"},
+  {"id": "4", "title": "CALENDAR", "name": "CalendarScreen", "component": Calendar, "type": "Page"},
   //Management Markdown
   {"id": "5", "title": "MANAGEMENT", "name": "ManagementMarkdown", "component": Home, "type": "Markdown"},
   {"id": "6", "title": "LINEUP", "name": "LineupScreen", "component": Lineup, "type": "Page"},
@@ -37,10 +43,10 @@ const drawerItems = [
   //Market Markdown
   {"id": "13", "title": "MARKET", "name": "MarketMarkdown", "component": Home, "type": "Markdown"},
   {"id": "14", "title": "TRADES", "name": "TradesScreen", "component": Trades, "type": "Page"},
-  {"id": "15", "title": "FREE AGENTS", "name": "FreeAgentsScreen", "component": Trades, "type": "Page"},
-  {"id": "16", "title": "JUNIORS LEAGUE", "name": "JuniorLeagueScreen", "component": Trades, "type": "Page"},
-  {"id": "17", "title": "FINANCES", "name": "FinancesScreen", "component": Trades, "type": "Page"},
-  {"id": "18", "title": "SPONSORS", "name": "SponsorsScreen", "component": Trades, "type": "Page"},
+  {"id": "15", "title": "FREE AGENTS", "name": "FreeAgentsScreen", "component": FreeAgents, "type": "Page"},
+  {"id": "16", "title": "JUNIORS LEAGUE", "name": "JuniorLeagueScreen", "component": JuniorLeague, "type": "Page"},
+  {"id": "17", "title": "FINANCES", "name": "FinancesScreen", "component": Finance, "type": "Page"},
+  {"id": "18", "title": "SPONSORS", "name": "SponsorsScreen", "component": Sponsors, "type": "Page"},
   //Honors Room Markdown
   {"id": "19", "title": "HONORS ROOM", "name": "HonorsRoomMarkdown", "component": Home, "type": "Markdown"},
   {"id": "20", "title": "LEGENDS", "name": "LegendsScreen", "component": Home, "type": "Page"},

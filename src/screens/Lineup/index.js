@@ -4,6 +4,7 @@ import { Button, DataTable } from 'react-native-paper'
 import league from "../../data/contents"
 import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal"
 import FabComponent from "../../components/Fab"
+import {OverlayView} from '../../components/Fab'
 import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle"
 import { Alignment, Colors, Preset, Typography } from "../../styles"
 
@@ -21,7 +22,8 @@ const TableHeader = () => {
 const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisible}) => {
   return(
     <DataTable.Row
-      onPress={() => setModalVisible(!modalVisible)}
+      onPress={() => console.log("teste")}
+      onLongPress={() => setModalVisible(!modalVisible)}
     >
       <DataTable.Cell style={[{flex: 0.40}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{name.toUpperCase()}</DataTable.Cell>
       <DataTable.Cell style={[{flex: 0.30}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{position.toUpperCase()}</DataTable.Cell>
@@ -46,7 +48,7 @@ const LineupPlayersTable = ({navigation}) => {
       <StandardOrangeSubTitle subtitle="ROTATION"/>
       <View style={{flex: 1}}>
       <TableHeader/>
-      <ScrollView nestedScrollEnabled={true}>
+      <ScrollView>
       {league.map((teams) => {
         return(
         teams.teams.map(players => {
@@ -78,11 +80,15 @@ const LineupPlayersTable = ({navigation}) => {
 }
 
 const Lineup = ({navigation}) => {
+  const [visibleOverlay, setVisibleOverlay] = useState(false)
+
   return(
     <View style={styles.container}>
       <HeaderImage/>
       <LineupPlayersTable navigation={navigation}/>
-      <FabComponent navigation={navigation}/>
+      <FabComponent navigation={navigation} visibleOverlay={visibleOverlay} setVisibleOverlay={setVisibleOverlay}>
+        <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay} navigation={navigation}/>
+      </FabComponent>
     </View>
   )
 }
