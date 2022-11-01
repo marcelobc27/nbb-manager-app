@@ -19,7 +19,7 @@ import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from "react-nati
 import JuniorLeague from "../../screens/JuniorLeague"
 import FreeAgents from "../../screens/FreeAgents"
 import SimulateGate from "../../screens/SimulateGame"
-import Finance from "../../screens/Finances"
+import Finances from "../../screens/Finances"
 import Sponsors from "../../screens/Sponsors"
 import Calendar from "../../screens/Calendar"
 
@@ -45,7 +45,7 @@ const drawerItems = [
   {"id": "14", "title": "TRADES", "name": "TradesScreen", "component": Trades, "type": "Page"},
   {"id": "15", "title": "FREE AGENTS", "name": "FreeAgentsScreen", "component": FreeAgents, "type": "Page"},
   {"id": "16", "title": "JUNIORS LEAGUE", "name": "JuniorLeagueScreen", "component": JuniorLeague, "type": "Page"},
-  {"id": "17", "title": "FINANCES", "name": "FinancesScreen", "component": Finance, "type": "Page"},
+  {"id": "17", "title": "FINANCES", "name": "FinancesScreen", "component": Finances, "type": "Page"},
   {"id": "18", "title": "SPONSORS", "name": "SponsorsScreen", "component": Sponsors, "type": "Page"},
   //Honors Room Markdown
   {"id": "19", "title": "HONORS ROOM", "name": "HonorsRoomMarkdown", "component": Home, "type": "Markdown"},

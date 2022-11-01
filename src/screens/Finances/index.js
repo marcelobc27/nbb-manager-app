@@ -1,11 +1,13 @@
-import { Text, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
+import sponsors from "../../data/sponsor"
+import { Colors } from "../../styles"
 
-const Finance = () => {
+const Finances = () => {
   return(
-    <View>
-      <Text></Text>
+    <View style={styles.financeContainer}>
+      Teste
     </View>
   )   
 }
 
-export default Finance
+export default Finances
