@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native"
+import { Modal, Portal, Provider } from 'react-native-paper';
 import sponsors from "../../data/sponsor"
 import { Colors } from "../../styles"
 
-const SponsorSection = ({name, income, years, type }) => {
+const SponsorSection = ({name, income, years, type, showModal}) => {
   const [backgroundColor, setBackgroundColor] = useState('')
 
   const changeColor = () => {
@@ -22,10 +23,13 @@ const SponsorSection = ({name, income, years, type }) => {
 
   return(
     <View style={styles.sponsorWrapper}>
-      <View style={[{backgroundColor: backgroundColor}, styles.sponsorInfoWrapper]}>
+      <TouchableOpacity 
+        style={[{backgroundColor: backgroundColor}, styles.sponsorInfoWrapper]}
+        onPress={showModal}
+      >
         <Text style={styles.sponsorNameText}>{name}</Text>
         <Text style={styles.contractYearText}>{`${years} YEARS`}</Text>
-      </View>
+      </TouchableOpacity>
       <View style={styles.sponsorValueWrapper}>
         <Text style={styles.contractYearText}>{`${income}.000,00`}</Text>
       </View>
@@ -33,14 +37,38 @@ const SponsorSection = ({name, income, years, type }) => {
   )
 }
 
+const SponsorModal = () => {
+  const [visible, setVisible] = useState(false);
+
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+
+  return(
+    <>
+      <Portal>
+        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modalContainerStyle}>
+          <View style={styles.modalButtonWrapper}>
+            <TouchableOpacity style={styles.modalButton}>
+              <Text style={styles.modalButtonText}>Break the Contract</Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+      </Portal>
+      {sponsors.map((sponsor) => {
+        return(
+          <SponsorSection key={sponsor.id} name={sponsor.name} type={sponsor.type} years={sponsor.contractYears} income={sponsor.monthlyIncome} showModal={showModal}/>
+        )
+      })}
+    </>
+  )
+}
+
 const Sponsors = () => {
   return(
     <View style={styles.sponsorContainer}>
-      {sponsors.map((sponsor) => {
-        return(
-          <SponsorSection key={sponsor.id} name={sponsor.name} type={sponsor.type} years={sponsor.contractYears} income={sponsor.monthlyIncome}/>
-        )
-      })}
+      <Provider>
+        <SponsorModal/>  
+      </Provider>
     </View>
   )   
 }
@@ -73,6 +101,27 @@ const styles = StyleSheet.create({
   },
   sponsorNameText: {
     fontSize: 24
+  },
+  modalContainerStyle: {
+    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: 'white',
+    margin: 20,
+  },
+  modalButtonWrapper: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  modalButton: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: Colors.VARIANTRED
+  },
+  modalButtonText: {
+    flex: 1,
+    fontSize: 20,
+    color: Colors.SOLIDWHITECOLOR
   }
 })
 
