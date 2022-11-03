@@ -2,7 +2,6 @@ import { StyleSheet, TouchableOpacity, View } from "react-native"
 import PickerComponent from "../../components/Picker"
 import CustomizableSubtitle from '../../components/CustomizableSubTitle'
 import { Alignment, Colors, Typography } from "../../styles"
-import TableComponent from "../../components/TableComponent"
 
 const PickerSection = () => {
   return(
@@ -17,7 +16,6 @@ const OfferorTeam = () => {
   return(
     <View style={styles.offerorTeam}>
       <CustomizableSubtitle flex={0.15} subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
-      <TableComponent/>
       <View style={styles.ButtonsSection}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTGREEN},styles.offerorTeamButton]}>
           CHECK OFFERS
@@ -31,7 +29,6 @@ const OffereeTeam = () => {
   return(
     <View style={styles.offereeTeam}>
       <CustomizableSubtitle flex={0.15} subtitle="TEAM B NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
-      <TableComponent/>
       <View style={styles.ButtonsSection}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTRED}, styles.offerorTeamButton]}>
           CANCEL

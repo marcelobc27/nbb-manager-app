@@ -1,13 +1,70 @@
 import { StyleSheet, Text, View } from "react-native"
-import sponsors from "../../data/sponsor"
-import { Colors } from "../../styles"
+import { FinanceTableHeader, FinanceTableRow } from "../../components/FinanceTableComponent"
+import finances from "../../data/finances"
+
+const InitialBudget = () => {
+  return(
+    <View style={styles.initialBudgetWrapper}>
+      Teste
+    </View>
+  )
+}
+
+const Incomes = () => {
+  return(
+    <View style={styles.incomesWrapper}>
+      <FinanceTableHeader title="INCOMES"/>
+      <FinanceTableRow contents={finances} type="incomes"/>
+    </View>
+  )
+}
+
+const Expenses = () => {
+  return(
+    <View style={styles.incomesWrapper}>
+      <FinanceTableHeader title="EXPENSES"/>
+      <FinanceTableRow contents={finances} type="expenses"/>
+    </View>
+  )
+}
+
+const Balance = () => {
+  return(
+    <View style={styles.balanceWrapper}>
+      Teste
+    </View>
+  )
+}
 
 const Finances = () => {
   return(
-    <View style={styles.financeContainer}>
-      Teste
+    <View style={styles.financesContainer}>
+      <InitialBudget/>
+      <Incomes/>
+      <Expenses/>
+      <Balance/>
     </View>
   )   
 }
+
+const styles = StyleSheet.create({
+  financesContainer: {
+    flex: 1
+  },
+  initialBudgetWrapper: {
+    flex: 0.1
+  },
+  incomesWrapper: {
+    flex: 0.4,
+    margin: 4
+  },
+  expensesWrapper: {
+    flex: 0.4,
+    margin: 4
+  },
+  balanceWrapper: {
+    flex: 0.1
+  }
+})
 
 export default Finances
