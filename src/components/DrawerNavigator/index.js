@@ -8,6 +8,7 @@ import Home from "../../screens/Home"
 import Standing from "../../screens/Standing"
 import Lineup from "../../screens/Lineup"
 import ModalTest from "../../screens/ModalTeste"
+import GlobalTable from "../GlobalTable"
 import DetailedPlayerSkills from "../../screens/DetailedPlayerSkills"
 import GameStyle from "../../screens/GameStyle"
 import Rotation from "../Rotation"
@@ -49,7 +50,7 @@ const drawerItems = [
   {"id": "18", "title": "SPONSORS", "name": "SponsorsScreen", "component": Sponsors, "type": "Page"},
   //Honors Room Markdown
   {"id": "19", "title": "HONORS ROOM", "name": "HonorsRoomMarkdown", "component": Home, "type": "Markdown"},
-  {"id": "20", "title": "LEGENDS", "name": "LegendsScreen", "component": Home, "type": "Page"},
+  {"id": "20", "title": "GLOBAL TABLE", "name": "LegendsScreen", "component": GlobalTable, "type": "Page"},
   {"id": "21", "title": "AWARDS", "name": "AwardsScreen", "component": Home, "type": "Page"},
 ]
 

@@ -45,6 +45,7 @@ const SponsorModal = () => {
 
   return(
     <>
+      <Provider>
       <Portal>
         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modalContainerStyle}>
           <View style={styles.modalButtonWrapper}>
@@ -59,6 +60,7 @@ const SponsorModal = () => {
           <SponsorSection key={sponsor.id} name={sponsor.name} type={sponsor.type} years={sponsor.contractYears} income={sponsor.monthlyIncome} showModal={showModal}/>
         )
       })}
+      </Provider>
     </>
   )
 }
@@ -66,9 +68,7 @@ const SponsorModal = () => {
 const Sponsors = () => {
   return(
     <View style={styles.sponsorContainer}>
-      <Provider>
-        <SponsorModal/>  
-      </Provider>
+      <SponsorModal/>  
     </View>
   )   
 }

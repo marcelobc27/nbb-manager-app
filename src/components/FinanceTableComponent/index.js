@@ -16,6 +16,7 @@ export const FinanceTableHeader = ({title}) => {
 
 export const FinanceTableRow = ({contents = [], type}) => {
   const result = contents.filter(result => result.type === type)
+  
   return(
       result.map(item => {
         return(
@@ -23,7 +24,7 @@ export const FinanceTableRow = ({contents = [], type}) => {
             <DataTable.Cell 
               style={[Preset.TableTextPosition]} 
               textStyle={Preset.TableRowTextStyle}>
-                {item.name}
+                {item.name.toUpperCase()}
             </DataTable.Cell>
             <DataTable.Cell 
               style={[Preset.TableTextPosition]} 
