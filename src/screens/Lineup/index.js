@@ -1,37 +1,13 @@
 import { useState } from "react"
-import { Image, StyleSheet, Text, View, TouchableOpacity, ScrollView } from "react-native"
-import { Button, DataTable } from 'react-native-paper'
-import league from "../../data/contents"
+import { StyleSheet, View, ScrollView } from "react-native"
 import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal"
 import FabComponent from "../../components/Fab"
 import {OverlayView} from '../../components/Fab'
 import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle"
 import { Alignment, Colors, Preset, Typography } from "../../styles"
-
-const TableHeader = () => {
-  return(
-    <DataTable.Header style={Preset.TableHeader}>
-      <DataTable.Title style={[{flex: 0.40}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>NAME</DataTable.Title>
-      <DataTable.Title style={[{flex: 0.30}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>POS</DataTable.Title>
-      <DataTable.Title style={[{flex: 0.15}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>AGE</DataTable.Title>
-      <DataTable.Title style={[{flex: 0.15}, Preset.TableTextPosition]} textStyle={Preset.TableHeaderTextStyle}>OVR</DataTable.Title>
-    </DataTable.Header>
-  )
-}
-
-const PlayersTable = ({name, age, position, overrall, modalVisible, setModalVisible}) => {
-  return(
-    <DataTable.Row
-      onPress={() => console.log("teste")}
-      onLongPress={() => setModalVisible(!modalVisible)}
-    >
-      <DataTable.Cell style={[{flex: 0.40}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{name.toUpperCase()}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 0.30}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{position.toUpperCase()}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 0.15}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{age}</DataTable.Cell>
-      <DataTable.Cell style={[{flex: 0.15}, Preset.TableRow]} textStyle={Preset.TableRowTextStyle}>{overrall}</DataTable.Cell>
-    </DataTable.Row>
-  )
-}
+import PlayersTable from "../../components/Tables/PlayersTable"
+import players from "../../data/players"
+import { useNavigation } from "@react-navigation/native"
 
 const HeaderImage = () => {
   return(
@@ -41,53 +17,49 @@ const HeaderImage = () => {
   )
 }
 
-const LineupPlayersTable = ({navigation}) => {
+const LineupPlayersTable = () => {
+  const navigation = useNavigation()
   const [modalVisible, setModalVisible] = useState(false);
+  const header = ["name", "age", "position", "overall"];
+
   return(
     <View style={styles.lipeupWrapper}>
-      <StandardOrangeSubTitle subtitle="ROTATION"/>
       <View style={{flex: 1}}>
-      <TableHeader/>
-      <ScrollView>
-      {league.map((teams) => {
-        return(
-        teams.teams.map(players => {
-          return(
-          players.players.map((player, index) => {
-            return(
-            <PlayersTable
-              key={player.id}
-              modalVisible={modalVisible}
-              setModalVisible={setModalVisible}
-              name={player.name}
-              age={player.age}
-              position={player.position}
-              overrall={player.attackoverrall}   
-            />
-            )
-          })
-          )
-        })
-        )          
-        })
-      }
+        <StandardOrangeSubTitle subtitle="ROTATION"/>
+      </View>
+      <ScrollView style={{flex: 5}}>
+        <PlayersTable 
+          header={header} 
+          contents={players} 
+          modalVisible={modalVisible} 
+          setModalVisible={setModalVisible}/>
       </ScrollView>
+      <View style={{flex: 1}}>
+        <StandardOrangeSubTitle subtitle="REST"/>
+      </View>
+      <ScrollView style={{flex: 3}}>
+        <PlayersTable 
+          header={header} 
+          contents={players} 
+          modalVisible={modalVisible} 
+          setModalVisible={setModalVisible}/>
+      </ScrollView>
+      <View style={{flex: 0}}>
       <PlayerBasicSkillsModal navigation={navigation} modalVisible={modalVisible} setModalVisible={setModalVisible}/>
       </View>
-      <StandardOrangeSubTitle subtitle="REST"/>
     </View>
  )
 }
 
-const Lineup = ({navigation}) => {
+const Lineup = () => {
   const [visibleOverlay, setVisibleOverlay] = useState(false)
 
   return(
     <View style={styles.container}>
       <HeaderImage/>
-      <LineupPlayersTable navigation={navigation}/>
-      <FabComponent navigation={navigation} visibleOverlay={visibleOverlay} setVisibleOverlay={setVisibleOverlay}>
-        <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay} navigation={navigation}/>
+      <LineupPlayersTable/>
+      <FabComponent visibleOverlay={visibleOverlay} setVisibleOverlay={setVisibleOverlay}>
+        <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay}/>
       </FabComponent>
     </View>
   )

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import {useEffect, useState} from 'react';
 import {View, Text, Animated, Button, TouchableHighlight, TouchableOpacity} from 'react-native'
 import { StyleSheet } from 'react-native';
@@ -5,7 +6,9 @@ import { FAB } from 'react-native-paper';
 import { Alignment, Colors, Spacing, Typography } from '../../styles';
 import CustomizableOverlay from '../CustomizableOverlay';
 
-const TouchableTitle = ({title, pageName, navigation, visible, setVisible}) => {
+const TouchableTitle = ({title, pageName, visible, setVisible}) => {
+  const navigation = useNavigation()
+
   return(
     <TouchableOpacity 
       style={styles.overlayButton}
@@ -19,22 +22,23 @@ const TouchableTitle = ({title, pageName, navigation, visible, setVisible}) => {
   )
 }
 
-export const OverlayView = ({visible, setVisible, navigation}) => {
+export const OverlayView = ({visible, setVisible}) => {
+  
   return(
     <View>
     <CustomizableOverlay overlayVisible={visible} setOverlayVisible={setVisible} justify={'flex-end'} alignment={'flex-end'}>
     <View style={styles.overlay}>
       <TouchableTitle title="PlayBook"/>
-      <TouchableTitle title="Game Style" pageName="GameStyleScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
-      <TouchableTitle title="Development" pageName="PlayersDevelopmentScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
-      <TouchableTitle title="Rotation"pageName="RotationScreen" navigation={navigation} visible={visible} setVisible={setVisible}/>
+      <TouchableTitle title="Game Style" pageName="GameStyleScreen" visible={visible} setVisible={setVisible}/>
+      <TouchableTitle title="Development" pageName="PlayersDevelopmentScreen" visible={visible} setVisible={setVisible}/>
+      <TouchableTitle title="Rotation"pageName="RotationScreen" visible={visible} setVisible={setVisible}/>
     </View>
     </CustomizableOverlay>
     </View>
   )
 }
 
-const FabComponent = ({navigation, visibleOverlay, setVisibleOverlay, children}) => {
+const FabComponent = ({visibleOverlay, setVisibleOverlay, children}) => {
   const [icon, setIcon] = useState('')
 
   const ToggleIcon = () => {

@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from "rea
 import { Typography, Spacing, Buttons, Alignment, Colors } from "../../../styles"
 import leagues from "../../../data/contents"
 import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle"
+import { useNavigation } from "@react-navigation/native"
 
 const NextGame = ({team}) => {
   return(
@@ -18,10 +19,14 @@ const NextGame = ({team}) => {
   )
 }
 
-const GamesHighlighted = ({navigation}) => {
+const GamesHighlighted = () => {
+  const navigation = useNavigation()
+
   return(
     <View style={styles.gameHighlightedWrapper}>
-      <StandardOrangeSubTitle subtitle="ACTUAL GAME"/>                 
+      <View style={{flex: 0.2}}>
+        <StandardOrangeSubTitle subtitle="ACTUAL GAME"/>                 
+      </View>
       <View style={styles.gameHighlightedTeamsWrapper}>
         <View style={styles.gameHighlightedTeams}>
         </View>
@@ -58,10 +63,10 @@ const NextGames = () => {
   )
 }
 
-const Games = ({navigation}) => {
+const Games = () => {
   return(
     <View style={styles.gamesWrapper}>
-      <GamesHighlighted navigation={navigation}/>
+      <GamesHighlighted/>
       <NextGames/>              
     </View>
   )
@@ -96,7 +101,7 @@ const styles = StyleSheet.create({
     ...Alignment.RowCenter
   },
   gameHighlightedActionButtonsWrapper: {
-    flex: 0.15,
+    flex: 0.2,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

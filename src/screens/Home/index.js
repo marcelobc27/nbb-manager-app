@@ -3,11 +3,11 @@ import Footer from "./Footer/Index"
 import Header from "./Header/Index"
 import Games from "./Games/Index"
 
-const Home = ({navigation}) => {
+const Home = () => {
   return(
     <View style={styles.container}>
       <Header/>
-      <Games navigation={navigation}/>
+      <Games/>
       <Footer/>
     </View>
   )

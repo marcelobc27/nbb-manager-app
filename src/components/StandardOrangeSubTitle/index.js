@@ -11,7 +11,7 @@ const StandardOrangeSubTitle = ({subtitle}) => {
 
 const styles = StyleSheet.create({
   subtitle_wrapper: {
-    flex: 0.15,
+    flex: 1,
     ...Alignment.RowCenterLeft,
     backgroundColor: Colors.PRIMARYORANGECOLOR,
     borderBottomWidth: 4,
