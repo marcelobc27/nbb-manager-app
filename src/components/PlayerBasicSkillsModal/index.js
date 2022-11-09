@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, View, TouchableOpacity, Button, Text } from "react-native";
 import CustomizableSubTitle from "../CustomizableSubTitle/index.js";
-import SkillsTable from "../SkillsTable.js/index.js";
 import { Alignment, Colors, Typography } from "../../styles/index.js";
 import CustomizableModal from "../CustomizableModal/index.js";
 
@@ -57,7 +56,6 @@ const TitleAndTable = () => {
   return(
     <View style={{flex: 1, margin: 4}}>
       <CustomizableSubTitle subtitle="TESTE" flex={1.5} backgroundColor={Colors.PRIMARYORANGECOLOR}/>
-      <SkillsTable/>
     </View>    
   )
 }

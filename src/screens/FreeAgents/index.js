@@ -36,7 +36,10 @@ const FreeAgentsTable = ({showModal, header = [], items = []}) => {
         items.map(i => (
           <DataTable.Row>
             {mock.header.map((c) => (
-              <DataTable.Cell>{i[c]}</DataTable.Cell>
+              c === Object.keys(i).toString()
+              ?
+              console.log("worked")
+              : console.log(Object.keys(i))
             ))}
           </DataTable.Row>
         ))
@@ -72,7 +75,7 @@ const ModalContent = () => {
   );
 };
 
-const FreeAgentsModal = ({content }) => {
+const FreeAgentsModal = ({content}) => {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => setVisible(true);

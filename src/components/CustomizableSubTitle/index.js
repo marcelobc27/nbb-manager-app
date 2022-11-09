@@ -11,7 +11,6 @@ const CustomizableSubTitle = ({subtitle, flex, backgroundColor, color, alignment
 
 const styles = StyleSheet.create({
   subtitle_text: {
-    marginLeft: 10,
     ...Typography.SmallFontBold
   }
 })

@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native"
-import { FinanceTableHeader, FinanceTableRow } from "../../components/FinanceTableComponent"
 import finances from "../../data/finances"
 
 const InitialBudget = () => {
@@ -13,8 +12,7 @@ const InitialBudget = () => {
 const Incomes = () => {
   return(
     <View style={styles.incomesWrapper}>
-      <FinanceTableHeader title="INCOMES"/>
-      <FinanceTableRow contents={finances} type="incomes"/>
+
     </View>
   )
 }
@@ -22,8 +20,7 @@ const Incomes = () => {
 const Expenses = () => {
   return(
     <View style={styles.incomesWrapper}>
-      <FinanceTableHeader title="EXPENSES"/>
-      <FinanceTableRow contents={finances} type="expenses"/>
+
     </View>
   )
 }

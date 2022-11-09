@@ -1,7 +1,24 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import PickerComponent from "../../components/Picker"
 import CustomizableSubtitle from '../../components/CustomizableSubTitle'
 import { Alignment, Colors, Typography } from "../../styles"
+import TradesTable from "../../components/Tables/TradesTable"
+
+const header = ["name", "age", "contract", "salary"]
+const contents = [
+  {
+    name: "Teste",
+    age: 22,
+    contract: 2,
+    salary: 50000,
+  },
+  {
+    name: "Teste2",
+    age: 21,
+    contract: 3,
+    salary: 60000,
+  }
+]
 
 const PickerSection = () => {
   return(
@@ -14,11 +31,16 @@ const PickerSection = () => {
 
 const OfferorTeam = () => {
   return(
-    <View style={styles.offerorTeam}>
-      <CustomizableSubtitle flex={0.15} subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
-      <View style={styles.ButtonsSection}>
+    <View style={styles.offerorTeamWrapper}>
+      <View style={styles.subtitleWrapper}>
+        <CustomizableSubtitle flex={1} subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
+      </View>
+      <View style={styles.contentWrapper}>
+        <TradesTable header={header} contents={contents}/>
+      </View>
+      <View style={styles.ButtonsWrapper}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTGREEN},styles.offerorTeamButton]}>
-          CHECK OFFERS
+          <Text>CHECK OFFERS</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -27,14 +49,23 @@ const OfferorTeam = () => {
 
 const OffereeTeam = () => {
   return(
-    <View style={styles.offereeTeam}>
-      <CustomizableSubtitle flex={0.15} subtitle="TEAM B NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
-      <View style={styles.ButtonsSection}>
+    <View style={styles.offereeTeamWrapper}>
+      <View style={styles.subtitleWrapper}>
+        <CustomizableSubtitle 
+          flex={1} 
+          subtitle="TEAM B NAME" 
+          backgroundColor={Colors.VARIANTBLUE} 
+          color={Colors.SOLIDWHITECOLOR}/>
+      </View>
+      <View style={styles.contentWrapper}>
+        <TradesTable header={header} contents={contents}/>
+      </View>
+      <View style={styles.ButtonsWrapper}>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTRED}, styles.offerorTeamButton]}>
-          CANCEL
+          <Text>CANCEL</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[{backgroundColor: Colors.VARIANTGREEN}, styles.offerorTeamButton]}>
-          ACCEPT
+          <Text>ACCEPT</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -44,11 +75,9 @@ const OffereeTeam = () => {
 const Trades = () => {
   return(
     <View style={styles.container}>
-      <View style={styles.tradesWrapper}>
-        <PickerSection/>
-        <OfferorTeam/>
-        <OffereeTeam/>
-      </View>
+      <PickerSection/>
+      <OfferorTeam/>
+      <OffereeTeam/>
     </View>
   )     
 }
@@ -56,24 +85,28 @@ const Trades = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 4,
     backgroundColor: Colors.SOLIDWHITECOLOR
-  },
-  tradesWrapper: {
-    flex: 1,
-    margin: 5,
-    backgroundColor: Colors.NEUTRALGREYCOLOR
   },
   pickerWrapper: {
     flex: 0.1,
     ...Alignment.RowCenter,
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },
-  offerorTeam: {
+  offerorTeamWrapper: {
     flex: 0.45,
-    marginBottom: 10,
+    justifyContent: "center",
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },
-  ButtonsSection: {
+  subtitleWrapper: {
+    flex: 0.2, 
+    justifyContent: "center"
+  },
+  contentWrapper: {
+    flex: 1, 
+    justifyContent: "center"
+  },
+  ButtonsWrapper: {
     flex: 0.2,
     ...Alignment.RowBottomLeft
   },
@@ -85,9 +118,10 @@ const styles = StyleSheet.create({
     color: Colors.SOLIDWHITECOLOR,
     ...Typography.MediumFontBold
   },
-  offereeTeam: {
+  offereeTeamWrapper: {
     flex: 0.45,
     marginBottom: 10,
+    justifyContent: 'center',
     backgroundColor: Colors.NEUTRALGREYCOLOR
   }
 })
