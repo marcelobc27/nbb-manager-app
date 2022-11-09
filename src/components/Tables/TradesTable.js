@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { DataTable } from "react-native-paper";
 import { Preset } from "../../styles";
 
-const header = ["name", "age", "contract", "salary"];
+const header = ["name", "age", ("contract").substring(0, 1), "salary"];
 
 const TradesTable = ({ header = [], contents = [] }) => {
   return (
