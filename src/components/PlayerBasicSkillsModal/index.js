@@ -9,6 +9,8 @@ import CustomizableSubTitle from "../CustomizableSubTitle/index.js";
 import { Alignment, Colors, Typography } from "../../styles/index.js";
 import CustomizableModal from "../CustomizableModal/index.js";
 import { useNavigation } from "@react-navigation/native";
+import SkillsTable from "../Tables/SkillsTable.js";
+import skills from "../../data/skills.js";
 
 const HeaderContent = () => {
   return (
@@ -58,14 +60,15 @@ const FooterButton = ({ modalVisible, setModalVisible }) => {
   );
 };
 
-const TitleAndTable = () => {
+const SubtitleAndSkillTable = ({title, content = []}) => {
   return (
-    <View style={{ flex: 1, margin: 4 }}>
+    <View style={{ flex: 1}}>
       <CustomizableSubTitle
-        subtitle="TESTE"
-        flex={1.5}
+        subtitle={title}
+        flex={0.5}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
+      <SkillsTable contents={content}/>
     </View>
   );
 };
@@ -73,7 +76,9 @@ const TitleAndTable = () => {
 const MainContent = () => {
   return (
     <View style={styles.mainContentWrapper}>
-      <TitleAndTable />
+      <SubtitleAndSkillTable title="OFENSIVE SKILLS" content={skills.offensiveskills}/>
+      <SubtitleAndSkillTable title="DEFENSIVE SKILLS" content={skills.defensiveskills}/>
+      <SubtitleAndSkillTable title="GENERAL SKILLS" content={skills.generalskills}/>
     </View>
   );
 };
@@ -82,9 +87,6 @@ const PlayerBasicSkillsModalContent = ({ modalVisible, setModalVisible }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#000" }}>
       <HeaderContent />
-      <MainContent />
-      <MainContent />
-      <MainContent />
       <MainContent />
       <FooterButton
         modalVisible={modalVisible}
@@ -110,7 +112,7 @@ const PlayerBasicSkillsModal = ({ modalVisible, setModalVisible }) => {
 
 const styles = StyleSheet.create({
   contentHeaderWrapper: {
-    flex: 0.2,
+    flex: 0.15,
     flexShrink: 0,
   },
   contentHeader: {
@@ -119,12 +121,12 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   mainContentWrapper: {
-    flex: 0.8,
+    flex: 0.7,
     justifyContent: "center",
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
   buttonWrapper: {
-    flex: 0.2,
+    flex: 0.15,
     flexShrink: 0,
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },

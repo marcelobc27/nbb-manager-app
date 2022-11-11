@@ -6,8 +6,6 @@ import { Preset } from "../../styles";
 const header = ["name", "age", "position", "overall"];
 
 const PlayersTable = ({ header = [], contents = [],  modalVisible, setModalVisible}) => {
-  const navigation = useNavigation()
-
   return (
     <View style={Preset.TableContainer}>
       <DataTable.Header style={Preset.TableHeader}>
