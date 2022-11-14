@@ -34,7 +34,7 @@ const HeaderContent = () => {
           color={Colors.SOLIDWHITECOLOR}
           subtitle="A+"
           flex={1}
-          backgroundColor={Colors.VARIANTBLUE}
+          backgroundColor={Colors.SOLIDBLACKCOLOR}
           alignment="center"
         />
       </View>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   detailedSkillsButton: {
     flex: 1,
     ...Alignment.ColumnCenter,
-    backgroundColor: Colors.VARIANTBLUE,
+    backgroundColor: Colors.SOLIDBLACKCOLOR,
   },
   detailedSkillsButtonText: {
     ...Typography.MediumFontBold,

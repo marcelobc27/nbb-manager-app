@@ -12,7 +12,7 @@ const Header = () => {
 const styles = StyleSheet.create({
   headerWrapper: {
     flex: 0.2,
-    backgroundColor: Colors.VARIANTBLUE,
+    backgroundColor: Colors.SOLIDBLACKCOLOR,
     ...Alignment.ColumnCenter
   },
 })

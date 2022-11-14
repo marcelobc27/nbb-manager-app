@@ -33,7 +33,7 @@ const OfferorTeam = () => {
   return(
     <View style={styles.offerorTeamWrapper}>
       <View style={styles.subtitleWrapper}>
-        <CustomizableSubtitle flex={1} subtitle="TEAM A NAME" backgroundColor={Colors.VARIANTBLUE} color={Colors.SOLIDWHITECOLOR}/>
+        <CustomizableSubtitle flex={1} subtitle="TEAM A NAME" backgroundColor={Colors.SOLIDBLACKCOLOR} color={Colors.SOLIDWHITECOLOR}/>
       </View>
       <View style={styles.contentWrapper}>
         <TradesTable header={header} contents={contents}/>
@@ -54,7 +54,7 @@ const OffereeTeam = () => {
         <CustomizableSubtitle 
           flex={1} 
           subtitle="TEAM B NAME" 
-          backgroundColor={Colors.VARIANTBLUE} 
+          backgroundColor={Colors.SOLIDBLACKCOLOR} 
           color={Colors.SOLIDWHITECOLOR}/>
       </View>
       <View style={styles.contentWrapper}>

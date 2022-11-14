@@ -11,7 +11,7 @@ const Header = () => {
         <CustomizableSubTitle 
           subtitle="A+" 
           flex={1} 
-          backgroundColor={Colors.VARIANTBLUE} 
+          backgroundColor={Colors.SOLIDBLACKCOLOR} 
           color={Colors.SOLIDWHITECOLOR}
         />
       </View>
@@ -19,14 +19,14 @@ const Header = () => {
         <CustomizableSubTitle 
           subtitle="COACH NAME" 
           flex={1} 
-          backgroundColor={Colors.VARIANTBLUE} 
+          backgroundColor={Colors.SOLIDBLACKCOLOR} 
           color={Colors.SOLIDWHITECOLOR}
           alignment="center"
         />
         <CustomizableSubTitle 
           subtitle="COACH AGE" 
           flex={1} 
-          backgroundColor={Colors.VARIANTBLUE} 
+          backgroundColor={Colors.SOLIDBLACKCOLOR} 
           color={Colors.SOLIDWHITECOLOR}
           alignment="center"
         />

@@ -10,7 +10,7 @@ const RotationButtons = () => {
   return(
     <View style={styles.rotationButtonsWrapper}>
       <TouchableOpacity 
-        style={[{backgroundColor: Colors.VARIANTBLUE}, styles.touchable]}
+        style={[{backgroundColor: Colors.SOLIDBLACKCOLOR}, styles.touchable]}
       >
         <Text style={styles.touchableText}>ADVANCED SETTINGS</Text>
       </TouchableOpacity>
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     flex: 0.1,
     padding: 2,
     ...Alignment.RowCenterLeft,
-    backgroundColor: Colors.VARIANTBLUE
+    backgroundColor: Colors.SOLIDBLACKCOLOR
   },
   rotationPlayersPositionsWrapper: {
     flex: 0.75,

@@ -3,8 +3,6 @@ import { View } from "react-native";
 import { DataTable } from "react-native-paper";
 import { Preset } from "../../styles";
 
-const header = ["name", "age", "position", "overall"];
-
 const PlayersTable = ({ header = [], contents = [],  modalVisible, setModalVisible}) => {
   return (
     <View style={Preset.TableContainer}>

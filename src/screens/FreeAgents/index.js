@@ -4,46 +4,15 @@ import { DataTable } from "react-native-paper";
 import { Modal, Portal, Provider } from "react-native-paper";
 import { Colors } from "../../styles";
 import CustomizableSubTitle from "../../components/CustomizableSubTitle";
+import PlayersTable from "../../components/Tables/PlayersTable";
+import players from "../../data/players";
 
-const mock = {
-  header: ["id", "name", "type", "value"],
-  items: [
-    {
-      id: 1,
-      name: "financeName01",
-      type: "expenses",
-      value: 60.0,
-    },
-    {
-      id: 1,
-      name: "financeName01",
-      type: "expenses",
-      value: 60.0,
-    },
-  ],
-};
-
-const FreeAgentsTable = ({showModal, header = [], items = []}) => {
+const FreeAgentsTable = () => {
+  const header = ["name", "age", "position", "overall"];
 
   return (
-    <View style={styles.tableWrapper}>
-      <DataTable.Header>
-        {header.map((h) => (
-          <DataTable.Title onPress={showModal}>{h}</DataTable.Title>
-        ))}
-      </DataTable.Header>
-      {
-        items.map(i => (
-          <DataTable.Row>
-            {mock.header.map((c) => (
-              c === Object.keys(i).toString()
-              ?
-              console.log("worked")
-              : console.log(Object.keys(i))
-            ))}
-          </DataTable.Row>
-        ))
-      }
+    <View>
+      <PlayersTable header={header} contents={players}/>
     </View>
   );
 };
@@ -75,7 +44,7 @@ const ModalContent = () => {
   );
 };
 
-const FreeAgentsModal = ({content}) => {
+const FreeAgentsModal = ({modalContent, viewContent}) => {
   const [visible, setVisible] = useState(false);
 
   const showModal = () => setVisible(true);
@@ -90,10 +59,15 @@ const FreeAgentsModal = ({content}) => {
             onDismiss={hideModal}
             contentContainerStyle={styles.modalContainerStyle}
           >
-            {content}
+            {modalContent}
           </Modal>
         </Portal>
-        <FreeAgentsTable showModal={showModal} header={mock.header} items={mock.items}/>
+        <TouchableOpacity
+          onPress={showModal}
+          style={{flex: 1}}
+        >
+          {viewContent}
+        </TouchableOpacity>
       </Provider>
     </>
   );
@@ -102,7 +76,10 @@ const FreeAgentsModal = ({content}) => {
 const FreeAgents = () => {
   return (
     <View style={styles.container}>
-      <FreeAgentsModal content={<ModalContent />} />
+      <FreeAgentsModal
+        modalContent={<ModalContent />} 
+        viewContent={<FreeAgentsTable/>}
+      />
     </View>
   );
 };
