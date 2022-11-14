@@ -1,97 +1,74 @@
-import { useNavigation } from '@react-navigation/native';
-import {useEffect, useState} from 'react';
-import {View, Text, Animated, Button, TouchableHighlight, TouchableOpacity} from 'react-native'
-import { StyleSheet } from 'react-native';
-import { FAB } from 'react-native-paper';
-import { Alignment, Colors, Spacing, Typography } from '../../styles';
-import CustomizableOverlay from '../CustomizableOverlay';
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { StyleSheet, Text } from "react-native";
+import { FAB } from "react-native-paper";
+import { Alignment, Colors, Spacing, Typography } from "../../styles";
 
-const TouchableTitle = ({title, pageName, visible, setVisible}) => {
+const actions = [
+  { 
+    icon: "arrow-right",
+    label: "Playbook"
+  },
+  {
+    icon: "arrow-right",
+    label: "Game Style",
+    onPress: "GameStyleScreen",
+  },
+  {
+    icon: "arrow-right",
+    label: "Development",
+    onPress: "DevelopmentScreen"
+  },
+  {
+    icon: "arrow-right",
+    label: "Rotation",
+    onPress: "RotationScreen",
+  },
+];
+
+const GetFabActions = (actions = []) => {
   const navigation = useNavigation()
 
   return(
-    <TouchableOpacity 
-      style={styles.overlayButton}
-      onPress={() => {
-        navigation.navigate(pageName)
-        setVisible(!visible)
-      }}
-    >
-      <Text style={styles.overlayButtonText}>{title}</Text>
-    </TouchableOpacity>
+    actions.map((item) => ({
+      icon: item.icon,
+      label: <Text style={styles.fabFontStyle}>{item.label}</Text>,
+      onPress: () => navigation.navigate(item.onPress),
+    }))
   )
-}
+};
 
-export const OverlayView = ({visible, setVisible}) => {
-  
-  return(
-    <View>
-    <CustomizableOverlay overlayVisible={visible} setOverlayVisible={setVisible} justify={'flex-end'} alignment={'flex-end'}>
-    <View style={styles.overlay}>
-      <TouchableTitle title="PlayBook"/>
-      <TouchableTitle title="Game Style" pageName="GameStyleScreen" visible={visible} setVisible={setVisible}/>
-      <TouchableTitle title="Development" pageName="PlayersDevelopmentScreen" visible={visible} setVisible={setVisible}/>
-      <TouchableTitle title="Rotation"pageName="RotationScreen" visible={visible} setVisible={setVisible}/>
-    </View>
-    </CustomizableOverlay>
-    </View>
-  )
-}
+const FabComponent = () => {
+  const [open, setOpen] = useState(false);
 
-const FabComponent = ({visibleOverlay, setVisibleOverlay, children}) => {
-  const [icon, setIcon] = useState('')
+  const onStateChange = () => setOpen(!open);
 
-  const ToggleIcon = () => {
-    {
-      visibleOverlay === false
-      ? setIcon('plus') 
-      : setIcon('minus')
-    }
-  }
-
-  useEffect(() => {
-    ToggleIcon()
-  }, [visibleOverlay])
-
-  return(
-    <View>
-      <FAB
-        mode="elevated"
-        icon={icon}
-        style={styles.fab}
-        onPress={() => {
-          setVisibleOverlay(!visibleOverlay)
-        }}
-      />
-      {children}
-    </View>
-  )  
-}
+  return (
+    <FAB.Group
+      open={open}
+      fabStyle={styles.fabStyle}
+      icon={open ? "minus" : "plus"}
+      style={styles.fab}
+      onStateChange={onStateChange}
+      actions={GetFabActions(actions)}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   fab: {
-    position: 'absolute',
-    backgroundColor: Colors.VARIANTBLUE,
-    margin: 16,
+    position: "absolute",
     right: 0,
     bottom: 0,
   },
-  overlay: {
-    flex: 1,
-    ...Alignment.ColumnBottomRight,
-    marginRight: 16,
-    marginBottom: 82
+  fabStyle: {
+    backgroundColor: Colors.SOLIDBLACKCOLOR
   },
-  overlayButton: {
-    width: '100%',
-    ...Spacing.ButtonSpacing,
-    ...Alignment.ColumnTopRight,
-  },
-  overlayButtonText: {
-    color: Colors.SOLIDWHITECOLOR, 
-    ...Alignment.ColumnBottomRight,
-    ...Typography.SmallFont
+  fabFontStyle: {
+    fontSize: 20,
+    color: Colors.SOLIDBLACKCOLOR, 
+    fontWeight: "bold"
   }
-})
+});
 
-export default FabComponent
+export default FabComponent;
