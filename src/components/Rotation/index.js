@@ -26,8 +26,12 @@ const RotationButtons = () => {
 const RotationPlayersPositionsSection = ({subtitle}) => {
   return(
     <View style={styles.rottaionPlayersPositionsSection}>
-      <CustomizableSubTitle subtitle={subtitle} backgroundColor={Colors.PRIMARYORANGECOLOR} alignment="center"/>
-      <FlatListComponent/>
+      <View style={{flex: 0.1}}>
+        <CustomizableSubTitle flex={1} subtitle={subtitle} backgroundColor={Colors.PRIMARYORANGECOLOR} alignment="center"/>
+      </View>
+      <View style={{flex: 0.9}}>
+        <FlatListComponent/>
+      </View>
     </View>
   )
 }

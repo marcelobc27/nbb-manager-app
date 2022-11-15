@@ -51,7 +51,7 @@ const DATA = [
 const Item = ({title}) => {
   return(
     <View style={styles.item}>
-      <Text style={styles.itemText}>{title}</Text>
+      <Text style={styles.itemText}>{title.toUpperCase()}</Text>
     </View>
   )
 }
@@ -64,6 +64,7 @@ const FlatListComponent = () => {
   return(
     <View style={styles.container}>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
@@ -80,14 +81,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.NEUTRALGREYCOLOR,
     ...Alignment.ColumnCenter,
     height: 50,
-    borderWidth: 2,
+    borderWidth: 1,
     margin: 4,
     marginBottom: 0
   },
   itemText: {
     color: Colors.VARIANTDARKPURPLE,
     ...Alignment.ColumnCenter,
-    ...Typography.MediumFontBold
+    ...Typography.SmallFontBold
   }
 })
 

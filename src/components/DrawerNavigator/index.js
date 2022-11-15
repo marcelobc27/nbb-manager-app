@@ -7,7 +7,6 @@ from "@react-navigation/drawer"
 import Home from "../../screens/Home"
 import Standing from "../../screens/Standing"
 import Lineup from "../../screens/Lineup"
-import ModalTest from "../../screens/ModalTeste"
 import DetailedPlayerSkills from "../../screens/DetailedPlayerSkills"
 import GameStyle from "../../screens/GameStyle"
 import Rotation from "../Rotation"
@@ -134,7 +133,7 @@ const styles = StyleSheet.create({
   pageTypeButtonText: {
     color: Colors.VARIANTDARKPURPLE,
     paddingLeft: 10,
-    ...Typography.BigFontBold
+    ...Typography.MediumFontBold
   },
   markdownTypeButton: {
     flex: 1,
@@ -144,7 +143,7 @@ const styles = StyleSheet.create({
   markdownTypeButtonText: {
     color: Colors.SOLIDWHITECOLOR,
     paddingLeft: 6,
-    ...Typography.BigFontBold
+    ...Typography.MediumFontBold
   }
 })
 
