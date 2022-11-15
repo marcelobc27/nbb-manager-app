@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
-import leagues from "../../data/contents";
+import leagues from "../../../data/contents";
 
 const Skill = ({
   playerid= 1,

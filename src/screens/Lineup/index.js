@@ -1,30 +1,37 @@
 import { useState } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { PlayerBasicSkillsModal } from "../../components/PlayerBasicSkillsModal";
-import FabComponent, { TouchableTitle } from "../../components/Fab";
-import { OverlayView } from "../../components/Fab";
+import { PlayerBasicSkillsModal } from "../../components/PlayerPrimarySkills/ModalContent";
+import FabComponent from "../../components/Fab";
 import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle";
 import { Alignment, Colors, Preset, Typography } from "../../styles";
 import PlayersTable from "../../components/Tables/PlayersTable";
 import players from "../../data/players";
 import { useNavigation } from "@react-navigation/native";
 import { Portal, Provider } from "react-native-paper";
+import { lineupfabactions } from "../../data/actions";
+import PlayerPrimarySkills from "../../components/PlayerPrimarySkills";
 
 const HeaderImage = () => {
   return <View style={styles.imageWrapper}></View>;
 };
 
-const LineupPlayersTable = () => {
+const LineupPlayersTable = ({ state }) => {
   const navigation = useNavigation();
-  const [modalVisible, setModalVisible] = useState(false);
-  const header = ["name", "age", "position", "overall"];
+  const header = [
+    "name",
+    "age",
+    "position".substring(0, 3),
+    "overall".substring(0, 3),
+  ];
+
+  const { modalVisible, setModalVisible } = state;
 
   return (
     <View style={styles.lipeupWrapper}>
       <View style={{ flex: 1 }}>
         <StandardOrangeSubTitle subtitle="ROTATION" />
       </View>
-      <ScrollView style={{ flex: 5 }}>
+      <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 5 }}>
         <PlayersTable
           header={header}
           contents={players}
@@ -35,7 +42,7 @@ const LineupPlayersTable = () => {
       <View style={{ flex: 1 }}>
         <StandardOrangeSubTitle subtitle="REST" />
       </View>
-      <ScrollView style={{ flex: 3 }}>
+      <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 3 }}>
         <PlayersTable
           header={header}
           contents={players}
@@ -43,52 +50,22 @@ const LineupPlayersTable = () => {
           setModalVisible={setModalVisible}
         />
       </ScrollView>
-      <View style={{ flex: 0 }}>
-        <PlayerBasicSkillsModal
-          navigation={navigation}
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-        />
-      </View>
     </View>
   );
 };
 
 const Lineup = () => {
-  return (
-      <Provider>
-        <Portal>
-        <FabComponent/>
-        </Portal>
-      <HeaderImage />
-      <LineupPlayersTable/>
-      </Provider>
-  );
-};
+  const [modalVisible, setModalVisible] = useState(false);
 
-const LineupFabScreens = ({visible, setVisible}) => {  
   return (
-    <View style={styles.overlay}>
-      <TouchableTitle title="PlayBook" />
-      <TouchableTitle
-        title="Game Style"
-        pageName="GameStyleScreen"
-        visible={visible}
-        setVisible={setVisible}
-      />
-      <TouchableTitle
-        title="Development"
-        pageName="PlayersDevelopmentScreen"
-        visible={visible}
-        setVisible={setVisible}
-      />
-      <TouchableTitle
-        title="Rotation"
-        pageName="RotationScreen"
-        visible={visible}
-        setVisible={setVisible}
-      />
-    </View>
+    <Provider>
+      <Portal>
+        <PlayerPrimarySkills state={{ modalVisible, setModalVisible }} />
+        <FabComponent actions={lineupfabactions} />
+      </Portal>
+      <HeaderImage />
+      <LineupPlayersTable state={{ modalVisible, setModalVisible }} />
+    </Provider>
   );
 };
 

@@ -4,13 +4,14 @@ import { Colors, Typography, Spacing, Buttons, Alignment } from "../../styles"
 const CustomizableSubTitle = ({subtitle, flex, backgroundColor, color, alignment}) => {
   return(
       <View style={{flex: flex,backgroundColor: backgroundColor, alignItems: alignment, justifyContent: 'center'}}>
-        <Text style={[{color: color}, styles.subtitle_text]}>{subtitle}</Text>
+        <Text style={[{color: color}, styles.subtitleText]}>{subtitle}</Text>
       </View>
   )
 }
 
 const styles = StyleSheet.create({
-  subtitle_text: {
+  subtitleText: {
+    marginLeft: 20,
     ...Typography.SmallFontBold
   }
 })

@@ -7,12 +7,13 @@ import CustomizableSubTitle from "../../components/CustomizableSubTitle";
 import PlayersTable from "../../components/Tables/PlayersTable";
 import players from "../../data/players";
 
-const FreeAgentsTable = () => {
-  const header = ["name", "age", "position", "overall"];
+const FreeAgentsTable = ({state}) => {
+  const header = ["name", "age", "position".substring(0,3), "overall".substring(0,3)];
+  const {visible, setVisible} = state
 
   return (
     <View>
-      <PlayersTable header={header} contents={players}/>
+      <PlayersTable header={header} contents={players} modalVisible={visible} setModalVisible={setVisible}/>
     </View>
   );
 };
@@ -44,8 +45,8 @@ const ModalContent = () => {
   );
 };
 
-const FreeAgentsModal = ({modalContent, viewContent}) => {
-  const [visible, setVisible] = useState(false);
+const FreeAgentsModal = ({modalContent, viewContent, state}) => {
+  const {visible, setVisible} = state
 
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
@@ -62,23 +63,21 @@ const FreeAgentsModal = ({modalContent, viewContent}) => {
             {modalContent}
           </Modal>
         </Portal>
-        <TouchableOpacity
-          onPress={showModal}
-          style={{flex: 1}}
-        >
           {viewContent}
-        </TouchableOpacity>
       </Provider>
     </>
   );
 };
 
 const FreeAgents = () => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <FreeAgentsModal
+        state={{visible, setVisible}}
         modalContent={<ModalContent />} 
-        viewContent={<FreeAgentsTable/>}
+        viewContent={<FreeAgentsTable state={{visible, setVisible}}/>}
       />
     </View>
   );

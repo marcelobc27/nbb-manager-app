@@ -2,7 +2,7 @@ export const PRIMARYORANGECOLOR = '#FF9900'
 
 export const NEUTRALGREYCOLOR = '#EEEEEE'
 
-export const DARKGREYCOLOR = '#595959'
+export const DARKGREYCOLOR = '#0016CA'
 
 export const SOLIDWHITECOLOR = '#FFFFFF'
 

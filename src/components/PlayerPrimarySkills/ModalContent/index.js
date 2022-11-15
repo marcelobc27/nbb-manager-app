@@ -5,12 +5,11 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
-import CustomizableSubTitle from "../CustomizableSubTitle/index.js";
-import { Alignment, Colors, Typography } from "../../styles/index.js";
-import CustomizableModal from "../CustomizableModal/index.js";
+import CustomizableSubTitle from "../../CustomizableSubTitle/index.js";
+import { Alignment, Colors, Typography } from "../../../styles/index.js";
 import { useNavigation } from "@react-navigation/native";
-import SkillsTable from "../Tables/SkillsTable.js";
-import skills from "../../data/skills.js";
+import SkillsTable from "../../Tables/SkillsTable.js";
+import skills from "../../../data/skills.js";
 
 const HeaderContent = () => {
   return (
@@ -27,7 +26,7 @@ const HeaderContent = () => {
           color={Colors.SOLIDWHITECOLOR}
           subtitle="100%"
           flex={1}
-          backgroundColor={Colors.VARIANTGREEN}
+          backgroundColor={Colors.SOLIDBLACKCOLOR}
           alignment="center"
         />
         <CustomizableSubTitle
@@ -42,7 +41,7 @@ const HeaderContent = () => {
   );
 };
 
-const FooterButton = ({ modalVisible, setModalVisible }) => {
+const FooterButton = () => {
   const navigation = useNavigation();
 
   return (
@@ -51,7 +50,6 @@ const FooterButton = ({ modalVisible, setModalVisible }) => {
         style={styles.detailedSkillsButton}
         onPress={() => {
           navigation.navigate("DetailedSkillsScreen");
-          setModalVisible(!modalVisible);
         }}
       >
         <Text style={styles.detailedSkillsButtonText}>DETAILED SKILLS</Text>
@@ -60,7 +58,7 @@ const FooterButton = ({ modalVisible, setModalVisible }) => {
   );
 };
 
-const SubtitleAndSkillTable = ({title, content = []}) => {
+const SubtitleAndSkillsTable = ({title, content = []}) => {
   return (
     <View style={{ flex: 1}}>
       <CustomizableSubTitle
@@ -73,46 +71,29 @@ const SubtitleAndSkillTable = ({title, content = []}) => {
   );
 };
 
-const MainContent = () => {
+export const MainContent = () => {
   return (
     <View style={styles.mainContentWrapper}>
-      <SubtitleAndSkillTable title="OFENSIVE SKILLS" content={skills.offensiveskills}/>
-      <SubtitleAndSkillTable title="DEFENSIVE SKILLS" content={skills.defensiveskills}/>
-      <SubtitleAndSkillTable title="GENERAL SKILLS" content={skills.generalskills}/>
+      <SubtitleAndSkillsTable title="OFENSIVE SKILLS" content={skills.offensiveskills}/>
+      <SubtitleAndSkillsTable title="DEFENSIVE SKILLS" content={skills.defensiveskills}/>
+      <SubtitleAndSkillsTable title="GENERAL SKILLS" content={skills.generalskills}/>
     </View>
   );
 };
 
-const PlayerBasicSkillsModalContent = ({ modalVisible, setModalVisible }) => {
+const PlayerBasicSkillsModalContent = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: "#000" }}>
+    <View style={{ flex: 1 }}>
       <HeaderContent />
       <MainContent />
-      <FooterButton
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
+      <FooterButton />
     </View>
-  );
-};
-
-const PlayerBasicSkillsModal = ({ modalVisible, setModalVisible }) => {
-  return (
-    <CustomizableModal
-      modalVisible={modalVisible}
-      setModalVisible={setModalVisible}
-    >
-      <PlayerBasicSkillsModalContent
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
-    </CustomizableModal>
   );
 };
 
 const styles = StyleSheet.create({
   contentHeaderWrapper: {
-    flex: 0.15,
+    flex: 0.10,
     flexShrink: 0,
   },
   contentHeader: {
@@ -121,12 +102,12 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   mainContentWrapper: {
-    flex: 0.7,
+    flex: 0.8,
     justifyContent: "center",
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
   buttonWrapper: {
-    flex: 0.15,
+    flex: 0.10,
     flexShrink: 0,
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
@@ -136,9 +117,9 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.SOLIDBLACKCOLOR,
   },
   detailedSkillsButtonText: {
-    ...Typography.MediumFontBold,
+    ...Typography.SmallFontBold,
     color: Colors.SOLIDWHITECOLOR,
   },
 });
 
-export { PlayerBasicSkillsModal, PlayerBasicSkillsModalContent };
+export { PlayerBasicSkillsModalContent };

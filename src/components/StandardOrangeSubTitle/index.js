@@ -3,22 +3,21 @@ import { Colors, Typography, Spacing, Buttons, Alignment } from "../../styles"
 
 const StandardOrangeSubTitle = ({subtitle}) => {
   return(
-      <View style={styles.subtitle_wrapper}>
-        <Text style={styles.subtitle_text}>{subtitle}</Text>
+      <View style={styles.subtitleWrapper}>
+        <Text style={styles.subtitleText}>{subtitle}</Text>
       </View>
   )
 }
 
 const styles = StyleSheet.create({
-  subtitle_wrapper: {
+  subtitleWrapper: {
     flex: 1,
     ...Alignment.RowCenterLeft,
     backgroundColor: Colors.PRIMARYORANGECOLOR,
-    borderBottomWidth: 4,
     borderBottomColor: Colors.SOLIDBLACKCOLOR
   },
-  subtitle_text: {
-    marginLeft: 10,
+  subtitleText: {
+    marginLeft: 20,
     color: Colors.VARIANTDARKPURPLE,
     ...Typography.SmallFontBold
   }

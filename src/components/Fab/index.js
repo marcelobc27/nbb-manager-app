@@ -4,29 +4,7 @@ import { StyleSheet, Text } from "react-native";
 import { FAB } from "react-native-paper";
 import { Alignment, Colors, Spacing, Typography } from "../../styles";
 
-const actions = [
-  { 
-    icon: "arrow-right",
-    label: "Playbook"
-  },
-  {
-    icon: "arrow-right",
-    label: "Game Style",
-    onPress: "GameStyleScreen",
-  },
-  {
-    icon: "arrow-right",
-    label: "Development",
-    onPress: "DevelopmentScreen"
-  },
-  {
-    icon: "arrow-right",
-    label: "Rotation",
-    onPress: "RotationScreen",
-  },
-];
-
-const GetFabActions = (actions = []) => {
+const getActions = (actions = []) => {
   const navigation = useNavigation()
 
   return(
@@ -38,7 +16,7 @@ const GetFabActions = (actions = []) => {
   )
 };
 
-const FabComponent = () => {
+const FabComponent = ({actions = []}) => {
   const [open, setOpen] = useState(false);
 
   const onStateChange = () => setOpen(!open);
@@ -50,7 +28,7 @@ const FabComponent = () => {
       icon={open ? "minus" : "plus"}
       style={styles.fab}
       onStateChange={onStateChange}
-      actions={GetFabActions(actions)}
+      actions={getActions(actions)}
     />
   );
 };
