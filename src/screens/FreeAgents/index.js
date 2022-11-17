@@ -6,6 +6,7 @@ import { Colors } from "../../styles";
 import CustomizableSubTitle from "../../components/CustomizableSubTitle";
 import PlayersTable from "../../components/Tables/PlayersTable";
 import players from "../../data/players";
+import SliderComponent from "../../components/Slider";
 
 const FreeAgentsTable = ({state}) => {
   const header = ["name", "age", "position".substring(0,3), "overall".substring(0,3)];
@@ -31,10 +32,8 @@ const ModalContent = () => {
         />
       </View>
       <View style={styles.modalContentWrapper}>
-        <CustomizableSubTitle subtitle="YEARS OF CONTRACT" />
-        <CustomizableSubTitle subtitle="PLAYER NAME" />
-        <CustomizableSubTitle subtitle="SALARY" />
-        <CustomizableSubTitle subtitle="PLAYER NAME" />
+        <SliderComponent subtitle="YEARS OF CONTRACT"/>
+        <SliderComponent subtitle="SALARY"/>
       </View>
       <View style={styles.modalButtonWrapper}>
         <TouchableOpacity style={styles.makeOfferButton}>
@@ -108,7 +107,8 @@ const styles = StyleSheet.create({
     flex: 0.15
   },
   modalContentWrapper: {
-    flex: 0.7
+    flex: 0.7,
+    margin: 10
   },
   modalButtonWrapper: {
     flex: 0.15

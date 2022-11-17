@@ -26,14 +26,14 @@ const HeaderContent = () => {
           color={Colors.SOLIDWHITECOLOR}
           subtitle="100%"
           flex={1}
-          backgroundColor={Colors.SOLIDBLACKCOLOR}
+          backgroundColor={Colors.DARKGREYCOLOR}
           alignment="center"
         />
         <CustomizableSubTitle
           color={Colors.SOLIDWHITECOLOR}
           subtitle="A+"
           flex={1}
-          backgroundColor={Colors.SOLIDBLACKCOLOR}
+          backgroundColor={Colors.DARKGREYCOLOR}
           alignment="center"
         />
       </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   detailedSkillsButton: {
     flex: 1,
     ...Alignment.ColumnCenter,
-    backgroundColor: Colors.SOLIDBLACKCOLOR,
+    backgroundColor: Colors.DARKGREYCOLOR,
   },
   detailedSkillsButtonText: {
     ...Typography.SmallFontBold,

@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     marginRight: 20  
   },
   gameHighlightedActionButtonText: {
-    ...Typography.MediumFontBold,
+    ...Typography.SmallFontBold,
     color: Colors.VARIANTDARKPURPLE
   },
   gamesNext: {

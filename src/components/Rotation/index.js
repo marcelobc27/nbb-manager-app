@@ -2,15 +2,16 @@ import { useState } from "react";
 import { StyleSheet, Touchable, TouchableOpacity, View, Text } from "react-native";
 import { Alignment, Colors, Typography } from "../../styles";
 import CustomizableSubTitle from "../CustomizableSubTitle";
-import StandardOrangeSubTitle from "../StandardOrangeSubTitle";
 import PickerComponent from "../Picker";
 import FlatListComponent from "../FlatListComponent";
+import { Provider } from "react-native-paper";
+import { ColumnCenter } from "../../styles/alignment";
 
 const RotationButtons = () => {
   return(
     <View style={styles.rotationButtonsWrapper}>
       <TouchableOpacity 
-        style={[{backgroundColor: Colors.SOLIDBLACKCOLOR}, styles.touchable]}
+        style={[{backgroundColor: Colors.DARKGREYCOLOR}, styles.touchable]}
       >
         <Text style={styles.touchableText}>ADVANCED SETTINGS</Text>
       </TouchableOpacity>
@@ -48,14 +49,19 @@ const RotationPlayersPositions = () => {
 const RotationHeader = () => {
   return(
     <View style={styles.rotationHeaderWrapper}>
+      <View style={{flex: 0.7}}>
         <CustomizableSubTitle subtitle="HOW MANY PLAYERS?" color={Colors.SOLIDWHITECOLOR}/>
-        <PickerComponent width={80} height={50}/>
+      </View>
+      <View style={{flex: 0.3, ...ColumnCenter}}>
+        <PickerComponent/>
+      </View>
     </View>
   )
 }
 
 const Rotation = () => {
   return(
+    <Provider>
     <View style={styles.container}>
       <View style={styles.rotationWrapper}>
         <RotationHeader/>
@@ -63,28 +69,25 @@ const Rotation = () => {
         <RotationButtons/>
       </View>
     </View>
+    </Provider>
   ) 
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    ...Alignment.ColumnCenter
   },
   rotationWrapper: {
-    flex: 0.9,
-    width: '95%',
+    flex: 1,
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },
   rotationHeaderWrapper: {
-    flex: 0.1,
-    padding: 2,
+    flex: 0.075,
     ...Alignment.RowCenterLeft,
-    backgroundColor: Colors.SOLIDBLACKCOLOR
+    backgroundColor: Colors.DARKGREYCOLOR
   },
   rotationPlayersPositionsWrapper: {
-    flex: 0.75,
+    flex: 0.775,
     flexDirection: 'row'
   },
   rottaionPlayersPositionsSection: {

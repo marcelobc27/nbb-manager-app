@@ -1,43 +1,57 @@
-import { useState } from "react"
-import { StyleSheet, View } from "react-native"
-import { DataTable } from "react-native-paper"
-import FabComponent, { OverlayView } from "../../components/Fab"
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import { DataTable, Portal, Provider } from "react-native-paper";
+import FabComponent from "../../components/Fab";
+import PlayerPrimarySkills from "../../components/PlayerPrimarySkills";
+import PlayersTable from "../../components/Tables/PlayersTable";
+import { juniorleaguefabactions } from "../../data/actions";
+import players from "../../data/players";
 
-const JuniorLeagueTable = () => {
-  return(
+const JuniorLeagueTable = ({ state }) => {
+  const { modalVisible, setModalVisible } = state
+
+  const header = [
+    "name",
+    "age",
+    "position".substring(0, 3),
+    "overall".substring(0, 3),
+  ];
+
+  return (
     <View style={styles.tableWrapper}>
-      <DataTable.Header>
-        <DataTable.Title>Teste</DataTable.Title>
-      </DataTable.Header>
-      <DataTable.Row>
-        <DataTable.Cell>Teste</DataTable.Cell>
-      </DataTable.Row>
+      <PlayersTable
+        header={header}
+        contents={players}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+      />
     </View>
-  )
-}
+  );
+};
 
 const JuniorLeague = () => {
-  const [visibleOverlay, setVisibleOverlay] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
 
-  return(
-    <View style={styles.container}>
-      <JuniorLeagueTable/>
-      <FabComponent visibleOverlay={visibleOverlay} setVisibleOverlay={setVisibleOverlay}>
-        <OverlayView visible={visibleOverlay} setVisible={setVisibleOverlay}/>
-      </FabComponent>
-    </View>
-  )
-}
+  return (
+      <Provider>
+        <Portal>
+          <PlayerPrimarySkills state={{ modalVisible, setModalVisible }} />
+          <FabComponent actions={juniorleaguefabactions} />
+        </Portal>
+        <JuniorLeagueTable state={{ modalVisible, setModalVisible }}/>
+      </Provider>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    height: '100%'
+    flexDirection: "column",
+    height: "100%",
   },
   tableWrapper: {
-    flex: 1
-  }
-})
+    flex: 1,
+  },
+});
 
-export default JuniorLeague
+export default JuniorLeague;

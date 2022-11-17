@@ -19,3 +19,25 @@ export const lineupfabactions = [
     onPress: "RotationScreen",
   },
 ];
+
+export const juniorleaguefabactions = [
+  {
+    icon: "arrow-right",
+    label: "Coach",
+  },
+  {
+    icon: "arrow-right",
+    label: "Game Focus",
+    onPress: "GameStyleScreen",
+  },
+  {
+    icon: "arrow-right",
+    label: "Development",
+    onPress: "GameStyleScreen",
+  },
+  {
+    icon: "arrow-right",
+    label: "Investment",
+    onPress: "GameStyleScreen",
+  }
+]

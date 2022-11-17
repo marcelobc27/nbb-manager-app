@@ -1,9 +1,9 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { Colors } from "../../styles";
+import { Colors, Typography } from "../../styles";
 
-const PickerComponent = ({ width, height, backgroundColor, color }) => {
+const PickerComponent = ({ backgroundColor, color }) => {
   const [type, setType] = useState("Select a Strategy");
 
   return (
@@ -11,17 +11,17 @@ const PickerComponent = ({ width, height, backgroundColor, color }) => {
       <Picker
         mode="dropdown"
         style={[{
-          width: `${width}%`,
           color: `${color ? color : Colors.SOLIDBLACKCOLOR}`,
-          height: `${height ? height : "30px"}`,
           backgroundColor: `${backgroundColor ? backgroundColor : Colors.SOLIDWHITECOLOR}`,
           }, styles.picker]}
         selectedValue={type}
         onValueChange={(type) => setType(type)}
       >
-        <Picker.Item label="SELECT A VALUE" value="" />
-        <Picker.Item label="Links" value="Links" />
-        <Picker.Item label="Location" value="Location" />
+          <Picker.Item label="SELECT A VALUE" value="" />
+          <Picker.Item label="1" value="1" />
+          <Picker.Item label="2" value="2" />
+          <Picker.Item label="2" value="2" />
+          <Picker.Item label="2" value="2" />
       </Picker>
     </View>
   );
@@ -29,14 +29,19 @@ const PickerComponent = ({ width, height, backgroundColor, color }) => {
 
 const styles = StyleSheet.create({
   pickerWrapper: {
-    flex: 1
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   picker: {
-    borderBottomWidth: 4,
-    borderColor: "black",
+    flex: 0.8,
+    width: '90%',
+    margin: 2,
+    borderColor: "transparent",
     fontSize: 20,
     padding: 5,
-    alignSelf: "center",
+    alignContent: "center",
+    justifyContent: 'center'
   }
 })
 
