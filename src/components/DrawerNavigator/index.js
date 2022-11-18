@@ -17,7 +17,7 @@ import Trades from "../../screens/Trades"
 import { StyleSheet, TouchableOpacity, Text, View, ScrollView } from "react-native"
 import JuniorLeague from "../../screens/JuniorLeague"
 import FreeAgents from "../../screens/FreeAgents"
-import SimulateGate from "../../screens/SimulateGame"
+import SimulateGame from "../../screens/SimulateGame"
 import Finances from "../../screens/Finances"
 import Sponsors from "../../screens/Sponsors"
 import Calendar from "../../screens/Calendar"
@@ -28,7 +28,7 @@ const drawerItems = [
   //GameMarkdown
   {"id": "1", "title": "GAME", "name": "GameMarkdown", "component": Home, "type": "Markdown"},
   {"id": "2", "title": "FEED", "name": "HomeScreen", "component": Home, "type": "Page"},
-  {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGate, "type": "Page"},
+  {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGame, "type": "Page"},
   {"id": "4", "title": "CALENDAR", "name": "CalendarScreen", "component": Calendar, "type": "Page"},
   //Management Markdown
   {"id": "5", "title": "MANAGEMENT", "name": "ManagementMarkdown", "component": Home, "type": "Markdown"},

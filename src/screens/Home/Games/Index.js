@@ -41,7 +41,8 @@ const GamesHighlighted = () => {
           <Text style={styles.gameHighlightedActionButtonText}>LINEUP</Text>
         </TouchableOpacity>
         <TouchableOpacity 
-          style={styles.gameHighlightedActionButton}>
+          style={styles.gameHighlightedActionButton}
+          onPress={() => navigation.navigate('SimulateGameScreen')}>
           <Text style={styles.gameHighlightedActionButtonText}>PLAY</Text>
         </TouchableOpacity>
       </View>
@@ -74,7 +75,7 @@ const Games = () => {
 
 const styles = StyleSheet.create({
   gamesWrapper: {
-    flex: 0.7,
+    flex: 1,
     ...Alignment.DisplayColumn,
     backgroundColor: Colors.SOLIDWHITECOLOR
   },

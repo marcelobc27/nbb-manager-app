@@ -3,15 +3,15 @@ import { Typography, Spacing, Buttons, Alignment, Colors } from "../../../styles
 
 const Header = () => {
   return(
-    <View style={styles.headerWrapper}>
+    <View style={styles.header}>
       <Text style={{color: "#ffffff"}}>Logo</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  headerWrapper: {
-    flex: 0.2,
+  header: {
+    flex: 1,
     backgroundColor: Colors.SOLIDBLACKCOLOR,
     ...Alignment.ColumnCenter
   },

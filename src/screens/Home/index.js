@@ -6,9 +6,15 @@ import Games from "./Games/Index"
 const Home = () => {
   return(
     <View style={styles.container}>
-      <Header/>
-      <Games/>
-      <Footer/>
+      <View style={{flex: 0.2}}>
+        <Header/>
+      </View>
+      <View style={{flex: 0.7}}>
+        <Games/>
+      </View>
+      <View style={{flex: 0.1}}>
+        <Footer/>
+      </View>
     </View>
   )
 }
