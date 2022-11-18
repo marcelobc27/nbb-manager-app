@@ -71,11 +71,13 @@ const StarPlayers = () => {
 const SliderStrategies = () => {
   return (
     <View style={styles.sliderStrategiesWrapper}>
-      <SliderComponent subtitle="PAINT" />
-      <SliderComponent subtitle="MID-RANGE" />
-      <SliderComponent subtitle="OFFENSIVE PACE" />
-      <SliderComponent subtitle="OFFENSIVE PACE" />
-      <SliderComponent subtitle="DEFENSIVE PRESSURE" />
+      <ScrollView showsVerticalScrollIndicator={false}>
+      <SliderComponent subtitle="PAINT" labelStart={1} labelEnd={5}/>
+      <SliderComponent subtitle="MID-RANGE" labelStart={1} labelEnd={5}/>
+      <SliderComponent subtitle="3PT SHOOT" labelStart={1} labelEnd={5}/>
+      <SliderComponent subtitle="OFFENSIVE PACE" labelStart="SLOW" labelEnd="FAST" />
+      <SliderComponent subtitle="DEFENSIVE PRESSURE" labelStart="LOW" labelEnd="HIGH"/>
+      </ScrollView>
     </View>
   );
 };
@@ -140,25 +142,30 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.SOLIDWHITECOLOR,
   },
   starPlayersWrapper: {
-    flex: 0.2,
+    flex: 0.25,
     flexDirection: "row",
   },
   starPlayers: {
     flex: 1,
     flexDirection: "row",
-    margin: 5,
   },
   starPlayersSections: {
     flex: 0.5,
     height: "100%",
+    paddingTop: 8,
+    paddingBottom: 8,
     backgroundColor: Colors.NEUTRALGREYCOLOR,
     justifyContent: "center",
   },
   sliderStrategiesWrapper: {
-    flex: 0.6,
+    flex: 0.5,
+    margin: 8
   },
   selectStrategiesWrapper: {
-    flex: 0.2,
+    flex: 0.25,
+    paddingTop: 8,
+    paddingBottom: 8,
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
 });
 

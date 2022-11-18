@@ -32,8 +32,8 @@ const ModalContent = () => {
         />
       </View>
       <View style={styles.modalContentWrapper}>
-        <SliderComponent subtitle="YEARS OF CONTRACT"/>
-        <SliderComponent subtitle="SALARY"/>
+        <SliderComponent subtitle="YEARS OF CONTRACT" labelStart={0} labelEnd={5}/>
+        <SliderComponent subtitle="SALARY" labelStart={0} labelEnd="20MIL"/>
       </View>
       <View style={styles.modalButtonWrapper}>
         <TouchableOpacity style={styles.makeOfferButton}>
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
   },
   modalContentWrapper: {
     flex: 0.7,
-    margin: 10
   },
   modalButtonWrapper: {
     flex: 0.15
