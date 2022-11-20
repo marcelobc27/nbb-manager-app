@@ -8,32 +8,14 @@ const Tab = createMaterialTopTabNavigator();
 
 const TopTabNavigator = () => {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarItemStyle: {
-          backgroundColor: Colors.PRIMARYORANGECOLOR,
-          margin: 2,
-        },
-        tabBarLabelStyle: {
-          width: "100%",
-          color: Colors.VARIANTDARKPURPLE,
-          fontSize: 16,
-          fontWeight: "bold",
-        },
-        tabBarIndicatorStyle: {
-          backgroundColor: Colors.VARIANTDARKPURPLE,
-        },
-      }}
-    >
+    <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
-        options={{
-          title: "PLAY BY PLAY",
-        }}
+        options={{ title: "PLAY BY PLAY" }}
         name="PlayByPlayScreen"
         component={PlayByPlay}
       />
       <Tab.Screen
-        options={{ title: "STATS"}}
+        options={{ title: "STATS" }}
         name="StatsScreen"
         component={Stats}
       />
@@ -44,6 +26,22 @@ const TopTabNavigator = () => {
       />
     </Tab.Navigator>
   );
+};
+
+const screenOptions = {
+  tabBarItemStyle: {
+    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    margin: 2,
+  },
+  tabBarLabelStyle: {
+    width: "100%",
+    color: Colors.VARIANTDARKPURPLE,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  tabBarIndicatorStyle: {
+    backgroundColor: Colors.VARIANTDARKPURPLE,
+  },
 };
 
 export default TopTabNavigator;
