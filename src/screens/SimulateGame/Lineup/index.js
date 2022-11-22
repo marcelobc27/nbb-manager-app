@@ -1,11 +1,74 @@
-import { Text, View } from "react-native"
+import { StyleSheet, Text, View } from "react-native";
+import CustomizableSubTitle from "../../../components/CustomizableSubTitle";
+import { Colors } from "../../../styles";
 
 const LineupTab = () => {
-  return(
-    <View>
-      <Text>Teste</Text>
+  return (
+    <View style={styles.container}>
+      <View style={styles.subtitleWrapper}>
+        <CustomizableSubTitle
+          flex={1}
+          subtitle="ON COURT"
+          backgroundColor={Colors.VARIANTDARKPURPLE}
+          color={Colors.SOLIDWHITECOLOR}
+        />
+      </View>
+      <View style={styles.lineupStartersWrapper}>
+        <View style={styles.lineupSectionWrapper}>
+          <View style={styles.lineupSection}>
+            <Text>Teste</Text>
+            <Text>Teste</Text>
+            <Text>Teste</Text>
+            <Text>Teste</Text>
+            <Text>Teste</Text>
+          </View>
+          <View style={styles.lineupSection}>
+            <Text>Teste</Text>
+          </View>
+        </View>
+      </View>
+      <View style={styles.subtitleWrapper}>
+        <CustomizableSubTitle
+          flex={1}
+          subtitle="BENCH"
+          backgroundColor={Colors.VARIANTDARKPURPLE}
+          color={Colors.SOLIDWHITECOLOR}
+        />
+      </View>
+      <View style={styles.lineupBenchWrapper}>
+        <Text>Teste</Text>
+        <Text>Teste</Text>
+        <Text>Teste</Text>
+        <Text>Teste</Text>
+        <Text>Teste</Text>
+      </View>
     </View>
-  )    
-}
+  );
+};
 
-export default LineupTab
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  subtitleWrapper: {
+    flex: 1,
+  },
+  lineupStartersWrapper: {
+    flex: 5,
+    flexDirection: "column",
+  },
+  lineupSection: {
+    flex: 1,
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
+  },
+  lineupSectionWrapper: {
+    flex: 1,
+    width: "100%",
+    flexDirection: "row",
+  },
+  lineupBenchWrapper: {
+    flex: 3,
+  },
+});
+
+export default LineupTab;

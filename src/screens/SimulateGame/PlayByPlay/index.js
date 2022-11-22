@@ -116,7 +116,8 @@ const PlayByPlay = () => {
       <List.Section
         titleStyle={{
           color: Colors.SOLIDWHITECOLOR,
-          fontSize: 20,
+          fontSize: 16,
+          fontWeight: "bold"
         }}
         style={{
           backgroundColor: Colors.VARIANTDARKPURPLE,
@@ -125,9 +126,10 @@ const PlayByPlay = () => {
       >
         {mockdata.reverse().map((item) => (
           <List.Accordion
-            right={props => <List.Icon {...props} icon="folder" />}
+            right={() => <List.Icon style={{margin: 0}} color="white" icon="chevron-down" />}
             style={{ backgroundColor: Colors.VARIANTDARKPURPLE }}
-            titleStyle={{ color: Colors.SOLIDWHITECOLOR, fontSize: 20 }}
+            titleStyle={{ color: Colors.SOLIDWHITECOLOR, fontSize: 16, 
+            fontWeight: "bold"}}
             title={`${item.quarter.toUpperCase()} QUARTER`}
           >
             {item.plays.map((plays) => (
