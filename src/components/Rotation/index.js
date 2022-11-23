@@ -6,6 +6,7 @@ import PickerComponent from "../Picker";
 import FlatListComponent from "../FlatListComponent";
 import { Provider } from "react-native-paper";
 import { ColumnCenter } from "../../styles/alignment";
+import players from '../../data/players'
 
 const RotationButtons = () => {
   return(
@@ -31,7 +32,7 @@ const RotationPlayersPositionsSection = ({subtitle}) => {
         <CustomizableSubTitle flex={1} subtitle={subtitle} backgroundColor={Colors.PRIMARYORANGECOLOR} alignment="center"/>
       </View>
       <View style={{flex: 0.9}}>
-        <FlatListComponent/>
+        <FlatListComponent data={players}/>
       </View>
     </View>
   )

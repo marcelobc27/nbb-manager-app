@@ -1,81 +1,49 @@
-import { FlatList, View, Text, StyleSheet } from "react-native"
-import { Alignment, Colors, Typography } from "../../styles"
+import { useEffect, useState } from "react";
+import { FlatList, View, Text, StyleSheet } from "react-native";
+import { Alignment, Colors, Typography } from "../../styles";
+import * as Progress from 'react-native-progress';
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d71',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d73',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d74',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d75',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d76',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d77',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d78',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d79',
-    title: 'Third Item',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d80',
-    title: 'Third Item',
-  },
-]
+const Item = ({ title, energy }) => {
+  const [backgroundColor, setBackgroundColor] = useState();
 
-const Item = ({title}) => {
-  return(
+  const toggleColor = () => (
+    energy < 40
+      ? setBackgroundColor(Colors.VARIANTRED)
+      : setBackgroundColor(Colors.VARIANTGREEN)
+  )
+
+  useEffect(() => {
+    toggleColor()
+  }, [])
+
+  return (
     <View style={styles.item}>
       <Text style={styles.itemText}>{title.toUpperCase()}</Text>
+      <Progress.Bar style={styles.itemEnergyBar} color={backgroundColor} progress={energy} width={`${energy}%`} />
     </View>
-  )
-}
+  );
+};
 
-const FlatListComponent = () => {
-  const renderItem = ({item}) => (
-    <Item title={item.title}/>
-  )
-  
-  return(
+const FlatListComponent = ({data}) => {
+  const renderItem = ({ item }) => (
+    <Item title={item.name} energy={item.energy} />
+  );
+
+  return (
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={DATA}
+        data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
       />
     </View>
-  )  
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   item: {
     backgroundColor: Colors.NEUTRALGREYCOLOR,
@@ -83,13 +51,18 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 1,
     margin: 4,
-    marginBottom: 0
+    marginBottom: 0,
+  },
+  itemEnergyBar: {
+    flex: 0.1,
+    alignSelf: "flex-start",
   },
   itemText: {
+    flex: 0.9,
     color: Colors.VARIANTDARKPURPLE,
     ...Alignment.ColumnCenter,
-    ...Typography.SmallFontBold
-  }
-})
+    ...Typography.SmallFontBold,
+  },
+});
 
-export default FlatListComponent
+export default FlatListComponent;
