@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import CustomizableSubTitle from "../../../components/CustomizableSubTitle";
 import { Colors } from "../../../styles";
+import FlatListComponent from '../../../components/FlatListComponent'
 
 const LineupTab = () => {
   return (
@@ -16,14 +17,10 @@ const LineupTab = () => {
       <View style={styles.lineupStartersWrapper}>
         <View style={styles.lineupSectionWrapper}>
           <View style={styles.lineupSection}>
-            <Text>Teste</Text>
-            <Text>Teste</Text>
-            <Text>Teste</Text>
-            <Text>Teste</Text>
-            <Text>Teste</Text>
+            <FlatListComponent/>
           </View>
           <View style={styles.lineupSection}>
-            <Text>Teste</Text>
+            <FlatListComponent/>
           </View>
         </View>
       </View>
@@ -36,11 +33,14 @@ const LineupTab = () => {
         />
       </View>
       <View style={styles.lineupBenchWrapper}>
-        <Text>Teste</Text>
-        <Text>Teste</Text>
-        <Text>Teste</Text>
-        <Text>Teste</Text>
-        <Text>Teste</Text>
+        <View style={styles.lineupSectionWrapper}>
+          <View style={styles.lineupSection}>
+            <FlatListComponent/>
+          </View>
+          <View style={styles.lineupSection}>
+            <FlatListComponent/>
+          </View>
+        </View>
       </View>
     </View>
   );
