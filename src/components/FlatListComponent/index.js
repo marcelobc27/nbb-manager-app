@@ -19,7 +19,7 @@ const Item = ({ title, energy }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.itemText}>{title.toUpperCase()}</Text>
-      <Progress.Bar style={styles.itemEnergyBar} color={backgroundColor} progress={energy} width={`${energy}%`} />
+      <Progress.Bar style={styles.itemEnergyBar} color={backgroundColor} progress={energy} width={energy + "%"} />
     </View>
   );
 };
@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   itemEnergyBar: {
-    flex: 0.1,
+    flex: 0.05,
     alignSelf: "flex-start",
   },
   itemText: {
-    flex: 0.9,
+    flex: 0.95,
     color: Colors.VARIANTDARKPURPLE,
     ...Alignment.ColumnCenter,
     ...Typography.SmallFontBold,

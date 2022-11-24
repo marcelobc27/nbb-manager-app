@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FlatList, ScrollView, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import { List } from "react-native-paper";
 import { Colors } from "../../../styles/index";
 
@@ -107,54 +107,34 @@ const mockdata = [
 ];
 
 const PlayByPlay = () => {
-  const [expanded, setExpanded] = useState(true);
-
-  const handlePress = () => setExpanded(!expanded);
-
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <List.Section
-        titleStyle={{
-          color: Colors.SOLIDWHITECOLOR,
-          fontSize: 16,
-          fontWeight: "bold"
-        }}
-        style={{
-          backgroundColor: Colors.VARIANTDARKPURPLE,
-        }}
+        titleStyle={styles.listSectionTitle}
+        style={styles.listSection}
         title="END OF THE GAME"
       >
         {mockdata.reverse().map((item) => (
           <List.Accordion
-            right={() => <List.Icon style={{margin: 0}} color="white" icon="chevron-down" />}
-            style={{ backgroundColor: Colors.VARIANTDARKPURPLE }}
-            titleStyle={{ color: Colors.SOLIDWHITECOLOR, fontSize: 16, 
-            fontWeight: "bold"}}
+            right={() => (
+              <List.Icon
+                style={styles.listAccordionIconStyle}
+                color="white"
+                icon="chevron-down"
+              />
+            )}
+            style={styles.listAccordionStyle}
+            titleStyle={styles.listAccordionTitleStyle}
             title={`${item.quarter.toUpperCase()} QUARTER`}
           >
             {item.plays.map((plays) => (
               <List.Item
-                style={{
-                  backgroundColor: Colors.DARKGREYCOLOR,
-                  justifyContent: "center",
-                }}
-                titleStyle={{ color: Colors.SOLIDWHITECOLOR, fontSize: 20 }}
+                style={styles.listItemStyle}
+                titleStyle={styles.titleStyle}
                 title={
-                  <View style={{ flexDirection: "row" }}>
-                    <Text
-                      style={{
-                        marginRight: 16,
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      {plays.score}
-                    </Text>
-                    <Text
-                      style={{ alignItems: "center", justifyContent: "center" }}
-                    >
-                      {plays.playName}
-                    </Text>
+                  <View style={styles.playsWrapper}>
+                    <Text style={styles.playsScoreText}>{plays.score}</Text>
+                    <Text style={styles.playsNameText}>{plays.playName}</Text>
                   </View>
                 }
               />
@@ -165,5 +145,47 @@ const PlayByPlay = () => {
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  playsScoreText: {
+    marginRight: 16,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  playsNameText: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  playsWrapper: {
+    flexDirection: "row",
+  },
+  titleStyle: {
+    color: Colors.SOLIDWHITECOLOR,
+    fontSize: 20,
+  },
+  listItemStyle: {
+    backgroundColor: Colors.DARKGREYCOLOR,
+    justifyContent: "center",
+  },
+  listAccordionStyle: {
+    backgroundColor: Colors.VARIANTDARKPURPLE,
+  },
+  listAccordionTitleStyle: {
+    color: Colors.SOLIDWHITECOLOR,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  listAccordionIconStyle: {
+    margin: 0,
+  },
+  listSection: {
+    backgroundColor: Colors.VARIANTDARKPURPLE,
+  },
+  listSectionTitle: {
+    color: Colors.SOLIDWHITECOLOR,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});
 
 export default PlayByPlay;
