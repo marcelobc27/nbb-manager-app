@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     margin: 20,
-    backgroundColor: "red",
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
   modalViewWrapper: {
     flex: 1,
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlayerPrimarySkills;
+export default PlayerPrimarySkills

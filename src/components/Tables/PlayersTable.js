@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { DataTable } from "react-native-paper";
 import { Preset } from "../../styles";
 
-const PlayersTable = ({ header = [], contents = [],  modalVisible, setModalVisible}) => {
+const PlayersTable = ({ header = [], contents = [],  modalVisible, setModalVisible, actionVisible,setActionVisible}) => {
   return (
     <View style={Preset.TableContainer}>
       <DataTable.Header style={Preset.TableHeader}>
@@ -20,7 +20,7 @@ const PlayersTable = ({ header = [], contents = [],  modalVisible, setModalVisib
         <DataTable.Row
           key={cell.teamid} 
           style={Preset.TableRow}
-          onPress={() => console.log("teste")}
+          onPress={() => typeof(actionVisible) !== 'undefined' ? setActionVisible(!actionVisible) : console.log("teste")}
           onLongPress={() => setModalVisible(!modalVisible)}
         >
           <DataTable.Cell

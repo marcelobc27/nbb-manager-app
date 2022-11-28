@@ -9,7 +9,7 @@ const PickerComponent = ({ backgroundColor, color }) => {
   return (
     <View style={styles.pickerWrapper}>
       <Picker
-        mode="dropdown"
+        mode="dropdown"        
         style={[{
           color: `${color ? color : Colors.SOLIDBLACKCOLOR}`,
           backgroundColor: `${backgroundColor ? backgroundColor : Colors.SOLIDWHITECOLOR}`,

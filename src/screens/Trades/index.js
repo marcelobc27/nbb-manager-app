@@ -52,7 +52,7 @@ const OfferorTeam = () => {
       <View style={styles.buttonsWrapper}>
         <TouchableOpacity
           style={[
-            { backgroundColor: Colors.VARIANTGREEN },
+            { backgroundColor: Colors.VARIANTBLUE },
             styles.offerorTeamButton,
           ]}
         >
@@ -88,7 +88,7 @@ const OffereeTeam = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            { backgroundColor: Colors.VARIANTGREEN },
+            { backgroundColor: Colors.VARIANTBLUE },
             styles.offerorTeamButton,
           ]}
         >
