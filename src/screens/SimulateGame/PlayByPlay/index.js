@@ -166,9 +166,11 @@ const styles = StyleSheet.create({
   listItemStyle: {
     backgroundColor: Colors.DARKGREYCOLOR,
     justifyContent: "center",
+    margin: 2
   },
   listAccordionStyle: {
     backgroundColor: Colors.VARIANTDARKPURPLE,
+    marginTop: 4
   },
   listAccordionTitleStyle: {
     color: Colors.SOLIDWHITECOLOR,
@@ -179,10 +181,11 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   listSection: {
-    backgroundColor: Colors.VARIANTDARKPURPLE,
+    backgroundColor: Colors.SOLIDWHITECOLOR,
   },
   listSectionTitle: {
     color: Colors.SOLIDWHITECOLOR,
+    backgroundColor: Colors.VARIANTDARKPURPLE,
     fontSize: 16,
     fontWeight: "bold",
   },
