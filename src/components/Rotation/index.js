@@ -54,7 +54,7 @@ const RotationHeader = () => {
         <CustomizableSubTitle subtitle="HOW MANY PLAYERS?" color={Colors.SOLIDWHITECOLOR}/>
       </View>
       <View style={{flex: 0.3, ...ColumnCenter}}>
-        <PickerComponent/>
+        <PickerComponent flex={1} margin={4}/>
       </View>
     </View>
   )

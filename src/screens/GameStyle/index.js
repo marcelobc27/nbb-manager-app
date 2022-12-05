@@ -44,10 +44,16 @@ const StarPlayers = () => {
         <View style={styles.starPlayersSections}>
           <CustomizableSubTitle subtitle="STAR PLAYER" />
           <PickerComponent
+            flex={0.8}
+            margin={4}
+            width={85}
             backgroundColor={Colors.PRIMARYORANGECOLOR}
             color={Colors.VARIANTDARKPURPLE}
           />
           <PickerComponent
+            flex={0.8}
+            margin={4}
+            width={85}
             backgroundColor={Colors.PRIMARYORANGECOLOR}
             color={Colors.VARIANTDARKPURPLE}
           />
@@ -55,10 +61,16 @@ const StarPlayers = () => {
         <View style={styles.starPlayersSections}>
           <CustomizableSubTitle subtitle="FUNCTION" />
           <PickerComponent
+            flex={0.8}
+            margin={4}
+            width={85}
             backgroundColor={Colors.PRIMARYORANGECOLOR}
             color={Colors.VARIANTDARKPURPLE}
           />
           <PickerComponent
+            flex={0.8}
+            margin={4}
+            width={85}
             backgroundColor={Colors.PRIMARYORANGECOLOR}
             color={Colors.VARIANTDARKPURPLE}
           />
@@ -89,11 +101,13 @@ const SelectStrategies = () => {
       <PickerComponent
         backgroundColor={Colors.PRIMARYORANGECOLOR}
         color={Colors.VARIANTDARKPURPLE}
+        width={90}
       />
       <CustomizableSubTitle subtitle="DEFENSIVE STRATEGY" />
       <PickerComponent
         backgroundColor={Colors.PRIMARYORANGECOLOR}
         color={Colors.VARIANTDARKPURPLE}
+        width={90}
       />
     </View>
   );

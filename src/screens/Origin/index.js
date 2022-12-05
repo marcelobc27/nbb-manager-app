@@ -1,12 +1,15 @@
 import { StyleSheet, View } from "react-native"
 import { Colors } from "../../styles"
 import StartGameButton from "./StartGameButton"
+import TeamChoice from "./TeamChoice"
 
 const Origin = () => {
   return(
     <View style={styles.container}>
       <View style={styles.heroWrapper}></View>
-      <View style={styles.teamChoiceWrapper}></View>
+      <View style={styles.teamChoiceWrapper}>
+        <TeamChoice/>
+      </View>
       <View style={styles.teamImageWrapper}></View>
       <View style={styles.startGameButton}></View>
       <View style={styles.footerWrapper}></View>

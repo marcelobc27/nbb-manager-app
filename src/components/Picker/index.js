@@ -3,7 +3,7 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Colors, Typography } from "../../styles";
 
-const PickerComponent = ({ backgroundColor, color }) => {
+const PickerComponent = ({ backgroundColor, color, flex, margin, width }) => {
   const [type, setType] = useState("Select a Strategy");
 
   return (
@@ -11,6 +11,9 @@ const PickerComponent = ({ backgroundColor, color }) => {
       <Picker
         mode="dropdown"        
         style={[{
+          width: `${width}%`,
+          margin: margin,
+          flex: flex,
           color: `${color ? color : Colors.SOLIDBLACKCOLOR}`,
           backgroundColor: `${backgroundColor ? backgroundColor : Colors.SOLIDWHITECOLOR}`,
           }, styles.picker]}
@@ -34,9 +37,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   picker: {
-    flex: 0.8,
-    width: '90%',
-    margin: 2,
     borderColor: "transparent",
     fontSize: 20,
     padding: 5,

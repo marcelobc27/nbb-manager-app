@@ -22,12 +22,13 @@ import Finances from "../../screens/Finances"
 import Sponsors from "../../screens/Sponsors"
 import Calendar from "../../screens/Calendar"
 import Origin from "../../screens/Origin"
+import { useState } from "react"
 
 const Drawer = createDrawerNavigator()
 
 const drawerItems = [
   //GameMarkdown
-  {"id": "0", "title": "ORIGIN", "name": "OriginScreen", "component": Origin, "type": "Page"},
+  {"id": "0", "title": "ORIGIN", "name": "OriginScreen", "component": Origin, "type": "Component"},
   {"id": "1", "title": "GAME", "name": "GameMarkdown", "component": Home, "type": "Markdown"},
   {"id": "2", "title": "FEED", "name": "HomeScreen", "component": Home, "type": "Page"},
   {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGame, "type": "Page"},
@@ -89,7 +90,7 @@ function CustomDrawerContent({ navigation }) {
 const DrawerNavigator = () => {
   return (
       <Drawer.Navigator 
-        initialRouteName="HomeScreen" 
+        initialRouteName="OriginScreen" 
         screenOptions={screenOptions} 
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         >

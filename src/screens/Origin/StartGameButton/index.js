@@ -1,10 +1,17 @@
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Button, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Colors } from "../../../styles";
 
 const StartGameButton = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.touchable} children="+">
+      <TouchableOpacity
+        onPress={() => navigation.navigate("HomeScreen")}
+        style={styles.touchable}
+      >
+        <>+</>
       </TouchableOpacity>
     </View>
   );
@@ -15,13 +22,13 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: "50%",
-    flexDirection: 'column',
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
     backgroundColor: Colors.SOLIDWHITECOLOR,
     position: "absolute",
-    bottom: '4%'
+    bottom: "4%",
   },
   touchable: {
     width: 80,
@@ -32,17 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 60,
     fontWeight: "bold",
     backgroundColor: "purple",
-    color: Colors.SOLIDWHITECOLOR
-  },
-  touchableText: {
-    display: "flex",
-    width: "100%",
-    height: "100%",
-    flexDirection: 'column',
-    fontSize: 60,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: Colors.SOLIDWHITECOLOR
+    color: Colors.SOLIDWHITECOLOR,
   }
 });
 
