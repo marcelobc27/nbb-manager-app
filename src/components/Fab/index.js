@@ -11,6 +11,9 @@ const getActions = (actions = []) => {
     actions.map((item) => ({
       icon: item.icon,
       label: <Text style={styles.fabFontStyle}>{item.label.toUpperCase()}</Text>,
+      labelStyle: {
+        backgroundColor: Colors.DARKGREYCOLOR
+      },
       onPress: () => navigation.navigate(item.onPress),
     }))
   )
@@ -43,9 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.DARKGREYCOLOR
   },
   fabFontStyle: {
-    ...Typography.SmallestFont,
-    color: Colors.SOLIDBLACKCOLOR, 
-    fontWeight: "bold"
+    ...Typography.SmallFontBold,
+    color: Colors.SOLIDWHITECOLOR, 
   }
 });
 

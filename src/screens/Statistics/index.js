@@ -5,9 +5,9 @@ import statistics from "../../data/statistics"
 import { Preset } from "../../styles"
 
 const Statistics = () => {
-  const header = ["name", "gamesplayed", "points", "rebounds", "blocks", "assists", "steals", "minutespergame"]
+  const header = ["name", "gamesplayed", "points", "rebounds", "blocks", "assists", "steals", "minutespergame", "effectiveness"]
   return(
-    <ScrollView horizontal contentContainerStyle={{flex: 1}}>
+    <ScrollView horizontal>
       <StatisticsTable header={header} contents={statistics}/>
     </ScrollView>
   )

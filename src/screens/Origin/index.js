@@ -20,25 +20,27 @@ const Origin = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
-  heroWrapper: {
-    flex: 2,
-    backgroundColor: Colors.DARKGREYCOLOR
-  },
-  teamImageWrapper: {
-    flex: 3.5,
-    backgroundColor: Colors.DARKGREYCOLOR
-  },
-  teamChoiceWrapper: {
-    flex: 2.5,
-  },
-  startGameButton: {
     flex: 1,
     backgroundColor: Colors.SOLIDWHITECOLOR
   },
+  heroWrapper: {
+    flex: 0.2,
+    backgroundColor: Colors.DARKGREYCOLOR
+  },
+  teamImageWrapper: {
+    flex: 0.35,
+    margin: 8,
+    backgroundColor: Colors.DARKGREYCOLOR
+  },
+  teamChoiceWrapper: {
+    flex: 0.25,
+  },
+  startGameButton: {
+    flex: 0.1,
+    backgroundColor: Colors.SOLIDWHITECOLOR
+  },
   footerWrapper: {
-    flex: 1,
+    flex: 0.1,
     backgroundColor: Colors.NEUTRALGREYCOLOR
   }
 })

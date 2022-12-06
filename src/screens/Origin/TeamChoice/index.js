@@ -7,7 +7,7 @@ const TeamChoice = () => {
     <View style={styles.container}>
       <View style={styles.innerWrapper}>
       <StandardOrangeSubTitle subtitle="CHOOSE A TEAM"/>
-      <PickerComponent flex={1} margin={8} width={100}/>
+      <PickerComponent flex={1} margin={1} width={100}/>
       </View>
     </View>
   )

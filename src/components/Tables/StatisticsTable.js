@@ -4,7 +4,7 @@ import { Preset } from "../../styles";
 
 const StatisticsTable = ({ header = [], contents = []}) => {
   return (
-    <View style={Preset.TableContainer}>
+    <View style={{width: "200%"}}>
       <DataTable.Header style={Preset.TableHeader}>
         {header.map((title) => (
           <DataTable.Title
@@ -16,70 +16,70 @@ const StatisticsTable = ({ header = [], contents = []}) => {
         ))}
       </DataTable.Header>
       {contents.map((cell) => (
-        <DataTable.Row style={Preset.TableRow}>
+      <DataTable.Row style={Preset.TableRow}>
           <DataTable.Cell
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.name.toUpperCase()}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.points / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.rebounds / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.blocks / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.assists / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.steals / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.minutes / cell.gamesplayed}
           </DataTable.Cell>
           <DataTable.Cell
             key={cell.playerid}
-            style={[Preset.TableTextPosition]}
+            style={Preset.TableTextPosition}
             textStyle={Preset.TableRowTextStyle}
           >
             {cell.effectiveness}
           </DataTable.Cell>
-        </DataTable.Row>
+      </DataTable.Row>
       ))}
     </View>
   );

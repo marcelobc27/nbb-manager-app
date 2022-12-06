@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   picker: {
+    ...Typography.SmallFontBold,
     borderColor: "transparent",
-    fontSize: 20,
     padding: 5,
     alignContent: "center",
     justifyContent: 'center'
