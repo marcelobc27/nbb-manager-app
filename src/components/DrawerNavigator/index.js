@@ -27,8 +27,8 @@ import { useState } from "react"
 const Drawer = createDrawerNavigator()
 
 const drawerItems = [
-  //GameMarkdown
   {"id": "0", "title": "ORIGIN", "name": "OriginScreen", "component": Origin, "type": "Component"},
+  //GameMarkdown
   {"id": "1", "title": "GAME", "name": "GameMarkdown", "component": Home, "type": "Markdown"},
   {"id": "2", "title": "FEED", "name": "HomeScreen", "component": Home, "type": "Page"},
   {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGame, "type": "Page"},
@@ -107,29 +107,15 @@ const DrawerNavigator = () => {
 
 const screenOptions = {
   headerStyle: {
-    backgroundColor: Colors.PRIMARYORANGECOLOR,
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
     height: 50
   },
-  headerTintColor: Colors.VARIANTDARKPURPLE,
-  drawerContentStyle: {
-    backgroundColor: Colors.NEUTRALGREYCOLOR,
-  },
-  drawerActiveBackgroundColor: Colors.SOLIDWHITECOLOR,
-  drawerActiveTintColor: Colors.SOLIDBLACKCOLOR,
-  drawerInactiveTintColor: Colors.VARIANTDARKPURPLE,
-  drawerItemStyle: {
-    borderRadius: 0,
-    marginLeft: 10
-  },
-  drawerLabelStyle: {
-    ...Typography.MediumFontBold
-  }
+  headerTintColor: Colors.VARIANTDARKPURPLE
 }
 
 const styles = StyleSheet.create({
   pageTypeButton: {
     flex: 1,
-    margin: 4,
     ...Alignment.ColumnCenterLeft,
     backgroundColor: Colors.NEUTRALGREYCOLOR
   },

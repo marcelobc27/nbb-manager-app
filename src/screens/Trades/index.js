@@ -23,14 +23,22 @@ const contents = [
 const PickerSection = () => {
   return (
     <View style={styles.pickerWrapper}>
+      <View style={styles.pickerSections}>
       <PickerComponent
-        height={40}
+        flex={0.8}
+        width={95}
+        margin={4}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
+      </View>
+      <View style={styles.pickerSections}>
       <PickerComponent
-        height={40}
+        flex={0.8}
+        width={95}
+        margin={4}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
+      </View>
     </View>
   );
 };
@@ -117,8 +125,12 @@ const styles = StyleSheet.create({
   },
   pickerWrapper: {
     flex: 0.1,
-    ...Alignment.RowCenter,
+    flexDirection: 'row',
     backgroundColor: Colors.NEUTRALGREYCOLOR,
+  },
+  pickerSections: {
+    flex: 0.5,
+    flexDirection: "column"
   },
   offerorTeamWrapper: {
     flex: 0.45,
