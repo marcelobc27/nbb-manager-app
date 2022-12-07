@@ -12,6 +12,6 @@ export const VARIANTDARKPURPLE = '#741B47'
 
 export const VARIANTGREEN = '#38761d'
 
-export const VARIANTRED = '#990000'
+export const VARIANTRED = '#cc0000'
 
 export const VARIANTBLUE = '#34495E'

@@ -28,6 +28,7 @@ const PickerSection = () => {
         flex={0.8}
         width={95}
         margin={4}
+        color={Colors.VARIANTDARKPURPLE}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
       </View>
@@ -36,6 +37,7 @@ const PickerSection = () => {
         flex={0.8}
         width={95}
         margin={4}
+        color={Colors.VARIANTDARKPURPLE}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
       </View>
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
   pickerWrapper: {
     flex: 0.1,
     flexDirection: 'row',
-    backgroundColor: Colors.NEUTRALGREYCOLOR,
+    backgroundColor: Colors.SOLIDWHITECOLOR,
   },
   pickerSections: {
     flex: 0.5,
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
   offerorTeamWrapper: {
     flex: 0.45,
     justifyContent: "center",
-    backgroundColor: Colors.NEUTRALGREYCOLOR,
+    backgroundColor: Colors.SOLIDWHITECOLOR,
   },
   subtitleWrapper: {
     flex: 0.2,
@@ -165,7 +167,7 @@ const styles = StyleSheet.create({
     flex: 0.45,
     marginBottom: 10,
     justifyContent: "center",
-    backgroundColor: Colors.NEUTRALGREYCOLOR,
+    backgroundColor: Colors.SOLIDWHITECOLOR,
   },
 });
 
