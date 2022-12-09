@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native"
 import { Modal, Portal, Provider } from 'react-native-paper';
 import sponsors from "../../data/sponsor"
-import { Colors } from "../../styles"
+import { Alignment, Colors, Typography } from "../../styles"
 
 const SponsorSection = ({name, income, years, type, showModal}) => {
   const [backgroundColor, setBackgroundColor] = useState('')
@@ -50,7 +50,7 @@ const SponsorModal = () => {
         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={styles.modalContainerStyle}>
           <View style={styles.modalButtonWrapper}>
             <TouchableOpacity style={styles.modalButton}>
-              <Text style={styles.modalButtonText}>Break the Contract</Text>
+              <>Break the Contract</>
             </TouchableOpacity>
           </View>
         </Modal>
@@ -116,12 +116,10 @@ const styles = StyleSheet.create({
   modalButton: {
     flex: 1,
     padding: 10,
+    ...Alignment.ColumnCenter,
+    ...Typography.MediumFontBold,
+    color: Colors.SOLIDWHITECOLOR,
     backgroundColor: Colors.VARIANTRED
-  },
-  modalButtonText: {
-    flex: 1,
-    fontSize: 20,
-    color: Colors.SOLIDWHITECOLOR
   }
 })
 
