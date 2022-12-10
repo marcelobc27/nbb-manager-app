@@ -23,6 +23,7 @@ import Sponsors from "../../screens/Sponsors"
 import Calendar from "../../screens/Calendar"
 import Origin from "../../screens/Origin"
 import { useState } from "react"
+import DetailedDay from "../../screens/Calendar/DetailedDay"
 
 const Drawer = createDrawerNavigator()
 
@@ -33,6 +34,7 @@ const drawerItems = [
   {"id": "2", "title": "FEED", "name": "HomeScreen", "component": Home, "type": "Page"},
   {"id": "3", "title": "SIMULATE GAME", "name": "SimulateGameScreen", "component": SimulateGame, "type": "Page"},
   {"id": "4", "title": "CALENDAR", "name": "CalendarScreen", "component": Calendar, "type": "Page"},
+  {"id": "4", "title": "", "name": "DayScreen", "component": DetailedDay, "type": "Component"},
   //Management Markdown
   {"id": "5", "title": "MANAGEMENT", "name": "ManagementMarkdown", "component": Home, "type": "Markdown"},
   {"id": "6", "title": "LINEUP", "name": "LineupScreen", "component": Lineup, "type": "Page"},

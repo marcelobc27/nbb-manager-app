@@ -1,8 +1,7 @@
 import { ScrollView, View } from "react-native";
-import React, { isValidElement, useState } from "react";
+import React, { useState } from "react";
 import {
   FlatList,
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
@@ -10,6 +9,7 @@ import {
 } from "react-native";
 import { Colors } from "../../../styles";
 import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle";
+import { useNavigation } from "@react-navigation/native";
 
 const DATA = [
   {
@@ -104,11 +104,11 @@ const TeamSection = ({
   return (
     <View style={{ flex: 0.9, backgroundColor: backgroundColor }}>
       <View style={{ flex: 5, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamName}</Text>
+        <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamName.toUpperCase()}</Text>
       </View>
       <View style={{ flex: 5, flexDirection: "row" }}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamPosition}</Text>
+          <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamPosition.toUpperCase()}</Text>
         </View>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamOverral}</Text>
@@ -118,14 +118,14 @@ const TeamSection = ({
   );
 };
 
-const Item = ({ item, onPress, backgroundColor, textColor }) => (
+const Item = ({ item, onPress}) => (
   <View style={{ height: 200, width: '48%', margin: 4 }}>
-    <View style={{flex: 0.15, justifyContent: 'flex-end'}}>
-      <TouchableOpacity onPress={onPress} style={[{flex: 1}, backgroundColor]}>
+    <View style={{flex: 0.20}}>
+      <TouchableOpacity onPress={onPress} style={[{flex: 1}]}>
         <StandardOrangeSubTitle subtitle={item.day}/>
       </TouchableOpacity>
     </View>
-    <View style={{flex: 0.85}}>
+    <View style={{flex: 0.8}}>
     <TeamSection
       teamName={item.teamAname}
       teamPosition={item.teamAposition}
@@ -145,18 +145,13 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 );
 
 const Day = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const navigation = useNavigation()
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
-    const color = item.id === selectedId ? "white" : "black";
-
     return (
       <Item
         item={item}
-        onPress={() => setSelectedId(item.id)}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
+        onPress={() => navigation.navigate("DayScreen")}
       />
     );
   };
@@ -168,7 +163,7 @@ const Day = () => {
         renderItem={renderItem}
         numColumns={2}
         keyExtractor={(item) => item.id}
-        extraData={selectedId}
+        // extraData={selectedId}
       />
     </ScrollView>
   );
