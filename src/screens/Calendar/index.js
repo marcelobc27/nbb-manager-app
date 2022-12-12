@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   monthTitleWrapper: {
     flex: 0.1,
-    justifyContent: "center"
+    justifyContent: "flex-end",
   },
   calendarDaysWrapper: {
     flex: 0.9

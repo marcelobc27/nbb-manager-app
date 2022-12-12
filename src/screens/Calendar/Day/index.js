@@ -7,92 +7,10 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import { Colors } from "../../../styles";
+import { Alignment, Colors, Typography } from "../../../styles";
 import StandardOrangeSubTitle from "../../../components/StandardOrangeSubTitle";
 import { useNavigation } from "@react-navigation/native";
-
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    day: "DAY 1",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bb",
-    day: "DAY 2",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bc",
-    day: "DAY 3",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bd",
-    day: "DAY 4",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bd",
-    day: "DAY 4",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bd",
-    day: "DAY 4",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bd",
-    day: "DAY 4",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28bd",
-    day: "DAY 4",
-    teamAname: "First Item",
-    teamAposition: "8th",
-    teamAoverral: 87,
-    teamBname: "First Item",
-    teamBposition: "8th",
-    teamVoverral: 87,
-  },
-];
+import {calendar} from "../../../data/calendarData";
 
 const TeamSection = ({
   teamName,
@@ -102,16 +20,16 @@ const TeamSection = ({
   color,
 }) => {
   return (
-    <View style={{ flex: 0.9, backgroundColor: backgroundColor }}>
-      <View style={{ flex: 5, alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamName.toUpperCase()}</Text>
+    <View style={[{ backgroundColor: backgroundColor }, styles.teamSectionWrapper]}>
+      <View style={styles.teamSectionTeamName}>
+        <Text style={[{ color: color }, styles.teamSectionText]}>{teamName.toUpperCase()}</Text>
       </View>
-      <View style={{ flex: 5, flexDirection: "row" }}>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamPosition.toUpperCase()}</Text>
+      <View style={styles.teamSectionAdditionalInfoWrapper}>
+        <View style={styles.teamSectionAdditionalInfo}>
+          <Text style={[{ color: color }, styles.teamSectionText]}>{teamPosition.toUpperCase()}</Text>
         </View>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: color, fontSize: 18, fontWeight: 'bold' }}>{teamOverral}</Text>
+        <View style={styles.teamSectionAdditionalInfo}>
+          <Text style={[{ color: color }, styles.teamSectionText]}>{teamOverral}</Text>
         </View>
       </View>
     </View>
@@ -119,13 +37,13 @@ const TeamSection = ({
 };
 
 const Item = ({ item, onPress}) => (
-  <View style={{ height: 200, width: '48%', margin: 4 }}>
-    <View style={{flex: 0.20}}>
-      <TouchableOpacity onPress={onPress} style={[{flex: 1}]}>
+  <View style={styles.itemWrapper}>
+    <View style={styles.itemSubtitleWrapper}>
+      <TouchableOpacity onPress={onPress} style={styles.itemSubtitle}>
         <StandardOrangeSubTitle subtitle={item.day}/>
       </TouchableOpacity>
     </View>
-    <View style={{flex: 0.8}}>
+    <View style={styles.itemContentWrapper}>
     <TeamSection
       teamName={item.teamAname}
       teamPosition={item.teamAposition}
@@ -159,7 +77,7 @@ const Day = () => {
   return (
     <ScrollView style={styles.container}>
       <FlatList
-        data={DATA}
+        data={calendar}
         renderItem={renderItem}
         numColumns={2}
         keyExtractor={(item) => item.id}
@@ -179,6 +97,38 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
+  },
+  itemWrapper: {
+    height: 200, 
+    width: '48%', 
+    margin: 4 
+  },
+  itemSubtitleWrapper: {
+    flex: 0.20
+  },
+  itemSubtitle: {
+    flex: 1
+  },
+  itemContentWrapper: {
+    flex: 0.80
+  },
+  teamSectionWrapper: {
+    flex: 0.9
+  },
+  teamSectionTeamName: {
+    flex: 5,
+    ...Alignment.ColumnCenter
+  },
+  teamSectionAdditionalInfoWrapper: {
+    flex: 5, 
+    ...Alignment.DisplayRow
+  },
+  teamSectionAdditionalInfo: {
+    flex: 1, 
+    ...Alignment.ColumnCenter
+  },
+  teamSectionText: {
+    ...Typography.SmallestFontBold
   },
 });
 

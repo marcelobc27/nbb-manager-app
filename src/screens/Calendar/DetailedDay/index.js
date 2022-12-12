@@ -1,48 +1,53 @@
 import { ScrollView, StyleSheet, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Button, Card, Divider } from "react-native-paper";
+import { calendargames } from "../../../data/calendarData";
 import { Alignment, Colors, Typography } from "../../../styles";
 
-const TeamCard = () => {
+const TeamCard = ({ teamName }) => {
   return (
     <Card style={styles.cardWrapper}>
       <Card.Cover
         style={styles.cardImage}
         source={{ uri: "https://picsum.photos/700" }}
       />
-      <Divider style={styles.divider}/>
+      <Divider style={styles.divider} />
       <Card.Actions style={styles.cardAction}>
-        <TouchableOpacity> <>Name</></TouchableOpacity>
+        <TouchableOpacity>{teamName}</TouchableOpacity>
       </Card.Actions>
     </Card>
   );
 };
 
-const IndividualScoreBoard = () => {
-  return(
+const IndividualScoreBoard = ({ teamAScore, teamBScore }) => {
+  return (
     <View style={styles.individualScoreboardWrapper}>
       <View style={styles.individualScoreboardScoreWrapper}>
-      <Text style={styles.individualScoreboardScoreText}>120</Text>
-      <Text style={styles.individualScoreboardScoreText}>112</Text>
+        <Text style={styles.individualScoreboardScoreText}>{teamAScore}</Text>
+        <Text style={styles.individualScoreboardScoreText}>{teamBScore}</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const ScoreBoardAllGames = () => {
   return (
     <View style={styles.scoreboardContainer}>
-      <View style={styles.scoreboardWrapper}>
-        <View style={styles.teamSectionWrapper}>
-          <TeamCard/>
-        </View>
-        <View style={styles.individualScoreboardContainer}>
-          <IndividualScoreBoard/>
-        </View>
-        <View style={styles.teamSectionWrapper}>
-          <TeamCard/>
-        </View>
-      </View>
+      {calendargames.map((team) => {
+        return (
+          <View style={styles.scoreboardWrapper}>
+            <View style={styles.teamSectionWrapper}>
+              <TeamCard teamName={team.teamAName}/>
+            </View>
+            <View style={styles.individualScoreboardContainer}>
+              <IndividualScoreBoard teamAScore={team.teamAScore} teamBScore={team.teamBScore}/>
+            </View>
+            <View style={styles.teamSectionWrapper}>
+              <TeamCard teamName={team.teamBName}/>
+            </View>
+          </View>
+        );
+      })}
     </View>
   );
 };
@@ -54,16 +59,7 @@ const DetailedDay = () => {
       contentContainerStyle={styles.contentContainerStyle}
       showsVerticalScrollIndicator={false}
     >
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
-      <ScoreBoardAllGames />
+      <ScoreBoardAllGames/>
     </ScrollView>
   );
 };
@@ -71,23 +67,23 @@ const DetailedDay = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    ...Alignment.DisplayColumn,
   },
   contentContainerStyle: {
-    height: "150%"
+    height: "150%",
   },
   scoreboardContainer: {
     flex: 1,
-    flexDirection: "column",
-    marginBottom: 1
+    ...Alignment.DisplayColumn,
+    marginBottom: 1,
   },
   scoreboardWrapper: {
     flex: 1,
-    flexDirection: "row",
+    ...Alignment.DisplayRow,
   },
   teamSectionWrapper: {
     flex: 3,
-    flexDirection: "column",
+    ...Alignment.DisplayColumn,
     backgroundColor: Colors.DARKGREYCOLOR,
   },
   teamSection: {
@@ -98,47 +94,45 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
   individualScoreboardWrapper: {
-    flex: 1
+    flex: 1,
   },
   individualScoreboardScoreWrapper: {
-    flex: 1, 
-    flexDirection: 'row', 
-    alignItems: "center"
+    flex: 1,
+    ...Alignment.RowCenter,
   },
   individualScoreboardScoreText: {
-    flex: 0.5, 
-    textAlign: "center", 
-    color: Colors.VARIANTDARKPURPLE, 
-    ...Typography.BiggestFontBold
+    flex: 0.5,
+    textAlign: "center",
+    color: Colors.VARIANTDARKPURPLE,
+    ...Typography.BiggestFontBold,
   },
   individualScoreboardAdditionalTextWrapper: {
-    flex: 0.6,  
-    flexDirection: 'row', 
-    alignItems: "center"
+    flex: 0.6,
+    ...Alignment.RowCenter,
   },
   individualScoreboardAdditionalText: {
-    flex: 1, 
-    textAlign: "center", 
-    color: Colors.SOLIDBLACKCOLOR, 
-    ...Typography.SmallFontBold
+    flex: 1,
+    textAlign: "center",
+    color: Colors.SOLIDBLACKCOLOR,
+    ...Typography.SmallFontBold,
   },
   cardWrapper: {
     flex: 1,
-    borderRadius: 0
+    borderRadius: 0,
   },
   cardImage: {
-    flex: 0.9
+    flex: 0.9,
   },
   cardAction: {
     flex: 0.1,
     ...Alignment.ColumnCenter,
     ...Typography.SmallestFontBold,
     color: Colors.SOLIDBLACKCOLOR,
-    borderRadius: 0
+    borderRadius: 0,
   },
   divider: {
-    backgroundColor: Colors.VARIANTDARKPURPLE
-  }
+    backgroundColor: Colors.VARIANTDARKPURPLE,
+  },
 });
 
 export default DetailedDay;
