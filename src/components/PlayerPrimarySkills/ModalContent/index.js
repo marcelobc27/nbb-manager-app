@@ -18,7 +18,7 @@ const HeaderContent = () => {
         <CustomizableSubTitle
           color={Colors.SOLIDWHITECOLOR}
           subtitle="PLAYER NAME"
-          flex={4}
+          flex={3.5}
           backgroundColor={Colors.VARIANTDARKPURPLE}
           alignment="center"
         />
@@ -32,7 +32,7 @@ const HeaderContent = () => {
         <CustomizableSubTitle
           color={Colors.SOLIDWHITECOLOR}
           subtitle="A+"
-          flex={1}
+          flex={1.5}
           backgroundColor={Colors.DARKGREYCOLOR}
           alignment="center"
         />
@@ -61,12 +61,16 @@ const FooterButton = () => {
 const SubtitleAndSkillsTable = ({title, content = []}) => {
   return (
     <View style={{ flex: 1}}>
+      <View style={{flex: 0.35}}>
       <CustomizableSubTitle
         subtitle={title}
-        flex={0.5}
+        flex={1}
         backgroundColor={Colors.PRIMARYORANGECOLOR}
       />
+      </View>
+      <View style={{flex: 0.65}}>
       <SkillsTable contents={content}/>
+      </View>
     </View>
   );
 };

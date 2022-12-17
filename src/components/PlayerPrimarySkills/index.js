@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
-import { Colors } from "../../styles";
+import { Alignment, Colors } from "../../styles";
 import { MainContent, PlayerBasicSkillsModalContent } from "./ModalContent";
 
 const PlayerModal = ({ state }) => {
@@ -30,10 +30,8 @@ const PlayerPrimarySkills = ({ state }) => {
 
 const styles = StyleSheet.create({
   modalContainerStyle: {
-    flex: 0.8,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flex: 0.7,
+    ...Alignment.ColumnCenter,
     margin: 20,
     backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
