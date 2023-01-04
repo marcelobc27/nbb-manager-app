@@ -78,9 +78,9 @@ const SubtitleAndSkillsTable = ({title, content = []}) => {
 export const MainContent = () => {
   return (
     <View style={styles.mainContentWrapper}>
-      <SubtitleAndSkillsTable title="OFENSIVE SKILLS" content={skills.offensiveskills}/>
-      <SubtitleAndSkillsTable title="DEFENSIVE SKILLS" content={skills.defensiveskills}/>
-      <SubtitleAndSkillsTable title="GENERAL SKILLS" content={skills.generalskills}/>
+      <SubtitleAndSkillsTable title="OFENSIVE SKILLS" content={skills[0].offensiveskills}/>
+      <SubtitleAndSkillsTable title="DEFENSIVE SKILLS" content={skills[0].defensiveskills}/>
+      <SubtitleAndSkillsTable title="GENERAL SKILLS" content={skills[0].generalskills}/>
     </View>
   );
 };

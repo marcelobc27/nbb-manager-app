@@ -6,7 +6,9 @@ const players = [
     position: "Armador",
     attackoverrall: 95,
     defenseoverrall: 80,
-    energy: 99
+    energy: 99,
+    contractValue: '500.000,00',
+    contractTime: 4
   },
   {
     id: 2,
@@ -15,7 +17,9 @@ const players = [
     position: "Armador",
     attackoverrall: 95,
     defenseoverrall: 80,
-    energy: 32
+    energy: 32,
+    contractValue: '500.000,00',
+    contractTime: 4
   },
   {
     id: 3,
@@ -24,7 +28,9 @@ const players = [
     position: "Armador",
     attackoverrall: 95,
     defenseoverrall: 80,
-    energy: 20
+    energy: 20,
+    contractValue: '500.000,00',
+    contractTime: 4
   },
   {
     id: 4,
@@ -33,7 +39,9 @@ const players = [
     position: "Armador",
     attackoverrall: 95,
     defenseoverrall: 80,
-    energy: 80
+    energy: 80,
+    contractValue: '500.000,00',
+    contractTime: 4
   },
   {
     id: 5,
@@ -42,8 +50,12 @@ const players = [
     position: "Armador",
     attackoverrall: 95,
     defenseoverrall: 80,
-    energy: 100
+    energy: 100,
+    contractValue: '500.000,00',
+    contractTime: 4
   },
 ];
+
+const randomEnergy  =  Math.floor(Math.random() * (Math.floor(100) - Math.ceil(70 + 1)) + 70)
 
 export default players

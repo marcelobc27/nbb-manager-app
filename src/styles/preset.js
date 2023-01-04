@@ -2,7 +2,7 @@ import { Alignment, Colors, Typography } from "."
 
 export const TableContainer = {
   flex: 1,
-  margin: 2 
+  margin: 1
 }
 
 export const TableTextPosition = {

@@ -1,67 +1,95 @@
-import { StyleSheet, Text, View } from "react-native"
-import finances from "../../data/finances"
+import { StyleSheet, Text, View } from "react-native";
+import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle";
+import ContractsTable from "../../components/Tables/ContractsTable";
+import finances from "../../data/finances";
+import players from "../../data/players";
+import { Alignment, Colors, Typography } from "../../styles";
 
 const InitialBudget = () => {
-  return(
+  return (
     <View style={styles.initialBudgetWrapper}>
-      Teste
+      <View style={styles.initialBudgetContent}>
+        <View style={styles.textSubtitle}>
+          <Text style={styles.initialBudgetTextStyle}>INITIAL BUDGET</Text>
+        </View>
+        <View style={styles.textNumber}>
+          <Text style={styles.initialBudgetNumberStyle}>500.000</Text>
+        </View>
+      </View>
+      <View style={[{ marginTop: 0 }, styles.initialBudgetContent]}>
+        <View style={styles.textSubtitle}>
+          <Text style={styles.initialBudgetTextStyle}>TOTAL INCOMES</Text>
+        </View>
+        <View style={styles.textNumber}>
+          <Text style={styles.initialBudgetNumberStyle}>500.000</Text>
+        </View>
+      </View>
     </View>
-  )
-}
+  );
+};
 
-const Incomes = () => {
-  return(
-    <View style={styles.incomesWrapper}>
-
+const Contracts = () => {
+  return (
+    <View style={styles.contractWrapper}>
+      <View style={styles.subtitleWrapper}>
+        <StandardOrangeSubTitle subtitle="CONTRACTS"/>
+      </View>
+      <View style={styles.contractsTableWrapper}>
+        <ContractsTable contents={players}/>
+      </View>
     </View>
-  )
-}
-
-const Expenses = () => {
-  return(
-    <View style={styles.incomesWrapper}>
-
-    </View>
-  )
-}
-
-const Balance = () => {
-  return(
-    <View style={styles.balanceWrapper}>
-      Teste
-    </View>
-  )
-}
+  );
+};
 
 const Finances = () => {
-  return(
+  return (
     <View style={styles.financesContainer}>
-      <InitialBudget/>
-      <Incomes/>
-      <Expenses/>
-      <Balance/>
+      <InitialBudget />
+      <Contracts />
     </View>
-  )   
-}
+  );
+};
 
 const styles = StyleSheet.create({
   financesContainer: {
-    flex: 1
+    flex: 1,
   },
   initialBudgetWrapper: {
-    flex: 0.1
+    flex: 0.2,
+    backgroundColor: Colors.DARKGREYCOLOR,
   },
-  incomesWrapper: {
-    flex: 0.4,
-    margin: 4
+  contractWrapper: {
+    flex: 0.8,
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
-  expensesWrapper: {
-    flex: 0.4,
-    margin: 4
+  initialBudgetContent: {
+    flex: 1,
+    margin: 10,
+    flexDirection: "row",
+    backgroundColor: Colors.NEUTRALGREYCOLOR,
   },
-  balanceWrapper: {
-    flex: 0.1
+  textSubtitle: {
+    flex: 7,
+    ...Alignment.ColumnCenter,
+  },
+  textNumber: {
+    flex: 3,
+    ...Alignment.ColumnCenter,
+    backgroundColor: Colors.SOLIDWHITECOLOR,
+  },
+  initialBudgetTextStyle: {
+    ...Typography.SmallFontBold,
+  },
+  initialBudgetNumberStyle: {
+    ...Typography.SmallFontBold,
+  },
+  subtitleWrapper: {
+    flex: 0.08,
+    marginBottom: 4
+  },
+  contractsTableWrapper: {
+    flex: 0.90
   }
-})
+});
 
-export default Finances
+export default Finances;
