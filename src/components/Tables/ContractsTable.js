@@ -3,36 +3,44 @@ import { View } from "react-native";
 import { DataTable } from "react-native-paper";
 import { Preset } from "../../styles";
 
-const ContractsTable = ({ contents = [],  modalVisible, setModalVisible, actionVisible,setActionVisible}) => {
-  const contractTime = contents.map((item) => item.contractTime)
-  const maxContractTime = Math.max(contractTime)
-  console.log(contractTime)
-  console.log(maxContractTime)
+
+
+const ContractsTable = ({
+  header = [],
+  contents = [],
+  modalVisible,
+  setModalVisible,
+  actionVisible,
+  setActionVisible,
+}) => {
   return (
-    <View style={Preset.TableContainer}>
+    <View style={{width: "150%"}}>
       <DataTable.Header style={Preset.TableHeader}>
-        {contents.map((item) => (
-          
+        {header.map((title) => (
           <DataTable.Title
             style={[Preset.TableTextPosition]}
             textStyle={Preset.TableHeaderTextStyle}
           >
-            {item.contractTime}
+            {title.toUpperCase()}
           </DataTable.Title>
         ))}
       </DataTable.Header>
       {contents.map((cell) => (
         <DataTable.Row
-          key={cell.teamid} 
+          key={cell.teamid}
           style={Preset.TableRow}
-          onPress={() => typeof(actionVisible) !== 'undefined' ? setActionVisible(!actionVisible) : console.log("teste")}
+          onPress={() =>
+            typeof actionVisible !== "undefined"
+              ? setActionVisible(!actionVisible)
+              : console.log("teste")
+          }
           onLongPress={() => setModalVisible(!modalVisible)}
         >
           <DataTable.Cell
             style={[Preset.TableTextPosition]}
             textStyle={Preset.TableRowTextStyle}
           >
-            {cell.contractValue}
+            {cell.contractValue / cell.contractTime}
           </DataTable.Cell>
         </DataTable.Row>
       ))}

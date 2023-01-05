@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import StandardOrangeSubTitle from "../../components/StandardOrangeSubTitle";
 import ContractsTable from "../../components/Tables/ContractsTable";
 import finances from "../../data/finances";
@@ -29,14 +29,22 @@ const InitialBudget = () => {
 };
 
 const Contracts = () => {
+  const header = [
+    "year 01",
+    "year 02",
+    "year 03",
+    "year 04",
+    "year 05",
+    "year 06",
+  ]; 
   return (
     <View style={styles.contractWrapper}>
       <View style={styles.subtitleWrapper}>
         <StandardOrangeSubTitle subtitle="CONTRACTS"/>
       </View>
-      <View style={styles.contractsTableWrapper}>
-        <ContractsTable contents={players}/>
-      </View>
+      <ScrollView horizontal="true" style={styles.contractsTableWrapper}>
+        <ContractsTable header={header} contents={players}/>
+      </ScrollView>
     </View>
   );
 };

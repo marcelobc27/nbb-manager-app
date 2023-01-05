@@ -7,7 +7,7 @@ const players = [
     attackoverrall: 95,
     defenseoverrall: 80,
     energy: 99,
-    contractValue: '500.000,00',
+    contractValue: 500.000,
     contractTime: 4
   },
   {
@@ -18,7 +18,7 @@ const players = [
     attackoverrall: 95,
     defenseoverrall: 80,
     energy: 32,
-    contractValue: '500.000,00',
+    contractValue: 500.000,
     contractTime: 4
   },
   {
@@ -29,7 +29,7 @@ const players = [
     attackoverrall: 95,
     defenseoverrall: 80,
     energy: 20,
-    contractValue: '500.000,00',
+    contractValue: 500.000,
     contractTime: 4
   },
   {
@@ -40,7 +40,7 @@ const players = [
     attackoverrall: 95,
     defenseoverrall: 80,
     energy: 80,
-    contractValue: '500.000,00',
+    contractValue: 500.000,
     contractTime: 4
   },
   {
@@ -51,7 +51,7 @@ const players = [
     attackoverrall: 95,
     defenseoverrall: 80,
     energy: 100,
-    contractValue: '500.000,00',
+    contractValue: 500.000,
     contractTime: 4
   },
 ];
